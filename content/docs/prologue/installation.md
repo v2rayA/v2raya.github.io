@@ -17,6 +17,7 @@ toc: true
     - [Arch Linux 以及它的衍生版](#arch-linux-及其衍生版)
     - [使用 systemd 的 Linux 发行版](#使用-systemd-的-linux-发行版)
     - [Alpine Linux](#alpine-linux)
+    - [OpenWrt](#openwrt)
 - [安装 v2rayA](#安装-v2raya)
     - [Debian 系列安装](#debian-系列安装)
     - [RedHat(CentOS) / openSUSE 系列安装](#redhatcentos--opensuse-系列安装)
@@ -27,7 +28,8 @@ toc: true
 - [安装完毕后如何使用](#安装完毕后如何使用)
 - [使用其他类 V2Ray 核心](#使用其他类-v2ray-核心)
     - [systemd 方案](#systemd-方案)
-    - [Alpine Linux ── OpenRC 方案](#alpine-linux--openrc-方案)
+    - [Alpine Linux](#alpine-linux)
+    - [OpenWrt](#openwrt)
 - [环境变量](#环境变量)
 
 ## 安装 V2Ray 内核 / Xray 内核
@@ -53,6 +55,22 @@ sudo systemctl disable v2ray --now ### Xray 需要替换服务为 xray
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 
 Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
+
+### OpenWrt
+
+首先安装软件包 `unzip` 与 `wget`，然后下载 v2ray 内核然后将其保存到 `/usr/bin`，下载链接为<https://github.com/v2fly/v2ray-core/releases>，最后给予二进制文件可执行权限。
+
+例如：
+
+```bash
+opkg update; opkg install unzip wget
+wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip
+unzip -d v2ray-core v2ray-linux-64.zip
+cp v2ray-core/v2* /usr/bin; cp v2ray-core/*dat /usr/bin
+chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
+```
+
+格外注意你的 OpenWrt 设备的架构，不要下载到不适用于你设备的版本，否则内核将无法运行。Xray 内核可参照此方法安装。
 
 ## 安装 v2rayA
 
@@ -97,30 +115,39 @@ sudo rpm -i /path/download/installer_redhat_xxx_vxxx.rpm ### 自行替换 rpm �
 
 ### Alpine Linux
 
-1. 根据你的平台，从 [Release](https://github.com/v2rayA/v2rayA/releases) 获取具有 `v2raya_linux_xxx` 字样的无后缀名文件，并将其重命名为 `v2raya`，再把 `v2raya` 移动到 `/usr/local/bin` 并给予可执行权限。
+#### 1. 下载二进制可执行文件
 
-   示例：
+根据你的平台，从 [Release](https://github.com/v2rayA/v2rayA/releases) 获取具有 `v2raya_linux_xxx` 字样的无后缀名文件，并将其重命名为 `v2raya`，再把 `v2raya` 移动到 `/usr/local/bin` 并给予可执行权限。
 
+  示例：
    ```
-   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.1/v2raya_linux_amd64_v1.4.1 -O v2raya && sudo mv ./v2raya /usr/local/bin/ && sudo chmod +x /usr/local/bin/v2raya
+   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.1/v2raya_linux_amd64_v1.4.1 -O v2raya
+   smv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
    ```
 
-2. 下载 v2rayA 的 Web 页面，然后保存到`/usr/local/etc/v2raya/web`。
+#### 2. 安装网页前端
 
-    示例：
-    ```bash
-    wget https://github.com/v2rayA/v2raya-web/archive/refs/heads/master.zip && unzip master.zip && sudo mkdir -p /usr/local/etc/v2raya/web && sudo mv -r ./v2raya-web-master/* /usr/local/etc/v2raya/web
-    ```
+下载 v2rayA 的 Web 页面，然后保存到`/usr/local/etc/v2raya/web`。
 
-3. 在 `/etc/init.d/` 目录下面新建一个名为 `v2raya` 的文本文件，然后编辑，添加内容如下：
+示例：
+  ```bash
+  wget https://github.com/v2rayA/v2raya-web/archive/refs/heads/master.zip
+  unzip master.zip
+  mkdir -p /usr/local/etc/v2raya/web
+  mv -r ./v2raya-web-master/* /usr/local/etc/v2raya/web
+  ```
 
-   ```sh
+#### 3. 创建服务文件
+
+在 `/etc/init.d/` 目录下面新建一个名为 `v2raya` 的文本文件，然后编辑，添加内容如下：
+
+   ```ini
    #!/sbin/openrc-run
    
    name="v2rayA"
    description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
    command="/usr/local/bin/v2raya"
-   command_args=""
+   command_args="--webdir=/usr/local/etc/v2raya/web --config=/usr/local/etc/v2raya"
    pidfile="/run/${RC_SVCNAME}.pid"
    command_background="yes"
    
@@ -129,29 +156,97 @@ sudo rpm -i /path/download/installer_redhat_xxx_vxxx.rpm ### 自行替换 rpm �
    }
    ```
 
-4. 保存文件，然后给予此文件可执行权限。
+保存文件，然后给予此文件可执行权限。
 
-5. 安装 `iptables` 与 `ip6tables` 这两个包。
+#### 4. 安装 iptables 模块
 
-6. 运行 v2rayA 服务：`rc-service v2raya start`。
+  ```bash
+  apk add iptables ip6tables
+  ```
 
-7. 添加开机运行服务：`rc-update add v2raya`。
+#### 5. 运行 v2rayA 并开机启动
+
+  ```bash
+  rc-service v2raya start
+  rc-update add v2raya
+  ```
 
 ### Arch Linux 以及它的衍生版
 
-从 AUR 安装 `v2raya` 或 `v2raya-bin` 即可。
+从 AUR 安装 `v2raya` 或 `v2raya-bin`、`v2raya-git` 即可。
 
-### OpenWRT
+### OpenWrt
 
-[openwrt](openwrt)
+#### 1. 安装必须的软件包：
+
+  ```bash
+  opkg update
+  opkg install ca-certificates tar curl
+  opkg install kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter
+  ```
+
+#### 2. 安装网页前端
+
+  ```bash
+  cd /tmp
+  latest_version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
+  wget https://apt.v2raya.mzz.pub/pool/main/v/v2raya/web_v${latest_version}.tar.gz
+  mkdir /etc/v2raya
+  tar xzvf web_v${latest_version}.tar.gz --directory /etc/v2raya
+  ```
+
+#### 3. 安装二进制可执行文件
+
+  ```bash
+  wget -O /usr/bin/v2raya https://apt.v2raya.mzz.pub/pool/main/v/v2raya/v2raya_linux_amd64_v${latest_version}
+  chmod +x /usr/bin/v2raya
+  ```
+
+#### 4. 创建服务文件
+
+  ```bash
+  nano /etc/init.d/v2raya
+  ```
+
+内容如下：
+
+  ```ini
+  #!/bin/sh /etc/rc.common
+  command=/usr/bin/v2raya
+  PIDFILE=/var/run/v2raya.pid
+  depend() {
+   	need net
+   	after firewall
+   	use dns logger
+  }
+  start() {
+   	start-stop-daemon -b -S -m -p "${PIDFILE}" -x $command
+  }
+  stop() {
+   	start-stop-daemon -K -p "${PIDFILE}"
+  }
+  ```
+   
+给予此文件可执行权限：
+
+  ```bash
+  chmod +x /etc/init.d/v2raya
+  ```
+
+#### 5. 运行 v2rayA 并开机启动
+
+  ```bash
+  /etc/init.d/v2raya start
+  /etc/init.d/v2raya enable
+  ```
 
 ### Docker 方式
 
 使用 docker 命令部署。
 
-```bash
-# run v2raya
-docker run -d \
+  ```bash
+  # run v2raya
+  docker run -d \
 	--restart=always \
 	--privileged \
 	--network=host \
@@ -161,35 +256,33 @@ docker run -d \
 	-v /etc/resolv.conf:/etc/resolv.conf \
 	-v /etc/v2raya:/etc/v2raya \
 	mzz2017/v2raya
-```
+  ```
 
 ---
 
 如果你使用 MacOSX 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
 
-```bash
-# run v2raya
-docker run -d \
+  ```bash
+  # run v2raya
+  docker run -d \
 	-p 2017:2017 \
 	-p 20170-20172:20170-20172 \
 	--restart=always \
 	--name v2raya \
 	-v /etc/v2raya:/etc/v2raya \
 	mzz2017/v2raya
-```
+  ```
 
 
-## 安装完毕后如何使用
+## v2rayA 运行相关
 
 如果 v2rayA 正常运行（启动或许需要一定时间）则开放 2017 作为管理端口，通过浏览器访问即可进行管理。如访问 http://localhost:2017/
 
 + 导入并连接正常工作的节点后，设置全局透明代理即可使用。
 
-+ 如果不使用全局透明代理，可使用浏览器插件如 SwitchyOmega 通过下述端口进行代理：
++ 如果不使用全局透明代理，可使用浏览器插件如 SwitchyOmega 通过下述端口进行代理，或使用桌面环境提供的系统代理进行达到类似全局代理的效果。：
 
    默认情况下开放三个代理端口：20170(socks5)、20171(http)、20172(带分流规则的 http)
-
-+ 或使用桌面环境提供的系统代理进行达到类似全局代理的效果。
 
 + 注意，如果通过 archlinuxcn 源安装，需要运行`systemctl enable --now v2raya`。
 
@@ -197,7 +290,7 @@ docker run -d \
 
 一般而言 v2rayA 会优先选择 v2ray，其次是 xray。如需切换到 xray，卸载 v2ray 即可。
 
-如果使用其他暂不主动支持的类 v2ray 核心，参考以下方法。
+如果使用其他暂不主动支持的类 v2ray 核心，参考以下方法（以指定使用 Xray 为例）：
 
 ### systemd 方案
 
@@ -216,9 +309,13 @@ docker run -d \
    sudo systemctl daemon-reload && sudo systemctl restart v2raya
    ```
 
-### Alpine Linux ── OpenRC 方案
+### Alpine Linux
 
 修改 `/etc/init.d/v2raya`，然后在 `command_args=""` 的内容里面加上 ` --v2ray-bin=/usr/local/bin/xray`（注意--v2ray-bin之前可能需要空格），再重启服务即可。  
+
+### OpenWrt
+
+（未经过测试）直接将 `command` 修改为 `/usr/bin/v2raya --v2ray-bin=/usr/bin/xray` 即可。
 
 ## 环境变量
 
