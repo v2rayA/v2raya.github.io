@@ -18,13 +18,10 @@ jobs:
         node-version: ${{ matrix.node }}
 
     - name: Install dependencies
-      run: npm ci
-
-    - name: Run Hyas test script
-      run: npm test
+      run: yarn
 
     - name: Build production website
-      run: npm run build
+      run: yarn build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.0.0
