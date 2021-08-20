@@ -1,7 +1,7 @@
 {
-  "name": "@hyas/doks",
-  "description": "Doks theme",
-  "version": "0.3.3",
+  "name": "v2raya-docs",
+  "description": "documentation of v2rayA",
+  "version": "0.1.0",
   "browserslist": [
     "defaults"
   ],
