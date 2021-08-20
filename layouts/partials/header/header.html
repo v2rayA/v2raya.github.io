@@ -11,8 +11,13 @@
     </button>
     {{ end -}}
     <ul class="navbar-nav social-nav order-3 order-md-5">
+      <!-- switch languages but stay at current page -->
+      {{ $u := $.RelPermalink }}
       {{ range $.Site.Home.AllTranslations }}
-      <li><a class="nav-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+      {{ $u = strings.TrimPrefix (printf "/%s/" (.Permalink|path.Base)) $u }}
+      {{ end }}
+      {{ range $.Site.Home.AllTranslations }}
+      <li><a class="nav-link" href="{{ .Permalink }}{{ $u }}">{{ .Language.LanguageName }}</a></li>
       {{ end }}
       {{ range .Site.Menus.social -}}
         <li class="nav-item">
