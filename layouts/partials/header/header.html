@@ -11,6 +11,9 @@
     </button>
     {{ end -}}
     <ul class="navbar-nav social-nav order-3 order-md-5">
+      {{ range $.Site.Home.AllTranslations }}
+      <li><a class="nav-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+      {{ end }}
       {{ range .Site.Menus.social -}}
         <li class="nav-item">
           <a class="nav-link" href="{{ .URL | relURL }}">{{ .Pre | safeHTML }}<span class="ms-2 visually-hidden">{{ .Name | safeHTML }}</span></a>
@@ -34,7 +37,7 @@
       <div class="break order-6 d-md-none"></div>
       {{ if .Site.Params.options.flexSearch -}}
       <form class="navbar-form flex-grow-1 order-7 order-md-3">
-        <input id="userinput" class="form-control is-search" type="search" placeholder="在文档中搜索..." aria-label="Search docs..." autocomplete="off">
+        <input id="userinput" class="form-control is-search" type="search" placeholder="{{ T "search" }}" aria-label="Search docs..." autocomplete="off">
         <div id="suggestions" class="shadow bg-white rounded"></div>
       </form>
       {{ end -}}
