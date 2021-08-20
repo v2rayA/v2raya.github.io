@@ -1,0 +1,73 @@
+# Meta Data for SEO
+
+## Homepage
+title = "v2rayA"
+titleSeparator = ""
+titleAddition = ""
+description = "v2rayA 是一个支持全局透明代理的 V2Ray Linux 客户端，同时兼容SS、SSR、Trojan(trojan-go)、PingTunnel协议。"
+
+## Open Graph
+images = ["v2raya.png"]
+ogLocale = "en_US"
+domainTLD = "v2raya.org"
+titleHome = "Doks Theme"
+
+## Twitter Cards
+twitterSite = ""
+twitterCreator = ""
+
+## JSON-LD
+schemaType = "Organization"
+schemaName = "v2rayA"
+schemaAuthor = "v2rayA"
+schemaAuthorTwitter = ""
+schemaAuthorLinkedIn = ""
+schemaAuthorGitHub = "https://github.com/v2rayA"
+schemaLocale = "en-US"
+schemaLogo = "v2raya.png"
+schemaLogoWidth = 289
+schemaLogoHeight = 117
+schemaImage = "v2raya.png"
+schemaImageWidth = 289
+schemaImageHeight = 117
+schemaTwitter = ""
+schemaLinkedIn = ""
+schemaGitHub = "https://github.com/v2rayA/v2raya.github.io"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+
+# Footer
+footer = "CC-BY-SA | Copyright (c) 2021 v2rayA Organization"
+copyRight = "Copyright (c) 2021 v2rayA Organization"
+
+# Alert
+alert = false
+alertText = "Like v2rayA? <a class=\"alert-link\" href=\"https://github.com/v2rayA/v2rayA/stargazers\">Star on GitHub</a>. Thanks!</a>"
+
+# Edit Page
+docsRepo = "https://github.com/v2rayA/v2raya.github.io"
+editPage = false
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = false
+  highLight = true
+  kaTex = false
+  collapsibleSidebar = false
