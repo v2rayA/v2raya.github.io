@@ -1,15 +1,15 @@
 ---
-title: "快速上手"
-description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+title: "多出站设计"
+description: "v2rayA 多出站设计的介绍"
+lead: "TODO: 多出站设计的初衷和可以做的事情（引高级应用，奈非分流，爬虫分流等），怎么做 http 和 socks 的出站（引 RoutingA，这个 mzz 理应写到 UI 里的，先 TODO 一下）。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 110
+    parent: "manual"
+weight: 200
 toc: true
 ---
 

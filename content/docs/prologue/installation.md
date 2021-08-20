@@ -1,7 +1,7 @@
 ---
-title: "快速上手"
-description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+title: "下载与安装"
+description: "安装内核和 v2rayA"
+lead: "TODO: 下载安装v2ray-core、v2rayA的几种方法，安装xray的方法引到手册的一节去"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false

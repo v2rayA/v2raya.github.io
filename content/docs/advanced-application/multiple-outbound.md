@@ -1,15 +1,15 @@
 ---
-title: "快速上手"
-description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+title: "多节点分流"
+description: "v2rayA 多节点分流的介绍"
+lead: "TODO: 利用单入站/多入站，多出站和 RoutingA 做多节点的分流。单入站多出站：比方说奈非、谷歌、迪士尼分流。多入站多出站：比如说爬虫。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 110
+    parent: "advanced-application"
+weight: 10
 toc: true
 ---
 

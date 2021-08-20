@@ -1,15 +1,15 @@
 ---
-title: "快速上手"
-description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+title: "透明代理"
+description: "v2rayA 透明代理的介绍"
+lead: "TODO: 几种分流规则的差别（引其他节），透明代理如何使用 RoutingA 自定义路由，redirect和tproxy方式的区别优缺点，tproxy出站白名单的介绍，分流端口和透明代理所选模式有何区别等。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 110
+    parent: "manual"
+weight: 140
 toc: true
 ---
 

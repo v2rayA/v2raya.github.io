@@ -1,15 +1,15 @@
 ---
-title: "快速上手"
-description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+title: "防止 DNS 污染"
+description: "v2rayA 防止 DNS 污染的介绍"
+lead: "TODO: 几种 DNS 的区别，防止 DNS 污染的几个模式都是如何应对的（包括外引特殊模式），如何自定义高级设置（外引高级应用）"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 110
+    parent: "manual"
+weight: 150
 toc: true
 ---
 

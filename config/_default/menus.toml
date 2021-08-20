@@ -5,6 +5,18 @@
   url = "/docs/prologue/"
 
 [[docs]]
+  name = "手册"
+  weight = 20
+  identifier = "manual"
+  url = "/docs/manual/"
+
+[[docs]]
+  name = "高级应用"
+  weight = 30
+  identifier = "advanced-application"
+  url = "/docs/advanced-application/"
+
+[[docs]]
   name = "帮助"
   weight = 60
   identifier = "help"

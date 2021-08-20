@@ -1,7 +1,7 @@
 ---
 title: "介绍"
-description: "Doks is a Hugo theme helping you build modern documentation websites that are secure, fast, and SEO-ready — by default."
-lead: "Doks is a Hugo theme helping you build modern documentation websites that are secure, fast, and SEO-ready — by default."
+description: "v2rayA 是一个易用而强大的，专注于 Linux 的 V2Ray 客户端。"
+lead: "v2rayA 是一个易用而强大的，专注于 Linux 的 V2Ray 客户端。你可通过本节对用户文档的内容进行快速预览。"
 date: 2021-08-19T08:48:57+00:00
 lastmod: 2021-08-19T08:48:57+00:00
 draft: false
@@ -13,46 +13,26 @@ weight: 100
 toc: true
 ---
 
-## Get started
+## 起步
 
-There are two main ways to get started with Doks:
+本章对 v2rayA 进行上手介绍。
 
-### Tutorial
+### 下载与安装
 
-{{< alert icon="👉" text="The Tutorial is intended for novice to intermediate users." />}}
+{{< alert icon="👉" text="如果你已经安装了 v2ray-core 和 v2rayA，可以跳过此节。" />}}
 
-Step-by-step instructions on how to start a new Doks project. [Tutorial →](https://getdoks.org/tutorial/introduction/)
+v2rayA 的运行依赖于 v2ray-core，你可选择安装 v2ray-core 或 xray-core，v2rayA 会在 `$PATH` 中查找这些可执行程序。 [下载与安装 →]({{< relref "installation" >}})
 
-### Quick Start
+### 快速上手
 
-{{< alert icon="👉" text="The Quick Start is intended for intermediate to advanced users." />}}
+{{< alert icon="👉" text="如果你对 v2rayA 的基本使用已轻车熟路，可以跳过此节。" />}}
 
-One page summary of how to start a new Doks project. [Quick Start →]({{< relref "quick-start" >}})
+本节将对 v2rayA 的基本使用规则进行介绍。 [快速上手 →]({{< relref "quick-start" >}})
 
-## Go further
+## 手册
 
-Recipes, Reference Guides, Extensions, and Showcase.
+本章对 v2rayA 的各个功能进行介绍。
 
-### Recipes
+## 高级应用
 
-Get instructions on how to accomplish common tasks with Doks. [Recipes →](https://getdoks.org/docs/recipes/project-configuration/)
-
-### Reference Guides
-
-Learn how to customize Doks to fully make it your own. [Reference Guides →](https://getdoks.org/docs/reference-guides/security/)
-
-### Extensions
-
-Get instructions on how to add even more to Doks. [Extensions →](https://getdoks.org/docs/extensions/breadcrumb-navigation/)
-
-### Showcase
-
-See what others have build with Doks. [Showcase →](https://getdoks.org/showcase/electric-blocks/)
-
-## Contributing
-
-Find out how to contribute to Doks. [Contributing →](https://getdoks.org/docs/contributing/how-to-contribute/)
-
-## Help
-
-Get help on Doks. [Help →]({{< relref "how-to-update" >}})
+本章对 v2rayA 的高级应用进行介绍。

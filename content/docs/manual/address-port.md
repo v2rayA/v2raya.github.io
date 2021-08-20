@@ -1,15 +1,15 @@
 ---
-title: "快速上手"
-description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+title: "后端地址和入站端口设置"
+description: "v2rayA 后端地址和入站端口设置的介绍"
+lead: "TODO: 如何修改和关闭端口，修改后端地址，如何新增入栈端口（引 RoutingA 相关介绍），提醒用户 socks 和 http 不要公网传输，使用 vless-grpc 入站进行公网传输（还在尝鲜版）。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 110
+    parent: "manual"
+weight: 190
 toc: true
 ---
 
