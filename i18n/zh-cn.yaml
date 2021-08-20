@@ -1,2 +1,11 @@
 search:
   other: 在文档中搜索...
+
+lastUpdatedOn:
+  other: 最后更新于：
+
+editOnGithub:
+  other: 在 Github 上编辑此页
+
+getStart:
+  other: 快速上手

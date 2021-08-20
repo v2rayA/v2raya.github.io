@@ -1,2 +1,11 @@
 search:
   other: Search Docs...
+
+lastUpdatedOn:
+  other: "Last update on:"
+
+editOnGithub:
+  other: Edit this page on GitHub
+
+getStart:
+  other: Get Start

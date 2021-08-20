@@ -6,8 +6,8 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ "docs/prologue/introduction/" | relURL }}" role="button">快速上手</a>
-      <p class="meta"> 以 GPL-3.0 协议开源于 <a href="https://github.com/v2rayA/v2rayA">GitHub</a></p>
+      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ "docs/prologue/introduction/" | relLangURL }}" role="button">{{ T "getStart" }}</a>
+      <p class="meta"> {{ .Params.license | markdownify }} </p>
     </div>
   </div>
 </section>
@@ -17,32 +17,12 @@
 <section class="section section-sm">
   <div class="container">
     <div class="row justify-content-center text-center">
+      {{ range .Params.features }}
       <div class="col-lg-5">
-        <h2 class="h4">全局透明代理</h2>
-        <p>透明代理可为几乎所有应用程序提供代理服务，而不必考虑该应用程序是否支持。v2rayA 支持一键开启透明代理，省去了繁琐的配置操作。</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">强大而轻便 ⚡️</h2>
-        <p>v2rayA 使用 Golang 和 Vue.js 编写，运行时没有任何外部依赖库，可运行于任何 Linux 系统，借助任意一款浏览器均可操作。</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">外部访问</h2>
-        <p>对于无图形界面的 Linux 系统，在安装 v2rayA 之后，借助另一台 PC 或移动设备即可完成对其的操作。这对于远程服务器、路由器是及其方便的。</p>
-      </div>
+      <h2 class="h4">{{.title}}</h2>
+      <p>{{.description | markdownify }}</p>
     </div>
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-5">
-        <h2 class="h4">多出站负载均衡和分流</h2>
-        <p>v2rayA 允许用户创建和连接多个出站节点，以实现负载均衡及分流。</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">RoutingA 自定义路由</h2>
-        <p><a href="https://github.com/v2rayA/v2rayA/wiki/RoutingA">RoutingA</a> 是 v2rayA 专为 V2Ray 设计的一种路由语言，为分流提供强大而便捷的支持。</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">多种策略应对 DNS 污染</h2>
-        <p>v2rayA 提供多种策略应对 DNS 污染，高级设置可为用户提供更多的客制化定义。</p>
-      </div>
+      {{ end }}
     </div>
   </div>
 </section>

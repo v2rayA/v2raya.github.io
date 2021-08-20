@@ -58,7 +58,7 @@ alertText = "Like v2rayA? <a class=\"alert-link\" href=\"https://github.com/v2ra
 
 # Edit Page
 docsRepo = "https://github.com/v2rayA/v2raya.github.io"
-editPage = false
+editPage = true
 
 [options]
   lazySizes = true
