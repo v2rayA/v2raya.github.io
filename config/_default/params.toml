@@ -80,4 +80,6 @@ githubContributorsAPI = ""
   collapsibleSidebar = true
   docsNavigation = true
   lastModified = true
-  
+
+[dateFormat]
+lastUpdated = "2006年01月02日 15:04:05 MST"

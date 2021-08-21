@@ -36,6 +36,7 @@ h4:hover a {
   font-size: $font-size-base;
   .label {
     color: $link-color;
+    margin-right: 0.3em;
   }
   &>p {
     @extend #vertical-center;
