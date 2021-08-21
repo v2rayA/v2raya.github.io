@@ -28,6 +28,7 @@ jobs:
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.0.0
+      if: ${{ github.ref == 'refs/heads/main' }}
       with:
         branch: pages
         folder: public
