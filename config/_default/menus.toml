@@ -9,7 +9,7 @@
   weight = 20
   identifier = "manual"
   url = "/docs/manual/"
-  
+
 [[docs]]
   name = "高级应用"
   weight = 30

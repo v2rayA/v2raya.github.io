@@ -7,15 +7,31 @@
 			<div class="card-list">
 				{{ $currentPage := . }}
 				{{ $currentSection := .CurrentSection }}
-				{{ range where .Site.Pages.ByWeight "Section" .Section }}
-					{{ if and (eq $currentPage .Parent) (in (.RelPermalink | string) $currentSection.RelPermalink) }}
-						<div class="card my-3">
-							<div class="card-body">
-								<a class="stretched-link" href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>
-							</div>
-						</div>
-					{{ end }}
-				{{ end }}
+        {{ $target := . }}
+        {{ if eq .Parent.RelPermalink "/" }}
+          {{ range .Site.Menus.docs }}
+            {{ $u := .URL }}
+            {{ range $currentPage.Site.Pages }}
+            {{ if and (eq .RelPermalink $u) (eq $currentPage .Parent) (in (.RelPermalink | string) $currentSection.RelPermalink) }}
+            <div class="card my-3">
+              <div class="card-body">
+                <a class="stretched-link" href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>
+              </div>
+            </div>
+            {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          {{ range where .Site.Pages.ByWeight "Section" .Section }}
+          {{ if and (eq $currentPage .Parent) (in (.RelPermalink | string) $currentSection.RelPermalink) }}
+          <div class="card my-3">
+            <div class="card-body">
+              <a class="stretched-link" href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>
+            </div>
+          </div>
+          {{ end }}
+          {{ end }}
+        {{ end }}
 			</div>
     </article>
   </div>
