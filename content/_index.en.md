@@ -14,10 +14,10 @@ features:
   description: v2rayA is written in Golang and Vue.js, which is no external dependency library at runtime. It can run on any Linux system, and it can be operated with any browser. 
 - title: External Access
   description: For Linux systems without a graphical interface, after installing v2rayA, you can use another PC or mobile device to complete its operations. This is extremely convenient for remote servers and routers.
-- title: Multi-outbound Load Balancing and Distribution 
-  description: v2rayA allows users to create and connect multiple outbound nodes to achieve load balancing and distribution. 
+- title: Multi-outbound Load Balancing and Traffic Split 
+  description: v2rayA allows users to create and connect multiple outbound nodes to achieve load balancing and traffic split. 
 - title: Custom Routing Powered by RoutingA
-  description: "[RoutingA](https://github.com/v2rayA/v2rayA/wiki/RoutingA) is a routing language specially designed for V2Ray by v2rayA, which provides powerful and convenient support for distribution." 
-- title: Multiple Strategies to Deal with DNS Pollution 
-  description: v2rayA provides a variety of strategies to deal with DNS pollution, and advanced settings can provide users with more customized definitions.
+  description: "[RoutingA](https://github.com/v2rayA/v2rayA/wiki/RoutingA) is a routing language specially designed for V2Ray by v2rayA, which provides powerful and convenient support for traffic split." 
+- title: Flexible Strategies to Deal with DNS Pollution 
+  description: v2rayA provides a variety of strategies to deal with DNS pollution, and advanced settings can provide users with more customized settings.
 ---
