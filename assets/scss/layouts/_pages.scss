@@ -45,12 +45,6 @@ h4:hover a {
   }
 }
 
-body.dark .tail-decoration {
-  .label {
-    color: $link-color-dark;
-  }
-}
-
 .contributors {
   @extend #vertical-center;
 

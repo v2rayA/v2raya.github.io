@@ -377,3 +377,9 @@ body.dark .copy-status:active::after {
   display: block;
   color: $link-color-dark;
 }
+
+body.dark .tail-decoration {
+  .label {
+    color: $link-color-dark;
+  }
+}
