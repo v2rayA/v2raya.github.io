@@ -5,16 +5,33 @@
   {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
   {{- $active = or $active (eq $currentPage.Section .Identifier) -}}
     <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ .Identifier }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+      {{ $sectionID := printf "section-%s" .Identifier }}
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $sectionID }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
         {{ .Name }}
       </button>
       {{ if .HasChildren -}}
-      <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ .Identifier }}">
+      <div class="collapse{{ if $active }} show{{ end }}" id="{{ $sectionID }}">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
         {{ range .Children -}}
           {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
           {{- $active = or $active (eq $currentPage.Section .Identifier) -}}
-          <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          <li class="{{ if .HasChildren }}level-2{{ end }}">
+            {{ if .HasChildren }}
+            {{ $sectionID := printf "%s-%s" $sectionID .Identifier }}
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $sectionID }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+              {{ .Name }}
+            </button>
+            <div class="collapse{{ if $active }} show{{ end }}" id="{{ $sectionID }}">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                {{ range .Children }}
+                <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                {{ end }}
+              </ul>
+            </div>
+            {{ else }}
+            <a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
+            {{ end }}
+          </li>
         {{ end -}}
         </ul>
       </div>
