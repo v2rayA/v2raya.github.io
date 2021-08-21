@@ -6,8 +6,8 @@
 {{ $qs := slice "user" $user "repo" $repo "tree" $tree "path" $path }}
 {{ $args := (querify $qs | safeURL) }}
 {{ $data := getJSON $api "?" $args}}
-<div class="contributors">
-    <span>{{ T "contributors" }}</span>
+<p class="contributors">
+    <span class="label">{{ T "contributors" }}</span>
     {{ range $data }}
     <a
       key="id"
@@ -21,4 +21,4 @@
       />
     </a>
     {{ end }}
-</div>
+</p>

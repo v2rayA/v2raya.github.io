@@ -24,14 +24,30 @@ h4:hover a {
   margin-top: 2.25rem;
 }
 
-.edit-page {
-  margin-top: 3rem;
-  font-size: $font-size-base;
-}
-
 .edit-page svg {
   margin-right: 0.5rem;
   margin-bottom: 0.25rem;
+}
+
+.tail-decoration {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  font-size: $font-size-base;
+  .label {
+    color: $link-color;
+  }
+  &>p {
+    @extend #vertical-center;
+  }
+}
+
+.contributors {
+  @extend #vertical-center;
+  img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
 }
 
 p.meta {

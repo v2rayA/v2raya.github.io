@@ -79,4 +79,5 @@ githubContributorsAPI = ""
   kaTex = true
   collapsibleSidebar = true
   docsNavigation = true
+  lastModified = true
   

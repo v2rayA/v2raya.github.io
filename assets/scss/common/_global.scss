@@ -227,3 +227,8 @@ body {
 .katex {
   font-size: $font-size-md;
 }
+
+#vertical-center {
+  display: flex;
+  align-items: center;
+}
