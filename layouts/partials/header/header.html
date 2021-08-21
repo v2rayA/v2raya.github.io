@@ -12,13 +12,18 @@
     {{ end -}}
     <ul class="navbar-nav social-nav order-3 order-md-5">
       <!-- switch languages but stay at current page -->
-      {{ $u := $.RelPermalink }}
-      {{ range $.Site.Home.AllTranslations }}
-      {{ $u = strings.TrimPrefix (printf "/%s/" (.Permalink|path.Base)) $u }}
+      {{ if .IsTranslated }}
+        {{ range .Translations }}
+          <li> <a class="nav-link" href="{{ .Permalink }}">{{ .Site.Language.LanguageName }}</a></li>
+        {{ end }}
+      {{ else }}
+        {{ if eq .Site.Language.Lang "en" }}
+          <li> <a class="nav-link" href="/">简</a></li>
+        {{ else }}
+          <li><a class="nav-link" href="/en">EN</a></li>
+        {{ end }}
       {{ end }}
-      {{ range $.Site.Home.AllTranslations }}
-      <li><a class="nav-link" href="{{ .Permalink }}{{ $u }}">{{ .Language.LanguageName }}</a></li>
-      {{ end }}
+
       {{ range .Site.Menus.social -}}
         <li class="nav-item">
           <a class="nav-link" href="{{ .URL | relURL }}">{{ .Pre | safeHTML }}<span class="ms-2 visually-hidden">{{ .Name | safeHTML }}</span></a>

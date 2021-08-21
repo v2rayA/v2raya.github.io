@@ -9,7 +9,7 @@ languageCode = "zh-cn"
 paginate = 7
 rssLimit = 10
 defaultContentLanguage = 'zh-cn'
-defaultContentLanguageInSubdir = true
+# defaultContentLanguageInSubdir = true
 
 [outputs]
 home = ["HTML", "RSS"]
