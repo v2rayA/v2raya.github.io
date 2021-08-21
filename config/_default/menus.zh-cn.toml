@@ -2,19 +2,19 @@
   name = "起步"
   weight = 10
   identifier = "prologue"
-  url = "/zh-cn/docs/prologue/"
+  url = "/docs/prologue/"
 
 [[docs]]
   name = "手册"
   weight = 20
   identifier = "manual"
-  url = "/zh-cn/docs/manual/"
+  url = "/docs/manual/"
   
 [[docs]]
   name = "高级应用"
   weight = 30
   identifier = "advanced-application"
-  url = "/zh-cn/docs/advanced-application/"
+  url = "/docs/advanced-application/"
 
 [[docs]]
   name = "帮助"
@@ -24,7 +24,7 @@
 
 [[main]]
   name = "用户文档"
-  url = "/zh-cn/docs/prologue/introduction/"
+  url = "/docs/prologue/introduction/"
   weight = 10
 
 [[main]]
