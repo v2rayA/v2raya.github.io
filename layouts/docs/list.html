@@ -5,9 +5,10 @@
       <h1 class="text-center">{{ .Title }}</h1>
       <div class="text-center">{{ .Content }}</div>
 			<div class="card-list">
+				{{ $currentPage := . }}
 				{{ $currentSection := .CurrentSection }}
-				{{ range where .Site.RegularPages.ByTitle "Section" .Section }}
-					{{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
+				{{ range where .Site.Pages.ByWeight "Section" .Section }}
+					{{ if and (eq $currentPage .Parent) (in (.RelPermalink | string) $currentSection.RelPermalink) }}
 						<div class="card my-3">
 							<div class="card-body">
 								<a class="stretched-link" href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>

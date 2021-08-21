@@ -20,7 +20,7 @@
   name = "帮助"
   weight = 60
   identifier = "help"
-  url = "/zh-cn/docs/help/"
+  url = "/docs/help/"
 
 [[main]]
   name = "用户文档"
