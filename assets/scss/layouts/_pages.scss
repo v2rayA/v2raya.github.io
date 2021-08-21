@@ -34,17 +34,20 @@ h4:hover a {
   justify-content: space-between;
   margin-top: 3rem;
   font-size: $font-size-base;
+
   .label {
     color: $link-color;
     margin-right: 0.3em;
   }
-  &>p {
+
+  & > p {
     @extend #vertical-center;
   }
 }
 
 .contributors {
   @extend #vertical-center;
+
   img {
     border-radius: 50%;
     overflow: hidden;
