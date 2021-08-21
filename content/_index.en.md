@@ -8,16 +8,16 @@ draft: false
 images: []
 license: "Open source in [Github](https://github.com/v2rayA/v2rayA) with GPL-3.0"
 features: 
-- title: 全局透明代理
-  description: 透明代理可为几乎所有应用程序提供代理服务，而不必考虑该应用程序是否支持。v2rayA 支持一键开启透明代理，省去了繁琐的配置操作。
-- title: 强大而轻便 ⚡️
-  description: 2rayA 使用 Golang 和 Vue.js 编写，运行时没有任何外部依赖库，可运行于任何 Linux 系统，借助任意一款浏览器均可操作。
-- title: 外部访问
-  description: 对于无图形界面的 Linux 系统，在安装 v2rayA 之后，借助另一台 PC 或移动设备即可完成对其的操作。这对于远程服务器、路由器是及其方便的。
-- title: 多出站负载均衡和分流
-  description: v2rayA 允许用户创建和连接多个出站节点，以实现负载均衡及分流。
-- title: RoutingA 自定义路由
-  description: "[RoutingA](https://github.com/v2rayA/v2rayA/wiki/RoutingA) 是 v2rayA 专为 V2Ray 设计的一种路由语言，为分流提供强大而便捷的支持。"
-- title: 多种策略应对 DNS 污染
-  description: v2rayA 提供多种策略应对 DNS 污染，高级设置可为用户提供更多的客制化定义。
+- title: Global Transparent Proxy 
+  description: Transparent proxy can provide proxy services for almost all applications, regardless of whether the application supports it. v2rayA supports one-click to open the transparent proxy, eliminating the need for tedious configuration operations. 
+- title: Powerful and Light ⚡️
+  description: v2rayA is written in Golang and Vue.js, which is no external dependency library at runtime. It can run on any Linux system, and it can be operated with any browser. 
+- title: External Access
+  description: For Linux systems without a graphical interface, after installing v2rayA, you can use another PC or mobile device to complete its operations. This is extremely convenient for remote servers and routers.
+- title: Multi-outbound Load Balancing and Distribution 
+  description: v2rayA allows users to create and connect multiple outbound nodes to achieve load balancing and distribution. 
+- title: Custom Routing Powered by RoutingA
+  description: "[RoutingA](https://github.com/v2rayA/v2rayA/wiki/RoutingA) is a routing language specially designed for V2Ray by v2rayA, which provides powerful and convenient support for distribution." 
+- title: Multiple Strategies to Deal with DNS Pollution 
+  description: v2rayA provides a variety of strategies to deal with DNS pollution, and advanced settings can provide users with more customized definitions.
 ---
