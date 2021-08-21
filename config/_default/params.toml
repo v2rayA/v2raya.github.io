@@ -60,6 +60,13 @@ alertText = "Like v2rayA? <a class=\"alert-link\" href=\"https://github.com/v2ra
 docsRepo = "https://github.com/v2rayA/v2raya.github.io"
 editPage = true
 
+# Contributors
+githubContributors = true
+githubUser = "v2raya"
+githubRepo = "v2raya.github.io"
+githubDocTree = "main"
+githubContributorsAPI = ""
+
 [options]
   lazySizes = true
   clipBoard = true
@@ -72,3 +79,4 @@ editPage = true
   kaTex = true
   collapsibleSidebar = true
   docsNavigation = true
+  
