@@ -62,8 +62,14 @@ a.docs-link {
   font-size: $font-size-base;
 }
 
-li.level-2 .btn-toggle{
-  font-weight: normal;
+li.level-2 {
+  .btn-toggle {
+    text-transform: inherit;
+    font-weight: normal;
+  }
+  .btn-toggle-nav {
+    margin-left: 0.75rem;
+  }
 }
 
 .page-links li {

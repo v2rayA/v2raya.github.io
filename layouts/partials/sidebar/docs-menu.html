@@ -11,7 +11,7 @@
       </button>
       {{ if .HasChildren -}}
       <div class="collapse{{ if $active }} show{{ end }}" id="{{ $sectionID }}">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+        <ul class="btn-toggle-nav{{ if .HasChildren }} list-unstyled{{ end }} fw-normal pb-1 small">
         {{ range .Children -}}
           {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
           {{- $active = or $active (eq $currentPage.Section .Identifier) -}}
@@ -24,6 +24,8 @@
             <div class="collapse{{ if $active }} show{{ end }}" id="{{ $sectionID }}">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 {{ range .Children }}
+                {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
+                {{- $active = or $active (eq $currentPage.Section .Identifier) -}}
                 <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
                 {{ end }}
               </ul>
