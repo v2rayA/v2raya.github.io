@@ -71,3 +71,4 @@ editPage = true
   highLight = true
   kaTex = true
   collapsibleSidebar = true
+  docsNavigation = true

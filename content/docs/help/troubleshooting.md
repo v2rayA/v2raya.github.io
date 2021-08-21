@@ -9,8 +9,8 @@ images: []
 menu: 
   docs:
     parent: "help"
-weight: 620
 toc: true
+weight: 820
 ---
 
 ## Problems updating npm packages
