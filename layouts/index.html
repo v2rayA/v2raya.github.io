@@ -13,7 +13,7 @@
         {{ if ne $releases.message nil }}
           <a href="https://github.com/{{ .Site.Params.githubUser }}/{{ .Site.Params.githubRepo }}">Github</a>
         {{ else }}
-          <a href="{{ $releases.html_url}}">Github {{ $releases.name }}</a>
+          <a href="{{ $releases.html_url}}">Github {{ $releases.tag_name }}</a>
         {{ end }}
       </p>
     </div>
