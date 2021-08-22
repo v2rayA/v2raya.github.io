@@ -30,14 +30,16 @@ h4:hover a {
 }
 
 .tail-decoration {
-  display: flex;
-  justify-content: space-between;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
   margin-top: 3rem;
   font-size: $font-size-base;
 
   .label {
     color: $link-color;
-    margin-right: 0.3em;
+    margin-right: 0.3rem;
   }
 
   & > p {
@@ -51,6 +53,8 @@ h4:hover a {
   img {
     border-radius: 50%;
     overflow: hidden;
+    margin-right: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2rem;
   }
 }
 
