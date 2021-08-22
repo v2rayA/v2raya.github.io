@@ -28,10 +28,13 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 根据你的平台，从 [Release](https://github.com/v2rayA/v2rayA/releases) 获取具有 `v2raya_linux_xxx` 字样的无后缀名文件，并将其重命名为 `v2raya`，再把 `v2raya` 移动到 `/usr/local/bin` 并给予可执行权限。
 
   示例：
-   ```
-   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.4/v2raya_linux_x86_v1.4.4 -O v2raya
+   ```bash
+   version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
+   wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_v$version -O v2raya
    mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
    ```
+
+可以使用 `arch` 命令来查询你的平台架构，比如 x86_64 的架构就需要下载 x64 的版本。
 
 ### 2. 创建服务文件
 
