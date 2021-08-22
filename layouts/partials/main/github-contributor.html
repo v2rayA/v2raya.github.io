@@ -2,7 +2,8 @@
 {{ $user := .Site.Params.githubUser }}
 {{ $repo := .Site.Params.githubDocRepo }}
 {{ $tree := .Site.Params.githubDocTree }}
-{{ $path := printf "%s/%s" "content" .File.Path }}
+<!-- TODO Support for another multilingual mode -->
+{{ $path := printf "%s/%s/%s" "content" $.Page.Language.Lang .File.Path }}
 {{ $qs := slice "user" $user "repo" $repo "tree" $tree "path" $path }}
 {{ $args := (querify $qs | safeURL) }}
 {{ with $data := getJSON $api "?" $args }}
@@ -23,5 +24,5 @@
     {{ end }}
 </p>
 {{ else }}
-    {{ warnf "Failed to get contributors of \"%s\"" .File.Path }}
+    {{ warnf "Failed to get contributors of \"%s\"" $path }}
 {{ end }}
