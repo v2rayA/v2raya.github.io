@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: "!(github.event_name == 'push' && contains(github.event.head_commit.message, '[skip ci]'))"
     steps:
     - name: Check out Hyas project
       uses: actions/checkout@v2
@@ -38,7 +39,12 @@ jobs:
     - name: Run code quality tools
       run: yarn lint
 
+    - name: Build developement website
+      if: ${{ github.event_name == 'pull_request' }}
+      run: yarn build --environment development
+
     - name: Build production website
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
       run: yarn build
 
     - name: Deploy
