@@ -1,5 +1,5 @@
 ---
-title: 快速上手
+title: Quick Start
 description: Quick start v2rayA
 lead: 'TODO: Create account password, import node, connect, set up transparent proxy, browser proxy, system proxy, etc. Basic usage, remind again how to switch the kernel, refer to the manual chapter. In this section, try not to quote from outside as much as possible, and simply introduce the process.'
 date: '2020-11-16 13:59:39 +0100'
