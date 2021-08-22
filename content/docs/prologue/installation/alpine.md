@@ -29,8 +29,8 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
   示例：
    ```
-   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.1/v2raya_linux_amd64_v1.4.1 -O v2raya
-   smv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
+   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.4/v2raya_linux_x86_v1.4.4 -O v2raya
+   mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
    ```
 
 ### 2. 创建服务文件
@@ -54,10 +54,13 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
 保存文件，然后给予此文件可执行权限。
 
-### 3. 安装 iptables 模块
+### 3. 安装 iptables 模块 并放行2017端口
 
   ```bash
   apk add iptables ip6tables
+  ```
+  ```bash
+  /sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
   ```
 
 ### 4. 运行 v2rayA 并开机启动（可选）
