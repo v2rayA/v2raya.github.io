@@ -39,7 +39,7 @@ jobs:
     - name: Run code quality tools
       run: yarn lint
 
-    - name: Build developement website
+    - name: Build development website
       if: ${{ github.event_name == 'pull_request' }}
       run: yarn build --environment development
 
