@@ -3,7 +3,7 @@
 ## Homepage
 title = "v2rayA"
 titleSeparator = "-"
-titleAddition = "Documentation"
+titleAddition = "文档"
 description = "v2rayA 是一个支持全局透明代理的 V2Ray Linux 客户端，同时兼容SS、SSR、Trojan(trojan-go)、PingTunnel协议。"
 
 ## Open Graph
@@ -63,7 +63,8 @@ editPage = true
 # Contributors
 githubContributors = true
 githubUser = "v2raya"
-githubRepo = "v2raya.github.io"
+githubRepo = "v2raya"
+githubDocRepo = "v2raya.github.io"
 githubDocTree = "main"
 githubContributorsAPI = ""
 

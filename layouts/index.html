@@ -6,8 +6,16 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ "docs/prologue/introduction/" | relLangURL }}" role="button">{{ T "getStart" }}</a>
-      <p class="meta"> {{ .Params.license | markdownify }} </p>
+      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ .Params.getStarted | relLangURL }}" role="button">{{ T "getStarted" }}</a>
+      <p class="meta">
+        {{ .Params.license | markdownify }}  
+        {{ $releases := getJSON "https://api.github.com/repos/" .Site.Params.githubUser "/" .Site.Params.githubRepo "/releases/latest"}}
+        {{ if ne $releases.message nil }}
+          <a href="https://github.com/{{ .Site.Params.githubUser }}/{{ .Site.Params.githubRepo }}">Github</a>
+        {{ else }}
+          <a href="{{ $releases.html_url}}">Github {{ $releases.name }}</a>
+        {{ end }}
+      </p>
     </div>
   </div>
 </section>

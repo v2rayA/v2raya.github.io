@@ -6,7 +6,8 @@ date: 2021-08-19T08:47:36+00:00
 lastmod: 2021-08-19T08:47:36+00:00
 draft: false
 images: []
-license: "以 GPL-3.0 协议开源于 [Github](https://github.com/v2rayA/v2rayA)"
+license: "以 GPL-3.0 协议开源。"
+getStarted: 'docs/prologue/introduction'
 features: 
 - title: 全局透明代理
   description: 透明代理可为几乎所有应用程序提供代理服务，而不必考虑该应用程序是否支持。v2rayA 支持一键开启透明代理，省去了繁琐的配置操作。

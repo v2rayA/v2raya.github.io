@@ -6,7 +6,8 @@ date: 2021-08-19T08:47:36+00:00
 lastmod: 2021-08-19T08:47:36+00:00
 draft: false
 images: []
-license: "Open source in [Github](https://github.com/v2rayA/v2rayA) with GPL-3.0"
+license: "Open-source GPL-3.0 Licensed."
+getStarted: 'docs/prologue/introduction'
 features: 
 - title: Global Transparent Proxy 
   description: Transparent proxy can provide proxy services for almost all applications, regardless of whether the application supports it. v2rayA supports one-click to open the transparent proxy, eliminating the need for tedious configuration operations. 

@@ -1,6 +1,6 @@
 {{ $api := or .Site.Params.githubContributorsAPI "https://api.xuann.wang/api/github-file-contributors" }}
 {{ $user := .Site.Params.githubUser }}
-{{ $repo := .Site.Params.githubRepo }}
+{{ $repo := .Site.Params.githubDocRepo }}
 {{ $tree := .Site.Params.githubDocTree }}
 {{ $path := printf "%s/%s" "content" .File.Path }}
 {{ $qs := slice "user" $user "repo" $repo "tree" $tree "path" $path }}
