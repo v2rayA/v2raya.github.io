@@ -1,2 +1,1 @@
-canonifyURLs = false
 ignoreErrors = ["error-remote-getjson"]

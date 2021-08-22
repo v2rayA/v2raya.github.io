@@ -5,7 +5,7 @@
 {{ $path := printf "%s/%s" "content" .File.Path }}
 {{ $qs := slice "user" $user "repo" $repo "tree" $tree "path" $path }}
 {{ $args := (querify $qs | safeURL) }}
-{{ $data := getJSON $api "?" $args}}
+{{ with $data := getJSON $api "?" $args }}
 <p class="contributors">
     <span class="label">{{ T "contributors" }}</span>
     {{ range $data }}
@@ -22,3 +22,6 @@
     </a>
     {{ end }}
 </p>
+{{ else }}
+    {{ warnf "Failed to get contributors of \"%s\"" .File.Path }}
+{{ end }}
