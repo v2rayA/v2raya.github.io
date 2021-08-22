@@ -43,6 +43,7 @@ chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 
   从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件。
   移动到`/usr/bin`并给予执行权限：
+
   ```bash
   mv v2raya /usr/bin/v2raya
   chmod +x /usr/bin/v2raya
@@ -56,28 +57,28 @@ chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 
 内容如下：
 
-  ```ini
-  #!/bin/sh /etc/rc.common
-  command=/usr/bin/v2raya
-  PIDFILE=/var/run/v2raya.pid
-  depend() {
-   	need net
-   	after firewall
-   	use dns logger
-  }
-  start() {
-   	start-stop-daemon -b -S -m -p "${PIDFILE}" -x $command
-  }
-  stop() {
-   	start-stop-daemon -K -p "${PIDFILE}"
-  }
-  ```
-   
+```ini
+#!/bin/sh /etc/rc.common
+command=/usr/bin/v2raya
+PIDFILE=/var/run/v2raya.pid
+depend() {
+    need net
+    after firewall
+    use dns logger
+}
+start() {
+    start-stop-daemon -b -S -m -p "${PIDFILE}" -x $command
+}
+stop() {
+    start-stop-daemon -K -p "${PIDFILE}"
+}
+```
+
 给予此文件可执行权限：
 
-  ```bash
-  chmod +x /etc/init.d/v2raya
-  ```
+   ```bash
+   chmod +x /etc/init.d/v2raya
+   ```
 
 ### 4. 运行 v2rayA 并开机启动（可选）
 

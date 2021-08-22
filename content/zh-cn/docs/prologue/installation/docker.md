@@ -20,15 +20,15 @@ toc: true
   ```bash
   # run v2raya
   docker run -d \
-	--restart=always \
-	--privileged \
-	--network=host \
-	--name v2raya \
-	-e V2RAYA_ADDRESS=0.0.0.0:2017 \
+    --restart=always \
+    --privileged \
+    --network=host \
+    --name v2raya \
+    -e V2RAYA_ADDRESS=0.0.0.0:2017 \
         -v /lib/modules:/lib/modules \
-	-v /etc/resolv.conf:/etc/resolv.conf \
-	-v /etc/v2raya:/etc/v2raya \
-	mzz2017/v2raya
+    -v /etc/resolv.conf:/etc/resolv.conf \
+    -v /etc/v2raya:/etc/v2raya \
+    mzz2017/v2raya
   ```
 
 ---
@@ -38,10 +38,10 @@ toc: true
   ```bash
   # run v2raya
   docker run -d \
-	-p 2017:2017 \
-	-p 20170-20172:20170-20172 \
-	--restart=always \
-	--name v2raya \
-	-v /etc/v2raya:/etc/v2raya \
-	mzz2017/v2raya
+    -p 2017:2017 \
+    -p 20170-20172:20170-20172 \
+    --restart=always \
+    --name v2raya \
+    -v /etc/v2raya:/etc/v2raya \
+    mzz2017/v2raya
   ```
