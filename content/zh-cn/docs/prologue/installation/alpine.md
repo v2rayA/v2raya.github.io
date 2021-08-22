@@ -29,8 +29,8 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
   示例：
    ```
-   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.1/v2raya_linux_amd64_v1.4.1 -O v2raya
-   smv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
+   wget https://github.com/v2rayA/v2rayA/releases/download/v1.4.4/v2raya_linux_x86_v1.4.4 -O v2raya
+   mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
    ```
 
 ### 2. 创建服务文件
@@ -43,7 +43,7 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
    name="v2rayA"
    description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
    command="/usr/local/bin/v2raya"
-   command_args="--webdir=/usr/local/etc/v2raya/web --config=/usr/local/etc/v2raya"
+   command_args="--config=/usr/local/etc/v2raya"
    pidfile="/run/${RC_SVCNAME}.pid"
    command_background="yes"
    
@@ -54,10 +54,11 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
 保存文件，然后给予此文件可执行权限。
 
-### 3. 安装 iptables 模块
+### 3. 安装 iptables 模块并放行 2017 端口
 
   ```bash
   apk add iptables ip6tables
+  /sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
   ```
 
 ### 4. 运行 v2rayA 并开机启动（可选）
@@ -66,3 +67,21 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
   rc-service v2raya start
   rc-update add v2raya
   ```
+
+### 其它操作
+
+#### 指定 WebDir：
+
+在服务文件的 `command_args` 中加上一个参数 `--webdir`，然后指定到 Web 文件所在目录即可。比如：
+
+```ini
+command_args="--config=/usr/local/etc/v2raya --webdir=/usr/local/etc/v2raya/web"
+```
+
+#### 指定内核
+
+在服务文件的 `command_args` 中加上一个参数 `--v2ray-bin`，然后指定到内核所在目录即可。比如：
+
+```ini
+command_args="--config=/usr/local/etc/v2raya --v2ray-bin=/usr/local/bin/xray"
+```
