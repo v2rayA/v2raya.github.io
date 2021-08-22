@@ -67,3 +67,21 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
   rc-service v2raya start
   rc-update add v2raya
   ```
+
+### 其它操作
+
+#### 指定 WebDir：
+
+在服务文件的 `command_args` 中加上一个参数 `--webdir`，然后指定到 Web 文件所在目录即可。比如：
+
+```ini
+command_args="--config=/usr/local/etc/v2raya --webdir=/usr/local/etc/v2raya/web"
+```
+
+#### 指定内核
+
+在服务文件的 `command_args` 中加上一个参数 `--v2ray-bin`，然后指定到内核所在目录即可。比如：
+
+```ini
+command_args="--config=/usr/local/etc/v2raya --v2ray-bin=/usr/local/bin/xray"
+```
