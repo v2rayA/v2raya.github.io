@@ -1,6 +1,6 @@
 ---
-title: "安装"
-description: "安装内核和 v2rayA"
+title: "Install"
+description: "Install v2ray-core and v2rayA"
 lead: ""
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00

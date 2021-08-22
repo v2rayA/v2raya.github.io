@@ -1,6 +1,6 @@
 ---
-title : "手册"
-description: "手册"
+title : "Manual"
+description: "Manual"
 lead: ""
 date: 2021-08-19T08:48:45+00:00
 lastmod: 2021-08-19T08:48:45+00:00
