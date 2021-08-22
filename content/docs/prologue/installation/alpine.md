@@ -43,7 +43,7 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
    name="v2rayA"
    description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
    command="/usr/local/bin/v2raya"
-   command_args="--webdir=/usr/local/etc/v2raya/web --config=/usr/local/etc/v2raya"
+   command_args="--config=/usr/local/etc/v2raya"
    pidfile="/run/${RC_SVCNAME}.pid"
    command_background="yes"
    
@@ -54,12 +54,10 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
 保存文件，然后给予此文件可执行权限。
 
-### 3. 安装 iptables 模块 并放行2017端口
+### 3. 安装 iptables 模块并放行 2017 端口
 
   ```bash
   apk add iptables ip6tables
-  ```
-  ```bash
   /sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
   ```
 
