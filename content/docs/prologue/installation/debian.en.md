@@ -1,0 +1,57 @@
+---
+title: "Debian / Ubuntu"
+description: "安装内核和 v2rayA"
+lead: "v2rayA 的功能依赖于 V2Ray 内核，因此需要安装内核。"
+date: 2020-11-16T13:59:39+01:00
+lastmod: 2020-11-16T13:59:39+01:00
+draft: false
+images: []
+menu:
+  docs:
+    parent: "installation"
+weight: 15
+toc: true
+---
+
+## 安装 V2Ray 内核 / Xray 内核
+
+V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
+
+Xray 安装参考：<https://github.com/XTLS/Xray-install>
+
+安装后可以关掉服务，因为v2rayA不依赖于该systemd服务。
+
+```bash
+sudo systemctl disable v2ray --now ### Xray 需要替换服务为 xray
+```
+
+## 安装 v2rayA
+
+### 方法一：通过软件源安装
+
+#### 添加公钥
+
+```bash
+wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo apt-key add -
+```
+
+#### 添加 V2RayA 软件源
+
+```bash
+echo "deb https://apt.v2raya.mzz.pub/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
+sudo apt update
+```
+
+#### 安装 V2RayA
+
+```bash
+sudo apt install v2raya
+```
+
+### 方法二：手动安装 deb 包
+
+[下载 deb 包](https://github.com/v2rayA/v2rayA/releases)后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：
+
+```bash
+sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径
+```
