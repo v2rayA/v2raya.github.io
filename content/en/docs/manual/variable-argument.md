@@ -32,4 +32,3 @@ weight: 600
 `V2RAYA_VERBOSE`: Verbose Log Mode. The log of v2ray-core and v2rayA will be printed together if this Variable is turning on.
 
 `V2RAYA_RESET_PASSWORD`: Reset the password.
-
