@@ -58,7 +58,7 @@ depend() {
 
 Save the file, and then give the file executable permissions.
 
-### Install the iptables module and release the 2017 port
+### Install the iptables module and make the 2017 port accessible
 
 ```bash
 apk add iptables ip6tables
