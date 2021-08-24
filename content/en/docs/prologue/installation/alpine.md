@@ -15,7 +15,7 @@ toc: 'true'
 
 ## Install V2Ray Core/ Xray Core
 
-{{< alert icon="👉" text="If you have already installed the core, you can skip this section." />}}
+{{&lt; alert icon="👉" text="If you have already installed the core, you can skip this section." /&gt;}}
 
 V2Ray Installation：[https://github.com/v2fly/alpinelinux-install-v2ray](https://github.com/v2fly/alpinelinux-install-v2ray)
 
@@ -23,7 +23,7 @@ Xray Installation：[https://github.com/XTLS/alpinelinux-install-xray](https://g
 
 ## Install v2rayA
 
-### 1. Download the binary executable file
+### Download the binary executable file
 
 According to your platform, obtain the <code>v2raya_linux_xxx</code> <a>file with v2raya_linux_xxx from Release</a> and rename it to `v2raya` , then move `v2raya` to `/usr/local/bin` and give executable permissions.
 
@@ -37,7 +37,7 @@ mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 
 You can use the `arch` command to query your platform architecture. For example, for the x86_64 architecture, you need to download the x64 version.
 
-### 2. Create a service file
+### Create service file
 
 Create a new file named `v2raya` under the `/etc/init.d/` directory, then edit it, and add the following content:
 
@@ -58,14 +58,14 @@ depend() {
 
 Save the file, and then give the file executable permissions.
 
-### 3. Install the iptables module and make the 2017 port accessible
+### Install the iptables module and release the 2017 port
 
 ```bash
 apk add iptables ip6tables
 /sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
 ```
 
-### 4. Run v2rayA and make it start while system boots (optional)
+### Run v2rayA and make it start while system boots (optional)
 
 ```bash
 rc-service v2raya start
@@ -74,7 +74,7 @@ rc-update add v2raya
 
 ### Other operations
 
-#### Specify WebDir:
+#### Specify WebDir
 
 Add a parameter `--webdir`  to `command_args` of the service file, and then specify the directory where the Web file is located. for example:
 
