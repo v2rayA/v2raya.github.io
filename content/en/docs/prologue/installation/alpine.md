@@ -37,7 +37,7 @@ mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 
 You can use the `arch` command to query your platform architecture. For example, for the x86_64 architecture, you need to download the x64 version.
 
-### Create service file
+### Create a service file
 
 Create a new file named `v2raya` under the `/etc/init.d/` directory, then edit it, and add the following content:
 
