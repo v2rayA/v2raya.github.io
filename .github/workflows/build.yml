@@ -1,4 +1,4 @@
-name: Lint CI
+name: Pages CI
 
 on:
   push:
@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Check out project
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
         
     - name: Set up Node.js ${{ matrix.node }}
       uses: actions/setup-node@v2
@@ -30,9 +32,24 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-
     - name: Install dependencies
       run: yarn
 
     - name: Run code quality tools
       run: yarn lint
+
+    - name: Build development website
+      if: ${{ github.event_name == 'pull_request' }}
+      run: yarn build --environment development
+
+    - name: Build production website
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      run: yarn build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        branch: pages
+        folder: public
+        clean: true
