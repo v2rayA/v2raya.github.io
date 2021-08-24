@@ -23,21 +23,21 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
 ## 安装 v2rayA
 
-### 1. 下载二进制可执行文件
+### 下载二进制可执行文件
 
 根据你的平台，从 [Release](https://github.com/v2rayA/v2rayA/releases) 获取具有 `v2raya_linux_xxx` 字样的无后缀名文件，并将其重命名为 `v2raya`，再把 `v2raya` 移动到 `/usr/local/bin` 并给予可执行权限。
 
-  示例：
+示例：
   
-   ```bash
-   version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
-   wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_v$version -O v2raya
-   mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
-   ```
+```bash
+version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
+wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_v$version -O v2raya
+mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
+```
 
 可以使用 `arch` 命令来查询你的平台架构，比如 x86_64 的架构就需要下载 x64 的版本。
 
-### 2. 创建服务文件
+### 创建服务文件
 
 在 `/etc/init.d/` 目录下面新建一个名为 `v2raya` 的文本文件，然后编辑，添加内容如下：
 
@@ -58,23 +58,23 @@ depend() {
 
 保存文件，然后给予此文件可执行权限。
 
-### 3. 安装 iptables 模块并放行 2017 端口
+### 安装 iptables 模块并放行 2017 端口
 
-   ```bash
-   apk add iptables ip6tables
-   /sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
-   ```
+```bash
+apk add iptables ip6tables
+/sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
+```
 
-### 4. 运行 v2rayA 并开机启动（可选）
+### 运行 v2rayA 并开机启动（可选）
 
-   ```bash
-   rc-service v2raya start
-   rc-update add v2raya
-   ```
+```bash
+rc-service v2raya start
+rc-update add v2raya
+```
 
 ### 其它操作
 
-#### 指定 WebDir：
+#### 指定 WebDir
 
 在服务文件的 `command_args` 中加上一个参数 `--webdir`，然后指定到 Web 文件所在目录即可。比如：
 

@@ -31,29 +31,29 @@ chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 
 ## 安装 v2rayA
 
-### 1. 安装必须的软件包：
+### 安装必须的软件包：
 
-  ```bash
-  opkg update
-  opkg install ca-certificates tar curl
-  opkg install kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter
-  ```
+```bash
+opkg update
+opkg install ca-certificates tar curl
+opkg install kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter
+```
 
-### 2. 安装二进制可执行文件
+### 安装二进制可执行文件
 
-  从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件。
-  移动到`/usr/bin`并给予执行权限：
+从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件。
+移动到`/usr/bin`并给予执行权限：
 
-  ```bash
-  mv v2raya /usr/bin/v2raya
-  chmod +x /usr/bin/v2raya
-  ```
+```bash
+mv v2raya /usr/bin/v2raya
+chmod +x /usr/bin/v2raya
+```
 
-### 3. 创建服务文件
+### 创建服务文件
 
-  ```bash
-  nano /etc/init.d/v2raya
-  ```
+```bash
+nano /etc/init.d/v2raya
+```
 
 内容如下：
 
@@ -76,13 +76,13 @@ stop() {
 
 给予此文件可执行权限：
 
-   ```bash
-   chmod +x /etc/init.d/v2raya
-   ```
+```bash
+chmod +x /etc/init.d/v2raya
+```
 
-### 4. 运行 v2rayA 并开机启动（可选）
+### 运行 v2rayA 并开机启动（可选）
 
-  ```bash
-  /etc/init.d/v2raya start
-  /etc/init.d/v2raya enable
-  ```
+```bash
+/etc/init.d/v2raya start
+/etc/init.d/v2raya enable
+```
