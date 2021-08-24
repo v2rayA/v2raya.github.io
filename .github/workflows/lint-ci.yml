@@ -1,4 +1,4 @@
-name: Hyas CI
+name: Lint CI
 
 on:
   push:
@@ -11,10 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     if: "!(github.event_name == 'push' && contains(github.event.head_commit.message, '[skip ci]'))"
     steps:
-    - name: Check out Hyas project
+    - name: Check out project
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
         
     - name: Set up Node.js ${{ matrix.node }}
       uses: actions/setup-node@v2
@@ -38,19 +36,3 @@ jobs:
 
     - name: Run code quality tools
       run: yarn lint
-
-    - name: Build development website
-      if: ${{ github.event_name == 'pull_request' }}
-      run: yarn build --environment development
-
-    - name: Build production website
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-      run: yarn build
-
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.0.0
-      if: ${{ github.ref == 'refs/heads/main' }}
-      with:
-        branch: pages
-        folder: public
-        clean: true
