@@ -36,7 +36,7 @@ chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 ```bash
 opkg update
 opkg install ca-certificates tar curl
-opkg install kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter
+opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter
 ```
 
 ### 安装二进制可执行文件
