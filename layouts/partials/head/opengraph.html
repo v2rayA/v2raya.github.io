@@ -51,6 +51,10 @@
       <meta property="og:image" content="{{ index . 0 | absURL }}"/>
       <meta property="og:image:alt" content="{{ $.Site.Params.title }}">
     {{ end -}}
+    {{ if and $.Site.Params.ogImageHeight $.Site.Params.ogImageWidth -}}
+      <meta property="og:image:height" content="{{ $.Site.Params.ogImageHeight }}"/>
+      <meta property="og:image:width" content="{{ $.Site.Params.ogImageWidth }}">
+    {{ end -}}
   {{ end -}}
 {{ end -}}
 
