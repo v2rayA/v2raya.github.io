@@ -13,7 +13,31 @@ weight: '15'
 toc: 'true'
 ---
 
-## Install V2Ray core / Xray core
+## For Fedora 34/35, CentOS Stream 8
+
+### Enable copr source
+
+```bash
+sudo dnf copr enable zhullyb/v2rayA
+```
+
+### Install V2ray Core
+
+```bash
+sudo dnf install v2ray-core
+```
+
+> For Xray if you want to install: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+
+### Install v2rayA
+
+```bash
+sudo dnf install v2rayA
+```
+
+## Others
+
+### Install V2Ray core / Xray core
 
 V2Ray installation: [https://github.com/v2fly/fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray)
 
@@ -25,7 +49,7 @@ You can turn off the service after installation, because v2rayA does not depend 
 sudo systemctl disable v2ray --now ### Xray needs to replace the service with xray
 ```
 
-## Install v2rayA
+### Install v2rayA
 
 After [downloading the rpm package](https://github.com/v2rayA/v2rayA/releases) , run:
 
