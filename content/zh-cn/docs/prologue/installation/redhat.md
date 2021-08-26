@@ -13,7 +13,31 @@ weight: 15
 toc: true
 ---
 
-## 安装 V2Ray 内核 / Xray 内核
+## Fedora 34/35, CentOS Stream 8
+
+### 添加copr源
+
+```bash
+sudo dnf copr enable zhullyb/v2rayA
+```
+
+### 安装 V2Ray 内核
+
+```bash
+sudo dnf install v2ray-core
+```
+
+> 如需Xray内核请参考<https://github.com/XTLS/Xray-install>
+
+### 安装 v2rayA
+
+```bash
+sudo dnf install v2rayA
+```
+
+## 其他
+
+### 安装 V2Ray 内核 / Xray 内核
 
 V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
 
@@ -25,7 +49,7 @@ Xray 安装参考：<https://github.com/XTLS/Xray-install>
 sudo systemctl disable v2ray --now ### Xray 需要替换服务为 xray
 ```
 
-## 安装 v2rayA
+### 安装 v2rayA
 
 [下载 rpm 包](https://github.com/v2rayA/v2rayA/releases)后运行：
 
