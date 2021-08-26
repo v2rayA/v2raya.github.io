@@ -6,7 +6,7 @@ This is the wiki of v2rayA, powered by [Doks](https://getdoks.org/) and [Hugo](h
 
 ## Publish Status / 发布状态
 
-[![Pages CI](https://github.com/v2rayA/v2raya.github.io/actions/workflows/build.yml/badge.svg)](https://github.com/v2rayA/v2raya.github.io/actions/workflows/build.yml)
+[![Hyas CI](https://github.com/v2rayA/v2raya.github.io/actions/workflows/node.js-ci.yml/badge.svg)](https://github.com/v2rayA/v2raya.github.io/actions/workflows/node.js-ci.yml)
 
 ## Translate / 翻译
 
