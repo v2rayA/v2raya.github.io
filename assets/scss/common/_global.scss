@@ -155,6 +155,14 @@ body {
 .docs-content {
   padding-bottom: 3rem;
   order: 1;
+
+  img {
+    max-width: 100%;
+  }
+
+  blockquote {
+    color: gray;
+  }
 }
 
 .docs-navigation {
@@ -231,8 +239,4 @@ body {
 #vertical-center {
   display: flex;
   align-items: center;
-}
-
-.docs-content img {
-  max-width: 100%;
 }
