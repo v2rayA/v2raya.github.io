@@ -1,7 +1,7 @@
 ---
 title: "使用其他核心"
 description: "v2rayA 使用其他核心的介绍"
-lead: "TODO: 引用环境变量和arguments一节，讲述 v2rayA 在 PATH 中查找可执行文件的机制，简单叙述在各个系统中的方法。"
+lead: "本节介绍如何使 v2rayA 更换其他核心。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -9,59 +9,10 @@ images: []
 menu:
   docs:
     parent: "manual"
-toc: true
+toc: false
 weight: 590
 ---
 
-## Requirements
+如不明确指定，v2rayA 在启动后会在 `$PATH` 中依次查找 v2ray 和 xray 命令，因此确保使用命令`command -v v2ray`及`command -v xray`能有正确的输出即可。
 
-Doks uses npm to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts:
-
-- Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
-
-## Start a new Doks project
-
-Create a new site, change directories, install dependencies, and start development server.
-
-### Create a new site
-
-Doks is available as a child theme, and a starter theme:
-
-- Use the Doks child theme, if you do __not__ plan to customize a lot, and/or need future Doks updates.
-- Use the Doks starter theme, if you plan to customize a lot, and/or do __not__ need future Doks updates.
-
-Not quite sure? Use the Doks child theme.
-
-#### Doks child theme
-
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io-child-theme.git my-doks-site
-```
-
-#### Doks starter theme
-
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io.git my-doks-site
-```
-
-### Change directories
-
-```bash
-cd my-doks-site
-```
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Start development server
-
-```bash
-npm run start
-```
-
-Doks will start the Hugo development webserver accessible by default at `http://localhost:1313`. Saved changes will live reload in the browser.
-
-## Other commands
+v2rayA 会优先使用 v2ray，其次是 xray。如果你的 v2ray 或 xray 不在 `$PATH` 中，或你想使用其他的核心，可在环境变量或命令行参数中明确指定。参考[环境变量和命令行参数]({{< relref "variable-argument#如何设置" >}})一节中的说明。
