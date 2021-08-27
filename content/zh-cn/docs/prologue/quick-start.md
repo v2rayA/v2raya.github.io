@@ -1,7 +1,7 @@
 ---
 title: "快速上手"
 description: "快速上手 v2rayA"
-lead: "TODO: 创建账号密码、导入节点、连接、设置透明代理、浏览器代理、系统代理等基本用法，再次提醒如何切换内核，引到手册一章。本节尽量不外引，最简单地介绍个流程即可。"
+lead: "本节将介绍 v2rayA 最基本的使用方法。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -13,55 +13,80 @@ weight: 20
 toc: true
 ---
 
-## Requirements
+## 准备
 
-Doks uses npm to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts:
+如果你还未安装 v2rayA 或 v2ray-core，请参阅[安装]({{< relref "installation" >}})一节。如果你需要更换其他的核心，如 Xray-core，请参阅[使用其他核心]({{< relref "use-other-core" >}})一节。
 
-- Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
+## 开始
 
-## Start a new Doks project
+如果你通过 2017 端口 如 <http://localhost:2017> 无法访问 UI 界面，请检查你的服务是否已经启动。[相关问题](https://github.com/v2rayA/v2rayA/issues/237)
 
-Create a new site, change directories, install dependencies, and start development server.
+接下来进入 UI，本节将介绍 v2rayA 的基本操作流程。
 
-### Create a new site
+### 创建账号
 
-Doks is available as a child theme, and a starter theme:
+![创建账号](/images/quick-start/create-account.png)
 
-- Use the Doks child theme, if you do __not__ plan to customize a lot, and/or need future Doks updates.
-- Use the Doks starter theme, if you plan to customize a lot, and/or do __not__ need future Doks updates.
+在第一次进入页面时，你需要创建一个管理员账号，请妥善保管你的用户名密码，如果遗忘，使用`sudo v2raya --reset-password`命令重置。
 
-Not quite sure? Use the Doks child theme.
+### 导入节点
 
-#### Doks child theme
+![导入节点](/images/quick-start/import-servers.png)
 
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io-child-theme.git my-doks-site
-```
+以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。
 
-#### Doks starter theme
+### 连接节点和启动服务
 
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io.git my-doks-site
-```
+#### 连接节点
 
-### Change directories
+![连接节点](/images/quick-start/connect1.png)
 
-```bash
-cd my-doks-site
-```
+导入成功后，节点将显示在 `SERVER` 或新的标签中。如图是导入了一个订阅后的界面。
 
-### Install dependencies
+![连接节点](/images/quick-start/connect2.png)
 
-```bash
-npm install
-```
+切换到该标签页，选择一个或多个节点连接。这里不建议选择过多的节点，6个以内为佳。
 
-### Start development server
+截至2021年08月27日，xray 尚未支持基于观测的负载均衡，因此在 v2rayA 中连接多个节点为 v2fly/v2ray-core 所独有。关于负载均衡可参阅[负载均衡]({{< relref "loadbalance" >}})一节。
 
-```bash
-npm run start
-```
+如果你在连接器前需要对节点进行可用性检查，如延时测试，可参考[节点和订阅的操作]({{< relref "manipulation" >}})一节。
 
-Doks will start the Hugo development webserver accessible by default at `http://localhost:1313`. Saved changes will live reload in the browser.
+#### 启动服务
 
-## Other commands
+![启动服务](/images/quick-start/connect3.png)
+
+在未启动服务时，连接的节点呈现柚红色。我们在左上角点击相应按钮启动服务。
+
+![启动服务](/images/quick-start/connect4.png)
+
+在启动服务后，所连接的节点呈现蓝色，左上角的图标也显示为蓝色的正在运行，代表服务启动成功。
+
+### 配置代理
+
+由于默认情况下 v2rayA 会通过核心开放 20170(socks5), 20171(http), 20172(带分流规则的http) 端口。修改端口可参阅[后端地址和入站端口设置]({{< relref "address-port" >}})一节。
+
+如果是需要为局域网中的其他机器提供代理，请在设置中打开“局域网共享”，并检查防火墙开放情况。
+
+这里记录三种方式使用代理。
+
+#### 透明代理
+
+![透明代理](/images/quick-start/tproxy.png)
+
+这种方法是 v2rayA 推荐的方法。它相比于其他方法具有诸多优势，v2rayA 可以一键开启透明代理，为**几乎所有程序**提供代理服务。
+
+在设置中选择透明代理的分流方式，以及实现方式，然后保存即可。具体细节可参阅[透明代理]({{< relref "transparent-proxy" >}})一节。
+
+注意，如需选择 GFWList，需要下载对应的规则库，请点击右上角的更新以完成下载。
+
+#### 系统代理
+
+系统代理可为**主动支持代理的程序**提供代理服务。在不同的桌面环境中设置的位置不尽相同，请通过搜索引擎自行搜索。
+
+#### SwitchyOmega
+
+SwitchyOmega 等浏览器插件可为**浏览器**提供代理服务。具体方法请通过搜索引擎自行搜索。
+
+## 总结
+
+本节提供了 v2rayA 最基本的使用方法，v2rayA 还有着更多丰富的功能，请参阅“手册”和“高级应用”章节以进行更多的了解。
