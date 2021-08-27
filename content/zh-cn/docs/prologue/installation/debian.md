@@ -69,5 +69,5 @@ sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 d
 - 设置开机自动启动
 
   ```bash
-  sudo systemctl enable  v2raya.service
+  sudo systemctl enable v2raya.service
   ```
