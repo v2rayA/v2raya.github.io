@@ -25,13 +25,13 @@ toc: true
 
 ### 创建账号
 
-![创建账号](/images/quick-start/create-account.png)
+![创建账号](images/create-account.png)
 
 在第一次进入页面时，你需要创建一个管理员账号，请妥善保管你的用户名密码，如果遗忘，使用`sudo v2raya --reset-password`命令重置。
 
 ### 导入节点
 
-![导入节点](/images/quick-start/import-servers.png)
+![导入节点](images/import-servers.png)
 
 以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。
 
@@ -39,11 +39,11 @@ toc: true
 
 #### 连接节点
 
-![连接节点](/images/quick-start/connect1.png)
+![连接节点](images/connect1.png)
 
 导入成功后，节点将显示在 `SERVER` 或新的标签中。如图是导入了一个订阅后的界面。
 
-![连接节点](/images/quick-start/connect2.png)
+![连接节点](images/connect2.png)
 
 切换到该标签页，选择一个或多个节点连接。这里不建议选择过多的节点，6个以内为佳。
 
@@ -54,11 +54,11 @@ toc: true
 
 #### 启动服务
 
-![启动服务](/images/quick-start/connect3.png)
+![启动服务](images/connect3.png)
 
 在未启动服务时，连接的节点呈现柚红色。我们在左上角点击相应按钮启动服务。
 
-![启动服务](/images/quick-start/connect4.png)
+![启动服务](images/connect4.png)
 
 在启动服务后，所连接的节点呈现蓝色，左上角的图标也显示为蓝色的正在运行，代表服务启动成功。
 
@@ -72,7 +72,7 @@ toc: true
 
 #### 透明代理
 
-![透明代理](/images/quick-start/tproxy.png)
+![透明代理](images/tproxy.png)
 
 这种方法是 v2rayA 推荐的方法。它相比于其他方法具有诸多优势，v2rayA 可以一键开启透明代理，为**几乎所有程序**提供代理服务。
 
