@@ -58,6 +58,7 @@ sudo rpm -i /path/download/installer_redhat_xxx_vxxx.rpm ### 自行替换 rpm �
 ```
 
 ## 注意事项
+
 ### 启动 v2rayA / 设置 v2rayA 自动启动
 
 > 从 1.5 版开始将不再默认为用户启动 v2rayA 及设置开机自动。
