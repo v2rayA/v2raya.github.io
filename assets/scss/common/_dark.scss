@@ -383,3 +383,41 @@ body.dark .tail-decoration {
     color: $link-color-dark;
   }
 }
+
+body.dark .notice {
+  &.notice-warning {
+    background: hsla(0, 25%, 35%, 0.15);
+    border-left: 5px solid hsl(0, 25%, 35%);
+
+    .notice-title {
+      color: hsl(0, 25%, 35%);
+    }
+  }
+
+  &.notice-info {
+    background: hsla(30, 25%, 35%, 0.15);
+    border-left: 5px solid hsl(30, 25%, 35%);
+
+    .notice-title {
+      color: hsl(30, 25%, 35%);
+    }
+  }
+
+  &.notice-note {
+    background: hsla(200, 25%, 35%, 0.15);
+    border-left: 5px solid hsl(200, 25%, 35%);
+
+    .notice-title {
+      color: hsl(200, 25%, 35%);
+    }
+  }
+
+  &.notice-tip {
+    background: hsla(140, 25%, 35%, 0.15);
+    border-left: 5px solid hsl(140, 25%, 35%);
+
+    .notice-title {
+      color: hsl(140, 25%, 35%);
+    }
+  }
+}
