@@ -1,0 +1,10 @@
+{{- $noticeType := .Get 0 -}}
+{{- $raw := (markdownify .Inner | chomp) -}}
+{{- $block := findRE "(?is)^<(?:address|article|aside|blockquote|canvas|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h(?:1|2|3|4|5|6)|header|hgroup|hr|li|main|nav|noscript|ol|output|p|pre|section|table|tfoot|ul|video)\\b" $raw 1 -}}
+{{ $icon := index $.Site.Data.svg (printf "notice-%v" $noticeType) }}
+<div class="notice notice-{{ $noticeType }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>
+    <div class="notice-title">
+        <span class="notice-icon">{{ $icon | safeHTML }}</span>
+    </div>
+    {{- if or $block (not $raw) }}{{ $raw }}{{ else }}<p>{{ $raw }}</p>{{ end -}}
+</div>
