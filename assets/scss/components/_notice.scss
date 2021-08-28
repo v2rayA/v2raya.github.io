@@ -1,0 +1,56 @@
+.notice {
+  position: relative;
+  padding: 1em 1em 1em 2.5em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .notice-title {
+    position: absolute;
+    left: 0.8em;
+
+    .notice-icon {
+      width: 1.2em;
+      height: 1.2em;
+    }
+  }
+
+  &.notice-warning {
+    background: hsla(0, 65%, 65%, 0.15);
+    border-left: 5px solid hsl(0, 65%, 65%);
+
+    .notice-title {
+      color: hsl(0, 65%, 65%);
+    }
+  }
+
+  &.notice-info {
+    background: hsla(30, 80%, 70%, 0.15);
+    border-left: 5px solid hsl(30, 80%, 70%);
+
+    .notice-title {
+      color: hsl(30, 80%, 70%);
+    }
+  }
+
+  &.notice-note {
+    background: hsla(200, 65%, 65%, 0.15);
+    border-left: 5px solid hsl(200, 65%, 65%);
+
+    .notice-title {
+      color: hsl(200, 65%, 65%);
+    }
+  }
+
+  &.notice-tip {
+    background: hsla(140, 65%, 65%, 0.15);
+    border-left: 5px solid hsl(140, 65%, 65%);
+
+    .notice-title {
+      color: hsl(140, 65%, 65%);
+    }
+  }
+}
