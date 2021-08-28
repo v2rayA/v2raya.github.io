@@ -56,3 +56,21 @@ After [downloading the rpm package](https://github.com/v2rayA/v2rayA/releases) ,
 ```bash
 sudo rpm -i /path/download/installer_redhat_xxx_vxxx.rpm ### Replace the actual path where the rpm package is located by yourself
 ```
+
+## Notice
+
+### Start v2rayA / Enable v2rayA start automatically
+
+> From the 1.5 version, it will no longer default start v2rayA and set auto-start.
+
+- Start v2rayA
+
+    ```bash
+    sudo systemctl start v2raya.service
+    ```
+
+- Set auto-start
+
+    ```bash
+    sudo systemctl enable v2raya.service
+    ```
