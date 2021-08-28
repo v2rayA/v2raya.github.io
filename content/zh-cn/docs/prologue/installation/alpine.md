@@ -15,7 +15,9 @@ toc: true
 
 ## 安装 V2Ray 内核 / Xray 内核
 
-{{< alert icon="👉" text="如果你已经安装了内核，可以跳过此节。" />}}
+{{% notice info %}}
+如果你已经安装了内核，可以跳过此节。
+{{% /notice %}}
 
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 

@@ -15,7 +15,9 @@ toc: 'true'
 
 ## Install V2Ray Core/ Xray Core
 
-{{< alert icon="👉" text="If you have already installed the core, you can skip this section." />}}
+{{% notice info %}}
+If you have already installed the core, you can skip this section.
+{{% /notice %}}
 
 V2Ray Installation：[https://github.com/v2fly/alpinelinux-install-v2ray](https://github.com/v2fly/alpinelinux-install-v2ray)
 
