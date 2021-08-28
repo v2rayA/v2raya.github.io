@@ -27,7 +27,7 @@ This section describes how to run v2rayA in various Linux distributions and Dock
 
 {{% notice info %}} If you are familiar with the basic use of v2rayA, you can skip this section. {{% /notice %}}
 
-This section will introduce the basic usage rules of v2rayA. [Quick-start →]({{&lt; relref "quick-start" &gt;}})
+This section will introduce the basic usage rules of v2rayA. [Quick-start →]({{% relref "quick-start" %}})
 
 ## Manual
 
@@ -35,4 +35,4 @@ This chapter introduces the various functions of v2rayA. The focus is on the usa
 
 ## Advanced Application
 
-This chapter introduces the advanced applications of v2rayA, which involves the combination of many functions and flexible usage to accomplish specific tasks. [Advanced Application→]({{&lt; relref "advanced-application" &gt;}})
+This chapter introduces the advanced applications of v2rayA, which involves the combination of many functions and flexible usage to accomplish specific tasks. [Advanced Application→]({{% relref "advanced-application" %}})
