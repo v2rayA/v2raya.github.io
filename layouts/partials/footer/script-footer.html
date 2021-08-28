@@ -1,5 +1,6 @@
 {{ $indexTemplate := resources.Get "js/index.js" -}}
-{{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . -}}
+{{ $filename := printf "index-%v.js" $.Site.Language.Lang }}
+{{ $index := $indexTemplate | resources.ExecuteAsTemplate $filename . -}}
 
 {{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
