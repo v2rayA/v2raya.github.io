@@ -19,13 +19,17 @@ toc: true
 
 ### 下载与安装
 
-{{< alert icon="👉" text="如果你已经安装了 v2ray-core 和 v2rayA，可以跳过此节。" />}}
+{{% notice info %}}
+如果你已经安装了 v2ray-core 和 v2rayA，可以跳过此节。
+{{% /notice %}}
 
 这一节介绍了如何在各个 Linux 发行版以及 Docker 中运行 v2rayA。 [下载与安装 →]({{< relref "installation" >}})
 
 ### 快速上手
 
-{{< alert icon="👉" text="如果你对 v2rayA 的基本使用已轻车熟路，可以跳过此节。" />}}
+{{% notice info %}}
+如果你对 v2rayA 的基本使用已轻车熟路，可以跳过此节。
+{{% /notice %}}
 
 这一节将对 v2rayA 的基本使用规则进行介绍。 [快速上手 →]({{< relref "quick-start" >}})
 
