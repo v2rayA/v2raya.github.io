@@ -13,9 +13,9 @@ weight: 15
 toc: true
 ---
 
-## Fedora 34/35, CentOS Stream 8
+## Fedora 34 / 35 以及 CentOS Stream 8
 
-### 添加copr源
+### 添加 copr 源
 
 ```bash
 sudo dnf copr enable zhullyb/v2rayA
@@ -27,7 +27,7 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray-core
 ```
 
-> 如需Xray内核请参考<https://github.com/XTLS/Xray-install>
+> 如需Xray内核请参考: <https://github.com/XTLS/Xray-install>
 
 ### 安装 v2rayA
 
@@ -35,7 +35,9 @@ sudo dnf install v2ray-core
 sudo dnf install v2rayA
 ```
 
-## 其他
+## 其他基于 rpm 的操作系统
+
+> 此方法可以为 Alma Linux、Rocky Linux、openSUSE 或其它基于 rpm 软件包管理器的 Linux 发行版安装 v2rayA，前提是你所用的**发行版使用了 systemd 作为系统管理工具**。
 
 ### 安装 V2Ray 内核 / Xray 内核
 
@@ -61,7 +63,7 @@ sudo rpm -i /path/download/installer_redhat_xxx_vxxx.rpm ### 自行替换 rpm �
 
 ### 启动 v2rayA / 设置 v2rayA 自动启动
 
-> 从 1.5 版开始将不再默认为用户启动 v2rayA 及设置开机自动。
+> 从 1.5 版开始将不再默认为用户启动 v2rayA，也不会默认设置开机自动。
 
 - 启动 v2rayA
 
