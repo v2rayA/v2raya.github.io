@@ -1,5 +1,6 @@
 baseurl = "/"
 canonifyURLs = false
+defaultContentLanguage = 'zh-cn'
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true
@@ -7,8 +8,8 @@ enableGitInfo = true
 enableRobotsTXT = true
 languageCode = "zh-cn"
 paginate = 7
+refLinksErrorLevel = 'WARNING'
 rssLimit = 10
-defaultContentLanguage = 'zh-cn'
 # defaultContentLanguageInSubdir = true
 
 [outputs]
