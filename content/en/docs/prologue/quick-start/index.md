@@ -31,7 +31,7 @@ When you enter the page for the first time, you need to create an administrator 
 
 ### Import nodes
 
-![Import node](images/import-servers.png)
+![Import nodes](images/import-servers.png)
 
 Import nodes by creating or importing, and import supports node links, subscription links, scanning QR codes, and batch import.
 
@@ -39,11 +39,11 @@ Import nodes by creating or importing, and import supports node links, subscript
 
 #### Connect a node
 
-![Connection node](https://github.com/v2rayA/v2raya.github.io/blob/main/content/en/docs/prologue/quick-start/images/connect1.png?raw=true)
+![Connect a node](images/connect1.png)
 
 After the import is successful, the node will be displayed in the `SERVER` or new tab. The picture shows the interface after importing a subscription.
 
-![Connection node](images/connect2.png)
+![Connect a node](images/connect2.png)
 
 Switch to this tab and select one or more nodes to connect. It is not recommended to select too many nodes here, 6 or less is better.
 
