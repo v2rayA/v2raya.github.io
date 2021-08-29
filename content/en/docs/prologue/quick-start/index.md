@@ -19,7 +19,7 @@ If you have not installed v2rayA or v2ray-core, please refer to the [Installatio
 
 ## Start
 
-如果你通过 2017 端口 如 [http://localhost:2017](http://localhost:2017) 无法访问 UI 界面，请检查你的服务是否已经启动。[相关问题](https://github.com/v2rayA/v2rayA/issues/237)
+If you cannot access the UI interface through the 2017 port such as [http://localhost:2017](http://localhost:2017) , please check whether your service has been started. [related issue](https://github.com/v2rayA/v2rayA/issues/237)
 
 Next, enter the UI, this section will introduce the basic operation process of v2rayA.
 
@@ -29,7 +29,7 @@ Next, enter the UI, this section will introduce the basic operation process of v
 
 When you enter the page for the first time, you need to create an administrator account. Please keep your username and password properly. If you forget, use the `sudo v2raya --reset-password` command to reset.
 
-### 导入节点
+### Import nodes
 
 ![Import node](images/import-servers.png)
 
@@ -37,7 +37,7 @@ Import nodes by creating or importing, and import supports node links, subscript
 
 ### Connect nodes and start services
 
-#### 连接节点
+#### Connect a node
 
 ![Connection node](https://github.com/v2rayA/v2raya.github.io/blob/main/content/en/docs/prologue/quick-start/images/connect1.png?raw=true)
 
@@ -55,7 +55,7 @@ If you need to check the availability of the node before connecting, such as del
 
 {{% /notice %}}
 
-#### 启动服务
+#### Start the service
 
 ![Start service](images/connect3.png)
 
@@ -83,7 +83,7 @@ In the settings, select the splitting method and implementation method of the tr
 
 Note that if you need to select GFWList, you need to download the corresponding rule library. Please click Update in the upper right corner to complete the download.
 
-#### 系统代理
+#### System proxy
 
 System agents can provide agent services **for programs that actively support agents.** The locations set in different desktop environments are different, please search by yourself through search engines.
 
