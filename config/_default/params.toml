@@ -9,8 +9,8 @@ description = "v2rayA 是一个支持全局透明代理的 V2Ray Linux 客户端
 ## Open Graph
 images = ["v2raya.png"]
 ogLocale = "zh_cn"
-ogImageHeight = "320"
-ogImageWidth = "640"
+ogImageHeight = 320
+ogImageWidth = 640
 domainTLD = "v2raya.org"
 titleHome = "v2rayA Doc"
 
@@ -30,8 +30,8 @@ schemaLogo = "android-chrome-512x512.png"
 schemaLogoWidth = 512
 schemaLogoHeight = 512
 schemaImage = "v2raya.png"
-schemaImageWidth = 289
-schemaImageHeight = 117
+schemaImageWidth = 640
+schemaImageHeight = 320
 schemaTwitter = ""
 schemaLinkedIn = ""
 schemaGitHub = "https://github.com/v2rayA/v2raya.github.io"
