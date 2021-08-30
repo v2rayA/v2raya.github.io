@@ -3531,9 +3531,9 @@ jsonfile@^6.0.1:
     graceful-fs "^4.1.6"
 
 katex@^0.13:
-  version "0.13.13"
-  resolved "https://registry.nlark.com/katex/download/katex-0.13.13.tgz#15a796e95516869bc6d483443b58b2df872ee40f"
-  integrity sha1-FaeW6VUWhpvG1INEO1iy34cu5A8=
+  version "0.13.16"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.13.16.tgz#551b901a949445fcc19eacacd8369f9d6d8ca49a"
+  integrity sha512-Q+odt4vx4Og/B5CbuMqE1uiTLnS5EWUFic40xsx8drbqYYiuPPHct7PNj84dFiJ5AFxSZhNPkeBULAtxzEndNg==
   dependencies:
     commander "^6.0.0"
 
