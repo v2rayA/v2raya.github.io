@@ -55,3 +55,19 @@ After [downloading the deb package](https://github.com/v2rayA/v2rayA/releases) ,
 ```bash
 sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### Replace the actual path where the deb package is located by yourself
 ```
+
+## Start v2rayA / Enable v2rayA start automatically
+
+> From the 1.5 version, it will no longer default start v2rayA and set auto-start.
+
+- Start v2rayA
+
+    ```bash
+    sudo systemctl start v2raya.service
+    ```
+
+- Set auto-start
+
+    ```bash
+    sudo systemctl enable v2raya.service
+    ```
