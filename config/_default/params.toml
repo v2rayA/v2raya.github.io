@@ -9,8 +9,8 @@ description = "v2rayA 是一个支持全局透明代理的 V2Ray Linux 客户端
 ## Open Graph
 images = ["v2raya.png"]
 ogLocale = "zh_cn"
-ogImageHeight = "117"
-ogImageWidth = "289"
+ogImageHeight = "320"
+ogImageWidth = "640"
 domainTLD = "v2raya.org"
 titleHome = "v2rayA Doc"
 
