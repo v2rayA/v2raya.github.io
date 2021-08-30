@@ -13,7 +13,7 @@ weight: '15'
 toc: 'true'
 ---
 
-## For Fedora 34/35, CentOS Stream 8
+## Fedora 34 / 35 and CentOS Stream 8
 
 ### Enable copr source
 
@@ -27,7 +27,7 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray-core
 ```
 
-> For Xray if you want to install: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+> Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
 
 ### Install v2rayA
 
@@ -35,7 +35,9 @@ sudo dnf install v2ray-core
 sudo dnf install v2rayA
 ```
 
-## Others
+## Other rpm-based operating systems
+
+> This method can install v2rayA for Alma Linux, Rocky Linux, openSUSE or other Linux distributions based on the rpm package manager, provided that the **distribution you are using uses systemd as a system management tool** .
 
 ### Install V2Ray core / Xray core
 
@@ -61,7 +63,7 @@ sudo rpm -i /path/download/installer_redhat_xxx_vxxx.rpm ### Replace the actual 
 
 ### Start v2rayA / Enable v2rayA start automatically
 
-> From the 1.5 version, it will no longer default start v2rayA and set auto-start.
+> Starting from version 1.5, v2rayA will no longer be started by default for users, nor will it be set to automatically start up by default.
 
 - Start v2rayA
 
