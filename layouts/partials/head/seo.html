@@ -34,8 +34,8 @@
   <link rel="canonical" href="{{ .Permalink }}">
 {{ end -}}
 
+<!-- {{ partial "head/opengraph.html" . }} -->
 {{ partial "head/twitter_cards.html" . }}
-{{ partial "head/opengraph.html" . }}
 
 {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
