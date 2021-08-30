@@ -42,7 +42,7 @@ jobs:
       run: yarn build --environment development
 
     - name: Build production website
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
       run: yarn build
 
     - name: Deploy
