@@ -105,3 +105,11 @@ chmod +x ~/.bin/v2raya && xattr -d -r com.apple.quarantine ~/.bin/*
 ```
 
 如若核心也在 `.bin` 之中，那么还需要给予 `v2ray`、`v2ctl` 或 `xray` 可执行权限。
+
+## 运行
+
+### 开启服务并运行
+
+```bash
+launchctl load ~/Library/LaunchAgents/org.v2raya.v2raya.plist
+```
