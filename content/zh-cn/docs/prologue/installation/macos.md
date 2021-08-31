@@ -47,8 +47,8 @@ brew install v2ray  ## 或者安装 xray
 
 ### 方法二：手动下载安装
 
-> 安装 V2Ray：<https://www.v2fly.org/guide/install.html>   
-> 安装 Xray：<https://xray.sh/guide/install/>   
+> 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
+> 安装 Xray：<https://xray.sh/guide/install/>
 
 解压压缩包后将其中的二进制文件与 `.dat` 格式的文件都移动到 ~/.bin/ 或其它你可以访问的目录。
 
@@ -94,8 +94,10 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 自行替换 `UserName` 为你的实际用户名。
 
 {{% notice info %}}
+
 + 可以使用 `echo $HOME` 命令来快速确认你的 Home 目录。
 + `--v2ray-bin` 用于指定 V2Ray / Xray 核心，由于 launchd 的限制，v2rayA 无法自动获取在 path 内的核心，因此需要手动指定。如果你使用 brew 安装了核心，则可以通过 `which xray` 来快速确认核心所在位置。
+
 {{% /notice %}}
 
 最后，给予 v2rayA 可执行权限：
