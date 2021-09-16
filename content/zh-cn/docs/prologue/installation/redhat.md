@@ -39,6 +39,8 @@ sudo dnf install v2rayA
 
 > 此方法可以为 Alma Linux、Rocky Linux、openSUSE 或其它基于 rpm 软件包管理器的 Linux 发行版安装 v2rayA，前提是你所用的**发行版使用了 systemd 作为系统管理工具**。
 
+## 安装 V2Ray 内核 / Xray 内核
+
 #### V2Ray / Xray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
