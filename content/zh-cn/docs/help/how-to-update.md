@@ -26,7 +26,8 @@ weight: 810
 sudo apt update
 sudo apt upgrade
 ```
-Fedora / CentOS Stream 8 用户应当使用 `dnf` 命令以取代 `apt` 命令来获取更新，除此之外，Gnome Software、Discover、系统更新器等图形化工具也可以更新核心。 
+
+Fedora / CentOS Stream 8 用户应当使用 `dnf` 命令以取代 `apt` 命令来获取更新，除此之外，Gnome Software、Discover、系统更新器等图形化工具也可以更新核心。
 
 ## 更新 v2rayA
 
@@ -110,7 +111,8 @@ Gnome Software、Discover、系统更新器等图形化工具也可以更新 v2r
 
 ### Arch Linux
 
-作为一个 Arch 用户，更新软件这事就不用教了吧！   
+作为一个 Arch 用户，更新软件这事就不用教了吧！
+
 什么？还是要教？看 Manjaro 的！
 
 ### Manjaro Linux
