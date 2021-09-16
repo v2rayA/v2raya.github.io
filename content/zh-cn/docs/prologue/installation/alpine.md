@@ -19,9 +19,17 @@ toc: true
 如果你已经安装了内核，可以跳过此节。
 {{% /notice %}}
 
+### V2Ray / Xray 的官方脚本
+
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 
 Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
+
+### v2rayA 提供的镜像脚本（推荐）
+
+```bash
+curl -Ls https://mirrors.v2raya.org/alpine-go.sh | sudo ash
+```
 
 ## 安装 v2rayA
 
