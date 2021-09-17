@@ -48,7 +48,7 @@ brew install v2ray  ## 或者安装 xray
 ### 方法二：手动下载安装
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
-> 安装 Xray：<https://xray.sh/guide/install/>
+> 安装 Xray：<https://xray.sh/document/install.html>
 
 解压压缩包后将其中的二进制文件与 `.dat` 格式的文件都移动到 ~/.bin/ 或其它你可以访问的目录。
 
