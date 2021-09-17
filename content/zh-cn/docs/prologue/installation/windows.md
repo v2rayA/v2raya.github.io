@@ -53,3 +53,5 @@ Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.ex
 ```pwsh
 Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.exe' " -WindowStyle Hidden
 ```
+
+如果你从 scoop 安装了核心，那么你应该使用实际的核心文件，而不是 `scoop\shims` 下的外壳。
