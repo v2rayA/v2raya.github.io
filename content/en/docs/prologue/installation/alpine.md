@@ -19,9 +19,9 @@ toc: 'true'
 If you have already installed the core, you can skip this section.
 {{% /notice %}}
 
-V2Ray Installation：[https://github.com/v2fly/alpinelinux-install-v2ray](https://github.com/v2fly/alpinelinux-install-v2ray)
+V2Ray Installation: [https://github.com/v2fly/alpinelinux-install-v2ray](https://github.com/v2fly/alpinelinux-install-v2ray)
 
-Xray Installation：[https://github.com/XTLS/alpinelinux-install-xray](https://github.com/XTLS/alpinelinux-install-xray)
+Xray Installation: [https://github.com/XTLS/alpinelinux-install-xray](https://github.com/XTLS/alpinelinux-install-xray)
 
 ## Install v2rayA
 
