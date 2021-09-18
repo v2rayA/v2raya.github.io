@@ -56,7 +56,7 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin 'D:\v2ray\v2ray.exe'
 Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.exe' " -WindowStyle Hidden
 ```
 
-### 后台运行（使用 [ConEmu](https://conemu.github.io/)
+### 后台运行（使用 [ConEmu](https://conemu.github.io/)）
 
 ConEmu 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用**“直接运行”**项里面提到的命令运行 v2rayA 即可。
 
