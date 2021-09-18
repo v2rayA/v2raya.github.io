@@ -41,7 +41,7 @@ curl -Ls https://mirrors.v2raya.org/alpine-go.sh | sudo ash
   
 ```bash
 version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
-wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_v$version -O v2raya
+wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version -O v2raya
 mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 ```
 
