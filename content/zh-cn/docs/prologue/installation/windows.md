@@ -42,16 +42,22 @@ scoop install v2ray  ## 或者安装 xray
 
 ## 运行 v2rayA
 
-假设 v2rayA 与核心都保存到了 D 盘：
+以下假设 v2rayA 与核心都保存到了 D 盘的对应文件夹，如果你文件的存放位置不是这些文件夹，那么你需要根据实际情况修改命令。
+
+### 直接运行
 
 ```pwsh
-Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.exe' "
+D:\v2rayA\v2raya.exe --lite --v2ray-bin 'D:\v2ray\v2ray.exe'
 ```
 
-后台运行：
+### 后台运行（使用 PowerShell 的隐藏窗口功能）：
 
 ```pwsh
 Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.exe' " -WindowStyle Hidden
 ```
+
+### 后台运行（使用 [ConEmu](https://conemu.github.io/)
+
+ConEmu 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用**“直接运行”**项里面提到的命令运行 v2rayA 即可。
 
 如果你从 scoop 安装了核心，那么你应该使用实际的核心文件，而不是 `scoop\shims` 下的外壳。
