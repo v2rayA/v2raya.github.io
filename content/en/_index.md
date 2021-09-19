@@ -6,7 +6,7 @@ date: 2021-08-19T08:47:36+00:00
 lastmod: 2021-08-19T08:47:36+00:00
 draft: false
 images: []
-license: "Open-source GPL-3.0 Licensed."
+license: "Open-source AGPL-3.0 Licensed."
 getStarted: 'docs/prologue/introduction'
 features: 
 - title: Global Transparent Proxy 

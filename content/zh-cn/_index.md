@@ -6,7 +6,7 @@ date: 2021-08-19T08:47:36+00:00
 lastmod: 2021-08-19T08:47:36+00:00
 draft: false
 images: []
-license: "以 GPL-3.0 协议开源。"
+license: "以 AGPL-3.0 协议开源。"
 getStarted: 'docs/prologue/introduction'
 features: 
 - title: 全局透明代理
