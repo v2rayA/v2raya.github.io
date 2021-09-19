@@ -13,7 +13,7 @@ toc: true
 weight: 340
 ---
 
-v2RayA可使用RoutingA书写路由，这是一种v2ray路由标记语言，它可被编译为v2ray-core所支持的json格式。
+v2rayA可使用RoutingA书写路由，这是一种v2ray路由标记语言，它可被编译为v2ray-core所支持的json格式。
 
 ## 示例
 
