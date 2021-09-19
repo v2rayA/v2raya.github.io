@@ -1421,9 +1421,9 @@ bl@^1.0.0:
     safe-buffer "^5.1.1"
 
 bootstrap@^5.1:
-  version "5.1.0"
-  resolved "https://registry.nlark.com/bootstrap/download/bootstrap-5.1.0.tgz#543ef8f44f4b9af67b0230f19508542fec38ef55"
-  integrity sha1-VD749E9LmvZ7AjDxlQhUL+w471U=
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.1.1.tgz#9d6eed81e08feaccedf3adaca51fe4b73a2871df"
+  integrity sha512-/jUa4sSuDZWlDLQ1gwQQR8uoYSvLJzDd8m5o6bPKh3asLAMYVZKdRCjb1joUd5WXf0WwCNzd2EjwQQhupou0dA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
