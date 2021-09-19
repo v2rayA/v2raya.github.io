@@ -76,7 +76,7 @@ ip(1.1.1.1) && protocol(http) && source(10.0.0.1, 172.20.0.0/16) -> direct
 
 ```
 
-更多概念请查看 [*[V2Ray-Routing]
+更多概念请查看[*[V2Ray-Routing]*](https://www.v2ray.com/chapter_02/03_routing.html)
 
 + 引号可省略，但包含特殊符号时不可省，如 `,`  `'` `"` 和  `)`
 + 暂不支持转义字符 `\`
