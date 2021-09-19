@@ -125,7 +125,6 @@ inbound: httpauthin=http(address: 0.0.0.0, port: 1081, user: 123, pass: 123)
 inboundTag(socksauthin, httpauthin)->direct
 ```
 
-
 ```bash
 # 不同inbound流量走不同的outbound
 inbound: crawlerin = http(address:127.0.0.1,port:30001)
