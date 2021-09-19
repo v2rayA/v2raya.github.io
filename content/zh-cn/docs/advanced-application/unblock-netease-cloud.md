@@ -1,7 +1,7 @@
 ---
 title: "解锁网易云灰色歌曲"
 description: "v2rayA 解锁网易云灰色歌曲介绍"
-lead: "TODO: 搬 wiki 内容。"
+lead: ""
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -13,55 +13,60 @@ toc: true
 weight: 650
 ---
 
-## Requirements
+本案例将会向你展示如何使用 [nondanee/UnblockNeteaseMusic](https://github.com/nondanee/UnblockNeteaseMusic) 解锁网易云音乐的灰色歌曲。
 
-Doks uses npm to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts:
+1. 下载由 nondanee/UnblockNeteaseMusic 项目的作者提供的[证书](https://cdn.jsdelivr.net/gh/nondanee/UnblockNeteaseMusic@latest/ca.crt)。
 
-- Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
+2. 信任此证书。信任的办法取决于你使用的 Linux 发行版，(**archlinux/manjaro** 可以使用 `sudo trust anchor --store ca.crt`) [[ubuntu可以点我]](https://superuser.com/questions/437330/how-do-you-add-a-certificate-authority-ca-to-ubuntu)，其他发行版自己搜一下啦
 
-## Start a new Doks project
+   如果你想让在 LAN 网络的苹果设备也生效, 在 Safari 打开[证书](https://cdn.jsdelivr.net/gh/nondanee/UnblockNeteaseMusic@latest/ca.crt)并在`设置-通用-描述文件`中安装。安装成功后，在`设置-通用-关于本机-证书信任设置`中信任此证书
 
-Create a new site, change directories, install dependencies, and start development server.
+   ~~Android devices need to modify the network setting you connect (such as WLAN and APN) and set proxy to port 20172. Or if you have root privileges, you can try adding the certificate to **SYSTEM** root cert list (not USER one) [UnblockNeteaseMusic#423](https://github.com/nondanee/UnblockNeteaseMusic/issues/423#issuecomment-596621392)~~
 
-### Create a new site
+   Fortunately, no additional operations need to do for Android devices.
 
-Doks is available as a child theme, and a starter theme:
+3. 安装 nondanee/unblockneteasemusic:
 
-- Use the Doks child theme, if you do __not__ plan to customize a lot, and/or need future Doks updates.
-- Use the Doks starter theme, if you plan to customize a lot, and/or do __not__ need future Doks updates.
+   ```bash
+   docker run -d -p 18080:8080 --restart always --name unblock nondanee/unblockneteasemusic -p 8080:8081 -e https://music.163.com
+   ```
 
-Not quite sure? Use the Doks child theme.
+4. 设置 RoutingA:
 
-#### Doks child theme
+   **基于大陆白名单模式：**
 
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io-child-theme.git my-doks-site
-```
+   ```bash
+   outbound: unblockneteasemusic = http(address:"127.0.0.1", port:"18080")
 
-#### Doks starter theme
+   default: proxy
 
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io.git my-doks-site
-```
+   # 下一行是为安卓设备准备的, 如果你不使用安卓设备，请你移除下一行，否则这将有可能影响到听歌记录。
+   domain(regexp:clientlog\d*.music.163.com)->block
+   domain(domain:163.com,domain:netease.com) && source(172.16.0.0/12)->direct
+   domain(domain:163.com,domain:netease.com)->unblockneteasemusic
 
-### Change directories
+   domain(geosite:geolocation-!cn)->proxy
+   domain(geosite:google-scholar)->proxy
+   domain(geosite:cn, geosite:category-scholar-!cn, geosite:category-scholar-cn)->direct
+   ip(geoip:hk,geoip:mo)->proxy
+   ip(geoip:private, geoip:cn)->direct
+   ```
 
-```bash
-cd my-doks-site
-```
+   **基于GFWList模式:**
 
-### Install dependencies
+   ```bash
+   outbound: unblockneteasemusic = http(address:"127.0.0.1", port:"18080")
 
-```bash
-npm install
-```
+   default: direct
 
-### Start development server
+   # 下一行是为安卓设备准备的, 如果你不使用安卓设备，请你移除下一行，否则这将有可能影响到听歌记录。
+   domain(regexp:clientlog\d*.music.163.com)->block
+   domain(domain:163.com,domain:netease.com) && source(172.16.0.0/12)->direct
+   domain(domain:163.com,domain:netease.com)->unblockneteasemusic
 
-```bash
-npm run start
-```
+   domain(geosite:geolocation-!cn)->proxy
+   ```
 
-Doks will start the Hugo development webserver accessible by default at `http://localhost:1313`. Saved changes will live reload in the browser.
+5. 将透明代理设置为 "与规则端口所选模式一致"。
 
-## Other commands
+6. 完成啦！
