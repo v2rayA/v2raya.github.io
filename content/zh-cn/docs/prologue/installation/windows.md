@@ -47,13 +47,13 @@ scoop install v2ray  ## 或者安装 xray
 ### 直接运行
 
 ```pwsh
-D:\v2rayA\v2raya.exe --lite --v2ray-bin 'D:\v2ray\v2ray.exe'
+D:\v2rayA\v2raya.exe --lite --v2ray-bin D:\v2ray\v2ray.exe
 ```
 
 ### 后台运行（使用 PowerShell 的隐藏窗口功能）：
 
 ```pwsh
-Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.exe' " -WindowStyle Hidden
+Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin D:\v2ray\v2ray.exe " -WindowStyle Hidden
 ```
 
 ### 后台运行（使用 [ConEmu](https://conemu.github.io/)）
