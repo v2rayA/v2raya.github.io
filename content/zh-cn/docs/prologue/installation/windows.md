@@ -30,7 +30,7 @@ v2rayA 目前不支持 TUN，因此 Windows 之上的透明代理无法启用。
 
 ### 方法一：从 scoop 安装
 
-```pwsh
+```ps1
 scoop install v2ray  ## 或者安装 xray 
 ```
 
@@ -80,8 +80,8 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin 'D:\v2ray\v2ray.exe'
 
 ```ps1
 cd D:\v2rayA
-./v2raya-service.exe install
-./v2raya-service.exe start
+.\v2raya-service.exe install
+.\v2raya-service.exe start
 ```
 
 操作需要管理员权限。
