@@ -11,7 +11,6 @@ toc: true
 weight: 810
 date: 2021-09-25T21:31:02+08:00
 lastmod: 2021-09-25T21:31:02+08:00
-draft: true
 images: []
 ---
 
@@ -29,7 +28,7 @@ scoop install yarn go
 
 你不需要再次安装 git，因为 scoop 依赖于 git。换而言之，当你使用 scoop 的时候，git 是一定安装好了的。
 
-建议安装 PowerShell Core，，如此 scoop 将能更好地工作（尤其是在旧版本 Windows 系统中）。可以从 [GitHub](https://aka.ms/powershell-release?tag=stable) 或 [Microsoft Store](https://www.microsoft.com/en-US/p/powershell/) 下载 PowerShell Core。
+建议安装 PowerShell Core，，如此 scoop 将能更好地工作（尤其是在旧版本 Windows 系统中）。可以从 [GitHub](https://aka.ms/powershell-release?tag=stable) 或 [Microsoft Store](https://www.microsoft.com/en-us/p/powershell/9mz1snwt0n5d) 下载 PowerShell Core。
 
 ### Arch Linux 及其衍生版
 
