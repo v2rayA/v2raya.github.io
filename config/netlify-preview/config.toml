@@ -1,2 +1,4 @@
 canonifyURLs = false
 ignoreErrors = ["error-remote-getjson"]
+[params]
+githubContributors=false
