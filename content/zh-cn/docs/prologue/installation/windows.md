@@ -67,9 +67,12 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin 'D:\v2ray\v2ray.exe'
   <executable>D:\v2rayA\v2raya.exe</executable>
   <arguments>--lite --v2ray-bin=D:\v2ray\v2ray.exe</arguments>
   <log mode="roll"></log>
+  <onfailure action="restart" delay="15 sec"/>
+  <onfailure action="restart" delay="30 sec"/>
   <serviceaccount>
     <username>.\YourUserName</username>
     <password>YourPassword</password>
+    <allowservicelogon>true</allowservicelogon>
   </serviceaccount>
 </service>
 ```
