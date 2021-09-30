@@ -67,8 +67,9 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin 'D:\v2ray\v2ray.exe'
   <executable>D:\v2rayA\v2raya.exe</executable>
   <arguments>--lite --v2ray-bin=D:\v2ray\v2ray.exe</arguments>
   <log mode="roll"></log>
-  <onfailure action="restart" delay="15 sec"/>
-  <onfailure action="restart" delay="30 sec"/>
+  <delayedAutoStart>true</delayedAutoStart>
+  <onfailure action="restart" delay="10 sec"/>
+  <onfailure action="restart" delay="20 sec"/>
   <serviceaccount>
     <username>.\YourUserName</username>
     <password>YourPassword</password>
@@ -87,7 +88,7 @@ cd D:\v2rayA
 .\v2raya-service.exe start
 ```
 
-操作需要管理员权限。
+操作需要管理员权限。在 v2rayA 所在目录下可以查看日志文件。
 
 ### 后台运行（使用 PowerShell 的隐藏窗口功能）：
 
