@@ -15,7 +15,7 @@ toc: 'true'
 
 ## Install V2Ray core/ Xray core
 
-First install the packages `unzip` and `wget` , then download the v2ray core and save it to `/usr/bin` , the download link is [https://github.com/v2fly/v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases) , and finally give the binary file executable permissions.
+First install the packages `unzip` and `wget` , then download the v2ray-core and save it to `/usr/bin` , the binary link is [https://github.com/v2fly/v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases) , and finally give the binary file executable permissions.
 
 E.g:
 
@@ -36,7 +36,7 @@ Pay special attention to the architecture of your OpenWrt device, do not downloa
 ```bash
 opkg update
 opkg install ca-certificates tar curl
-opkg install kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter
+opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptables-mod-conntrack-extra iptables-mod-extra
 ```
 
 ### Install binary executable file
