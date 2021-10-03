@@ -15,13 +15,19 @@ toc: 'true'
 
 ## Install V2Ray Core/ Xray Core
 
-{{% notice info %}}
-If you have already installed the core, you can skip this section.
-{{% /notice %}}
+{{% notice info %}} If you have already installed the core, you can skip this section. {{% /notice %}}
+
+### Official script of V2Ray / Xray
 
 V2Ray Installation: [https://github.com/v2fly/alpinelinux-install-v2ray](https://github.com/v2fly/alpinelinux-install-v2ray)
 
 Xray Installation: [https://github.com/XTLS/alpinelinux-install-xray](https://github.com/XTLS/alpinelinux-install-xray)
+
+### Mirror script provided by v2rayA (recommended)
+
+```bash
+curl -Ls https://mirrors.v2raya.org/alpine-go.sh | sudo ash
+```
 
 ## Install v2rayA
 
@@ -33,7 +39,7 @@ Example:
 
 ```bash
 version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
-wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_v$version -O v2raya
+wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version -O v2raya
 mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 ```
 
