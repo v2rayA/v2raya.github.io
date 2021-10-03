@@ -41,9 +41,17 @@ sudo dnf install v2rayA
 
 ### Install V2Ray core / Xray core
 
+#### Official script of V2Ray / Xray
+
 V2Ray installation: [https://github.com/v2fly/fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray)
 
 Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+
+#### Mirror script provided by v2rayA (recommended)
+
+```bash
+curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
+```
 
 You can turn off the service after installation, because v2rayA does not depend on the systemd service.
 
