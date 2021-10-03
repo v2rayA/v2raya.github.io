@@ -15,9 +15,17 @@ toc: 'true'
 
 ## Install V2Ray core / Xray core
 
+### Official script of V2Ray / Xray
+
 V2Ray installation: [https://github.com/v2fly/fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray)
 
 Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+
+### Mirror script provided by v2rayA (recommended)
+
+```bash
+curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
+```
 
 You can turn off the service after installation, because v2rayA does not depend on the systemd service.
 
@@ -71,3 +79,25 @@ sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### Replace the ac
     ```bash
     sudo systemctl enable v2raya.service
     ```
+
+## Switch iptables to iptables-nft
+
+For Debian11 users, iptables has been deprecated. Use nftables as the backend of iptables for adaptation:
+
+```bash
+update-alternatives --set iptables /usr/sbin/iptables-nft
+update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
+update-alternatives --set arptables /usr/sbin/arptables-nft
+update-alternatives --set ebtables /usr/sbin/ebtables-nft
+```
+
+If you want to switch back to the legacy version:
+
+```bash
+update-alternatives --set iptables /usr/sbin/iptables-legacy
+update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+update-alternatives --set arptables /usr/sbin/arptables-legacy
+update-alternatives --set ebtables /usr/sbin/ebtables-legacy
+```
+
+Restart after switching.
