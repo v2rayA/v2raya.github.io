@@ -1,7 +1,7 @@
 ---
 title: "指定 Docker 容器代理"
 description: "v2rayA 指定 Docker 容器代理的介绍"
-lead: "TODO: 利用 docker 容器有单独 IP 的特点，通过 source IP 的限制，对特定 docker 容器进行代理，其他走直连。本节应该还介绍如何固定 docker 容器的IP地址。"
+lead: "本节介绍如何利用桥接的 docker 容器有单独 IP 的特点，通过 source IP 的限制，对特定 docker 容器进行代理，其他走直连。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -13,55 +13,30 @@ toc: true
 weight: 630
 ---
 
-## Requirements
+## 指定 Docker 容器代理
 
-Doks uses npm to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts:
+{{% notice info %}}
+此方法只能适用于 v2rayA 与要控制路由的 Docker 容器在同一台机器的情况。
+{{% /notice %}}
 
-- Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
+### 透明代理使用 redirect 模式
 
-## Start a new Doks project
+正如 [BT 下载直连]({{% relref "pass-bt" %}}) 中所列方法，我们可以控制每一个桥接的 Docker 容器的路由。
 
-Create a new site, change directories, install dependencies, and start development server.
+当 BT 应用运行在 Docker 时，默认的网络模式使用桥接模式（--network=bridge），此时容器会单独获得一个 IP 地址。而 Docker 的默认桥接网络为 `172.17.0.0/16`，容器会在该地址段中获取一个 IP 使用。如果我们想让所有桥接容器走直连，而特定容器走代理，可使用 RoutingA 进行控制，例如：
 
-### Create a new site
-
-Doks is available as a child theme, and a starter theme:
-
-- Use the Doks child theme, if you do __not__ plan to customize a lot, and/or need future Doks updates.
-- Use the Doks starter theme, if you plan to customize a lot, and/or do __not__ need future Doks updates.
-
-Not quite sure? Use the Doks child theme.
-
-#### Doks child theme
-
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io-child-theme.git my-doks-site
+```python
+# 将规则插入到较前位置
+source(172.17.0.213) -> proxy
+source(172.17.0.0/16) -> direct
 ```
 
-#### Doks starter theme
+上述规则使得 `172.17.0.213` 走代理，而 `172.17.0.0/16` 段直连。
 
-```bash
-git clone https://github.com/v2rayA/v2raya.github.io.git my-doks-site
-```
+当 docker 服务重启时，容器的 IP 地址可能会发生变化，因此需要固定容器的 IP 地址，方法参见 <https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container>。
 
-### Change directories
+### 透明代理使用 tproxy 模式
 
-```bash
-cd my-doks-site
-```
+由于一些限制，在此模式下，所有桥接容器默认直连，因此要走代理的容器需要将网络设为 `host`，即在容器启动时使用 `--network host` 参数。
 
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Start development server
-
-```bash
-npm run start
-```
-
-Doks will start the Hugo development webserver accessible by default at `http://localhost:1313`. Saved changes will live reload in the browser.
-
-## Other commands
+注意，`host` 模式下该容器将无法进行端口映射，容器内部监听的端口将直接监听在宿主上，容易引起端口冲突。
