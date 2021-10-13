@@ -45,7 +45,7 @@ weight: 640
 
 透明代理使用 redirect 模式可代理 Docker 容器。下面使用一些技巧来使得特定 BT 容器直连。
 
-当 BT 应用运行在 Docker 时，默认的网络模式使用桥接模式（--network=bridge），此时容器会单独获得一个 IP 地址，使用 RoutingA 设置源 IP 地址直连即可。
+当 BT 应用运行在 Docker 时，默认的网络模式使用桥接模式（`--network=bridge`），此时容器会单独获得一个 IP 地址，使用 RoutingA 设置源 IP 地址直连即可。
 
 1. 将 BT 应用运行于 docker 容器。
 
