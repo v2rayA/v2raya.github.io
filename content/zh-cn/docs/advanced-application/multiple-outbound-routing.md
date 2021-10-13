@@ -19,7 +19,9 @@ v2rayA 支持设置多个出站组（outbound），通过 RoutingA 可以设置�
 
 ## 流媒体分流
 
-流媒体分流即访问不同的流媒体时，使用不同的服务器节点。例如观看奈非时使用可观看奈非的服务器节点，而正常冲浪时使用更快速的 IPLC 节点，BT 下载时使用流量更多的荷兰服务器节点。下面是分流方法：
+流媒体分流即访问不同的流媒体时，使用不同的服务器节点。例如观看奈非时使用可观看奈非的服务器节点，而正常冲浪时使用更快速的 IPLC 节点，BT 下载时使用流量更多的荷兰服务器节点。
+
+下面以 Netflix 和 Disney 为例讲述分流方法：
 
 1. 在 v2rayA 的左上方新增两个出站，名为 Netflix 和 Disney。此时我们有三个出站：proxy、Netflix、Disney。
 
@@ -39,6 +41,10 @@ v2rayA 支持设置多个出站组（outbound），通过 RoutingA 可以设置�
    ```
 
 5. 保存并应用，并在 v2rayA 管理界面左上角启动 v2ray-core。
+
+此时，正常上网流量将使用 `proxy` 组，Netflix 使用 `Netflix` 组，而 Disney 使用 `Disney` 组。
+
+如果你想使 BT 下载使用某一出站，可参考 [BT 下载直连]({{% relref "specify-container-proxy" %}}) 的方法，将其中的出站名由 `direct` 改为特定出站即可。
 
 ## 爬虫分流
 
