@@ -31,6 +31,8 @@ weight: 640
 
 ## 方法 2：将 BT 应用运行在 Docker 中
 
+与 [指定 Docker 容器代理]({{% relref "specify-container-proxy" %}}) 中所列方法类似，我们可以使得在 Docker 容器中的 BT 应用直连。
+
 {{% notice info %}}
 此方法只能适用于 v2rayA 与要直连的 BT 应用在同一台机器的情况。
 {{% /notice %}}
@@ -63,4 +65,4 @@ weight: 640
    source(172.17.0.212) -> direct
    ```
 
-当 docker 服务重启时，容器的 IP 地址可能会发生变化，因此需要固定容器的 IP 地址，方法参见 <https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container>。
+当 docker 服务重启时，容器的 IP 地址可能会发生变化，因此需要固定容器的 IP 地址，方法参见 [StackOverflow](https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container) 上的讨论。

@@ -38,7 +38,7 @@ v2rayA 支持设置多个出站组（outbound），通过 RoutingA 可以设置�
    domain(geosite: disney) -> Disney
    ```
 
-5. 保存并应用即可。
+5. 保存并应用，并在 v2rayA 管理界面左上角启动 v2ray-core。
 
 ## 爬虫分流
 
@@ -66,7 +66,7 @@ v2rayA 支持设置多个出站组（outbound），通过 RoutingA 可以设置�
    inboundTag(crawlerin5)->Crawler5
    ```
 
-5. 保存并应用。
+5. 保存并应用，并在 v2rayA 管理界面左上角启动 v2ray-core。
 
 6. 在爬虫应用中使用 30001-30005 端口以选择不同的 IP 出口。
 

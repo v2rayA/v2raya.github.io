@@ -33,7 +33,7 @@ source(172.17.0.0/16) -> direct
 
 上述规则使得 `172.17.0.213` 走代理，而 `172.17.0.0/16` 段直连。
 
-当 docker 服务重启时，容器的 IP 地址可能会发生变化，因此需要固定容器的 IP 地址，方法参见 <https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container>。
+当 docker 服务重启时，容器的 IP 地址可能会发生变化，因此需要固定容器的 IP 地址，方法参见 [StackOverflow](https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container) 上的讨论。
 
 ### 透明代理使用 tproxy 模式
 

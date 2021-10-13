@@ -15,7 +15,7 @@ weight: 670
 
 ## 常规用法
 
-默认的防止 DNS 污染规则通常使用预设的 DNS 公共服务器，高级用户可使用高级 DNS 设置进行自定义。ns.
+默认的防止 DNS 污染规则通常使用预设的 DNS 公共服务器，高级用户可使用高级 DNS 设置进行自定义。
 
 规则如下：
 
@@ -39,7 +39,7 @@ https://dns.google -> proxy
 
 将“防止DNS污染”设为关闭后，v2ray-core 将不会设置 DNS 入站，从而避免 DNS 冲突。
 
-redirect 模式下 UDP 流量不会经过 v2ray-core。当其他 DNS 客户端的上游 DNS 不为 UDP DNS 查询时不受上述影响，例如 `DNS over TCP`、`DNS over TLS` 及 `DNS over HTTPS`，此时虽然 DNS 会经过 v2ray-core，但 v2ray-core 将认为这些请求并非 DNS 请求，从而当做正常流量进行路由分流。
+redirect 模式下 UDP 流量不会经过 v2ray-core，而 TCP 流量会正常进行路由分流。因此其他 DNS 客户端的非常规 DNS 查询（非 `DNS over TCP` 和 `DNS over UDP`）会被当做常规流量进行路由分流。
 
 ### 当使用 tproxy 模式时
 
