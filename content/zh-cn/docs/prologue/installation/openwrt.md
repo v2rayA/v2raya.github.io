@@ -15,7 +15,7 @@ toc: true
 
 ## 安装 V2Ray 内核 / Xray 内核
 
-首先安装软件包 `unzip` 与 `wget`，然后下载 v2ray 内核然后将其保存到 `/usr/bin`，下载链接为<https://github.com/v2fly/v2ray-core/releases>，最后给予二进制文件可执行权限。
+首先安装软件包 `unzip` 与 `wget`，然后从 [Github Releases](https://github.com/v2fly/v2ray-core/releases) 下载 v2ray 内核然后将其保存到 `/usr/bin`，最后给予二进制文件可执行权限。
 
 例如：
 
@@ -27,52 +27,65 @@ cp v2ray-core/v2ray v2ray-core/v2ctl /usr/bin
 chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 ```
 
-格外注意你的 OpenWrt 设备的架构，不要下载到不适用于你设备的版本，否则内核将无法运行。Xray 内核可参照此方法安装。
+{{% notice note %}} **擦亮眼睛**  
+格外注意你的 OpenWrt 设备的架构，不要下载到不适用于你设备的版本，否则内核将无法运行。
+{{% /notice %}}
+
+Xray 内核亦可参照此方法安装。
 
 ## 安装 v2rayA
 
-### 安装必须的软件包：
+### 通过软件源安装
+
+{{% notice info %}}
+目前只有 openWrt 最新的 snapshot 版本软件源中含有 v2rayA。使用此版本的用户可以直接从软件源安装。
+{{% /notice %}}
 
 ```bash
 opkg update
-opkg install ca-certificates tar curl
-opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptables-mod-conntrack-extra iptables-mod-extra
+opkg install v2raya
 ```
 
-### 安装二进制可执行文件
+{{% notice note %}}
+由于目前 openWrt 的软件源中没有 `v2ray-core`, `xray-core` 会作为依赖被安装。
+如果你使用 v2ray，则可以手动卸载并忽略依赖警告。
+{{% /notice %}}
+
+### 手动安装
+
+{{% notice info %}}
+对于软件源中没有 v2rayA 的用户，可以从 [此处](https://downloads.openwrt.org/snapshots/packages) 中寻找适合你架构的 ipk 文件进行安装，也可以直接按如下方式手动安装。
+{{% /notice %}}
+
+#### 安装必须的软件包
+
+```bash
+opkg update
+opkg install \
+    ca-bundle \
+    ip-full \
+    iptables-mod-conntrack-extra \
+    iptables-mod-extra \
+    iptables-mod-filter \
+    iptables-mod-tproxy \
+    kmod-ipt-nat6
+```
+
+#### 安装二进制可执行文件
 
 从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件。
-移动到`/usr/bin`并给予执行权限：
+移动到 `/usr/bin` 并给予执行权限：
 
 ```bash
 mv v2raya /usr/bin/v2raya
 chmod +x /usr/bin/v2raya
 ```
 
-### 创建服务文件
+#### 创建配置文件和服务文件
 
-```bash
-nano /etc/init.d/v2raya
-```
+`/etc/config/v2raya` 参考[此处](https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.config)。
 
-内容如下：
-
-```ini
-#!/bin/sh /etc/rc.common
-command=/usr/bin/v2raya
-PIDFILE=/var/run/v2raya.pid
-depend() {
-    need net
-    after firewall
-    use dns logger
-}
-start() {
-    start-stop-daemon -b -S -m -p "${PIDFILE}" -x $command
-}
-stop() {
-    start-stop-daemon -K -p "${PIDFILE}"
-}
-```
+`/etc/init.d/v2raya` 参考[此处](https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.init)。
 
 给予此文件可执行权限：
 
@@ -80,9 +93,10 @@ stop() {
 chmod +x /etc/init.d/v2raya
 ```
 
-### 运行 v2rayA 并开机启动（可选）
+## 设置 v2rayA 开机启动
 
 ```bash
+uci set v2raya.config.enabled='1'
+uci commit v2raya
 /etc/init.d/v2raya start
-/etc/init.d/v2raya enable
 ```
