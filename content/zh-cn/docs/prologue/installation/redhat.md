@@ -35,6 +35,70 @@ sudo dnf install v2ray-core
 sudo dnf install v2rayA
 ```
 
+## Fedora Silverblue / Kinoite
+### 稳定方法
+切换到合适的路径:
+```bash
+cd ~/Downloads
+mkdir v2rayA
+cd v2rayA
+```
+
+进入toolbox:
+```bash
+toolbox enter
+```
+
+开启copr仓库:
+```bash
+sudo dnf copr enable zhullyb/v2rayA
+```
+
+下载软件包:
+```bash
+dnf download --resolve v2ray-core v2rayA
+```
+
+退出到宿主机:
+```bash
+exit
+```
+
+在宿主机上安装软件包:
+```bash
+rpm-ostree install ./*.rpm
+```
+
+> 警告：注意刚下载的软件包可能在被安装之前被低权限恶意软件替换。
+> 
+然后，用GUI或者命令行重启电脑:
+```bash
+systemctl reboot
+```
+
+启用并开始运行 `v2rayA`:
+```bash
+sudo systemctl enable --now v2raya.service
+```
+
+用户应该自己手动更新软件。
+
+### 快速方法
+COPR软件仓库不受Silverblue / Kinoite支持，此方法风险自负。目前此方法似乎可用，但未来相关功能可能被修改或删除。
+
+```bash
+# 添加copr软件仓库到系统
+sudo curl -Lo /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:zhullyb:v2rayA.repo \
+  https://copr.fedorainfracloud.org/coprs/zhullyb/v2rayA/repo/fedora-$(rpm -E %fedora)/zhullyb-v2rayA-fedora-$(rpm -E %fedora).repo
+# 不重启的情况下安装软件包
+sudo rpm-ostree install -A v2ray-core v2rayA
+# 启用并开始运行服务
+sudo systemctl enable --now v2raya.service
+```
+
+软件更新由 `rpm-ostree` 自动完成。
+
+
 ## 其他基于 rpm 的操作系统
 
 > 此方法可以为 Alma Linux、Rocky Linux、openSUSE 或其它基于 rpm 软件包管理器的 Linux 发行版安装 v2rayA，前提是你所用的**发行版使用了 systemd 作为系统管理工具**。
