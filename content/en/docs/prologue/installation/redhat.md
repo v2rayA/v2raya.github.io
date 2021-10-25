@@ -35,6 +35,72 @@ sudo dnf install v2ray-core
 sudo dnf install v2rayA
 ```
 
+## Fedora Silverblue / Kinoite
+
+### Reliable way
+
+Switch to a suitable directory:
+```bash
+cd ~/Downloads
+mkdir v2rayA
+cd v2rayA
+```
+
+Enter the toolbox:
+```bash
+toolbox enter
+```
+
+Enable the copr repository:
+```bash
+sudo dnf copr enable zhullyb/v2rayA
+```
+
+Download packages:
+```bash
+dnf download --resolve v2ray-core v2rayA
+```
+
+Exit to host:
+```bash
+exit
+```
+
+Install downloaded packages on the host:
+```bash
+rpm-ostree install ./*.rpm
+```
+
+> Warning: Be aware of the race condition where downloaded packages got replaced by unprivileged malware before installing it on the host.
+Then, reboot your PC, either by GUI or by command:
+```bash
+systemctl reboot
+```
+
+Enable and start `v2rayA`:
+```bash
+sudo systemctl enable --now v2raya.service
+```
+
+Package updates should be handled by user manually.
+
+### Fast way
+
+COPR repository is not supported by Fedora Silverblue / Kinoite where containerized workflows are expected, use it at your own risk. It seems to work for now but relavent functionalities may be changed or removed in the future.
+
+```bash
+# Add copr repository to your system
+sudo curl -Lo /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:zhullyb:v2rayA.repo \
+  https://copr.fedorainfracloud.org/coprs/zhullyb/v2rayA/repo/fedora-$(rpm -E %fedora)/zhullyb-v2rayA-fedora-$(rpm -E %fedora).repo
+# Install packages without rebooting
+sudo rpm-ostree install -A v2ray-core v2rayA
+# Enable and start the service
+sudo systemctl enable --now v2raya.service
+```
+
+Package updates are handled by `rpm-ostree` automatically.
+
+
 ## Other rpm-based operating systems
 
 > This method can install v2rayA for Alma Linux, Rocky Linux, openSUSE or other Linux distributions based on the rpm package manager, provided that the **distribution you are using uses systemd as a system management tool** .
