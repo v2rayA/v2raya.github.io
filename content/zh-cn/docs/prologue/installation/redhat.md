@@ -36,7 +36,9 @@ sudo dnf install v2rayA
 ```
 
 ## Fedora Silverblue / Kinoite
+
 ### 稳定方法
+
 切换到合适的路径:
 ```bash
 cd ~/Downloads
@@ -84,6 +86,7 @@ sudo systemctl enable --now v2raya.service
 用户应该自己手动更新软件。
 
 ### 快速方法
+
 COPR软件仓库不受Silverblue / Kinoite支持，此方法风险自负。目前此方法似乎可用，但未来相关功能可能被修改或删除。
 
 ```bash
