@@ -35,8 +35,10 @@ sudo dnf install v2ray-core
 sudo dnf install v2rayA
 ```
 
-# Fedora Silverblue / Kinoite
+## Fedora Silverblue / Kinoite
+
 ### Reliable way
+
 Switch to a suitable directory:
 ```bash
 cd ~/Downloads
@@ -83,6 +85,7 @@ sudo systemctl enable --now v2raya.service
 Package updates should be handled by user manually.
 
 ### Fast way
+
 COPR repository is not supported by Fedora Silverblue / Kinoite where containerized workflows are expected, use it at your own risk. It seems to work for now but relavent functionalities may be changed or removed in the future.
 
 ```bash
