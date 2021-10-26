@@ -40,6 +40,7 @@ sudo dnf install v2rayA
 ### Reliable way
 
 Switch to a suitable directory:
+
 ```bash
 cd ~/Downloads
 mkdir v2rayA
@@ -47,37 +48,47 @@ cd v2rayA
 ```
 
 Enter the toolbox:
+
 ```bash
 toolbox enter
 ```
 
 Enable the copr repository:
+
 ```bash
 sudo dnf copr enable zhullyb/v2rayA
 ```
 
 Download packages:
+
 ```bash
 dnf download --resolve v2ray-core v2rayA
 ```
 
 Exit to host:
+
 ```bash
 exit
 ```
 
 Install downloaded packages on the host:
+
 ```bash
 rpm-ostree install ./*.rpm
 ```
 
-> Warning: Be aware of the race condition where downloaded packages got replaced by unprivileged malware before installing it on the host.
+{{% notice warning %}}
+Warning: Be aware of the race condition where downloaded packages got replaced by unprivileged malware before installing it on the host.
+{{% /notice %}}
+
 Then, reboot your PC, either by GUI or by command:
+
 ```bash
 systemctl reboot
 ```
 
 Enable and start `v2rayA`:
+
 ```bash
 sudo systemctl enable --now v2raya.service
 ```
@@ -100,10 +111,11 @@ sudo systemctl enable --now v2raya.service
 
 Package updates are handled by `rpm-ostree` automatically.
 
-
 ## Other rpm-based operating systems
 
-> This method can install v2rayA for Alma Linux, Rocky Linux, openSUSE or other Linux distributions based on the rpm package manager, provided that the **distribution you are using uses systemd as a system management tool** .
+{{% notice info %}}
+This method can install v2rayA for Alma Linux, Rocky Linux, openSUSE or other Linux distributions based on the rpm package manager, provided that the **distribution you are using uses systemd as a system management tool** .
+{{% /notice %}}
 
 ### Install V2Ray core / Xray core
 
