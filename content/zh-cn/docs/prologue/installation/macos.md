@@ -14,7 +14,7 @@ toc: true
 ---
 
 {{% notice info %}}
-v2rayA 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此透明代理无法启用。安全起见，本 wiki 将以非 root 权限来运行 v2rayA。
+v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此透明代理无法启用。安全起见，本 wiki 将以非 root 权限来运行 v2rayA。
 {{% /notice %}}
 
 {{% notice info %}}
@@ -23,23 +23,25 @@ v2rayA 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此�
 
 ## 下载 v2rayA
 
-从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 macOS 的二进制文件，然后重命名为 `v2raya`（如果你还找不到适用于 macOS 的二进制文件，那就是开发者还在咕咕咕，你再等一分钟或许下一分钟就好了😊😊😊）。
+从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 macOS 的二进制文件，然后重命名为 `v2raya`，并将其保存到 `/usr/local/bin/`。
 
-下载好 v2rayA 的二进制文件后，你需要在你当前目录下新建一个文件夹，用来存放 v2rayA 的二进制文件以及相关配置：
+示例：
 
 ```bash
-mkdir ~/.bin/
+curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_x64_1.5.4 -o /usr/local/bin/v2raya
 ```
 
-然后将二进制文件移动到 bin 文件夹：
+在相同的目录下建立一个 `.sh`格式的脚本文件，名为 v2raya.sh：
 
 ```bash
-mv ~/Downloads/v2raya ~/.bin/
+#! /bin/zsh
+PATH=$PATH:/usr/local/bin
+/usr/local/bin/v2raya --lite
 ```
 
 ## 下载 V2Ray 核心 / Xray 核心
 
-### 方法一：从 brew 安装
+### 方法一：从 brew 安装（推荐）
 
 ```bash
 brew install v2ray  ## 或者安装 xray 
@@ -50,13 +52,7 @@ brew install v2ray  ## 或者安装 xray
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
 > 安装 Xray：<https://xray.sh/document/install.html>
 
-解压压缩包后将其中的二进制文件与 `.dat` 格式的文件都移动到 ~/.bin/ 或其它你可以访问的目录。
-
-示例：
-
-```bash
-mv ./v2ray-macos-amd64/* ~/.bin
-```
+解压压缩包后将其中的二进制文件与 `.dat` 格式的文件都移动到 `/usr/local/bin/`。
 
 ## 建立服务文件
 
@@ -65,6 +61,7 @@ mv ./v2ray-macos-amd64/* ~/.bin
 示例：
 
 ```bash
+mkdir ~/Library/LaunchAgents/  ###如果提示该目录存在，那么略过这条命令。
 nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 ```
 
@@ -81,9 +78,7 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
         <string>org.v2raya.v2raya</string>
         <key>ProgramArguments</key>
         <array>
-            <string>/Users/UserName/.bin/v2raya</string>
-            <string>--lite</string>
-            <string>--v2ray-bin=/usr/local/bin/v2ray</string>
+            <string>/usr/local/bin/v2raya.sh</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -91,22 +86,19 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 </plist>
 ```
 
-自行替换 `UserName` 为你的实际用户名。
-
-{{% notice info %}}
-
-+ 可以使用 `echo $HOME` 命令来快速确认你的 Home 目录。
-+ `--v2ray-bin` 用于指定 V2Ray / Xray 核心，由于 launchd 的限制，v2rayA 无法自动获取在 path 内的核心，因此需要手动指定。如果你使用 brew 安装了核心，则可以通过 `which xray` 来快速确认核心所在位置。
-
-{{% /notice %}}
-
 最后，给予 v2rayA 可执行权限：
 
 ```bash
-chmod +x ~/.bin/v2raya && xattr -d -r com.apple.quarantine ~/.bin/*
+chmod 755 /usr/local/bin/v2raya && chmod 755 /usr/local/bin/v2raya.sh
 ```
 
-如若核心也在 `.bin` 之中，那么还需要给予 `v2ray`、`v2ctl` 或 `xray` 可执行权限。
+如果遇到 macOS 的安全限制，那么需要运行以下命令：
+
+```bash
+xattr -d -r com.apple.quarantine  /usr/local/bin/*
+```
+
+如若核心是手动安装的，那么还需要给予 `v2ray`、`v2ctl` 或 `xray` 可执行权限。
 
 ## 运行
 
