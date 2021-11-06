@@ -115,7 +115,7 @@ PATH=$PATH:/usr/local/bin
 /usr/local/bin/v2raya --lite
 ```
 
-### ### 下载 V2Ray 核心 / Xray 核心
+### 下载 V2Ray 核心 / Xray 核心
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
 > 安装 Xray：<https://xray.sh/document/install.html>
@@ -128,10 +128,10 @@ sudo mv v2ray /usr/local/bin/; sudo mv v2ctl /usr/local/bin/; sudo mv *dat /usr/
 
 ### 给予权限
 
-给予 v2rayA 可执行权限：
+给予 v2rayA 与 v2ray 可执行权限：
 
 ```bash
-sudo chmod 755 /usr/local/bin/v2raya && sudo chmod 755 /usr/local/bin/v2raya.sh
+sudo chmod 755 /usr/local/bin/v2raya; sudo chmod 755 /usr/local/bin/v2raya.sh; sudo chmod 755 /usr/local/bin/v2ray; sudo chmod 755 /usr/local/bin/v2ctl
 ```
 
 如果遇到 macOS 的安全限制，那么需要运行以下命令：
