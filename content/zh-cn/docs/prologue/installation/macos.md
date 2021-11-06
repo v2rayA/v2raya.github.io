@@ -26,9 +26,13 @@ v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 macOS 的二进制文件，然后重命名为 `v2raya`，并将其保存到 `/usr/local/bin/`。
 
 示例：
-
+x86_64:
 ```bash
-curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_x64_1.5.4 -o /usr/local/bin/v2raya
+sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_x64_1.5.4 -o /usr/local/bin/v2raya
+```
+arm64:
+```bash
+sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_arm64_1.5.4 -o /usr/local/bin/v2raya
 ```
 
 在相同的目录下建立一个 `.sh`格式的脚本文件，名为 v2raya.sh：
@@ -89,20 +93,33 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 最后，给予 v2rayA 可执行权限：
 
 ```bash
-chmod 755 /usr/local/bin/v2raya && chmod 755 /usr/local/bin/v2raya.sh
+sudo chmod 755 /usr/local/bin/v2raya && sudo chmod 755 /usr/local/bin/v2raya.sh
 ```
 
 如果遇到 macOS 的安全限制，那么需要运行以下命令：
 
 ```bash
-xattr -d -r com.apple.quarantine  /usr/local/bin/*
+sudo xattr -d -r com.apple.quarantine  /usr/local/bin/*
 ```
+
+如果sudo时遇到operation not permitted，是因为mac电脑启用了SIP（System Integrity Protection），增加了rootless机制，导致即使在root权限下依然无法修改文件，关闭该保护机制才能进行修改
+关闭SIP方法：
+1. 重启电脑，非M1用户请在屏幕出现苹果logo的时候，按照command+R，直到进入保护模式；M1及以后的用户请关机后长按10s开机按钮以进入保护模式
+2. 保护模式：屏幕正中是一个对话框，提示恢复某个备份，或者恢复出厂系统等等。左上角有一排工具栏。
+3. 左上角找到 terminal终端，打开，并输入csrutil disable
+4. 再次重启电脑，即可对 usr/bin 目录下文件进行修改了
+
+若要恢复保护机制，请重新进入保护模式后，在终端输入csrutil enable即可
 
 如若核心是手动安装的，那么还需要给予 `v2ray`、`v2ctl` 或 `xray` 可执行权限。
 
 ## 运行
 
 ### 开启服务并运行
+
+```bash
+sudo chown 你的用户名:wheel ~/Library/LaunchAgents/org.v2raya.v2raya.plist
+```
 
 ```bash
 launchctl load ~/Library/LaunchAgents/org.v2raya.v2raya.plist
