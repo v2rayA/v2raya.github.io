@@ -14,7 +14,7 @@ features:
 - title: 强大而轻便 ⚡️
   description: v2rayA 使用 Golang 和 Vue.js 编写，运行时没有任何外部依赖库，可运行于任何 Linux 系统，借助任意一款浏览器均可操作。
 - title: 外部访问
-  description: 对于无图形界面的 Linux 系统，在安装 v2rayA 之后，借助另一台 PC 或移动设备即可完成对其的操作。这对于远程服务器、路由器是及其方便的。
+  description: 对于无图形界面的 Linux 系统，在安装 v2rayA 之后，借助另一台 PC 或移动设备即可完成对其的操作。这对于远程服务器、路由器是极其方便的。
 - title: 多出站负载均衡和分流
   description: v2rayA 允许用户创建和连接多个出站节点，以实现负载均衡及分流。
 - title: RoutingA 自定义路由
