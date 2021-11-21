@@ -16,14 +16,14 @@ images: []
 
 ## 准备构建环境
 
-确保你的系统上安装了 yarn/npm、git 和 golang。
+确保你的系统上安装了 yarn、nodejs、git 和 golang。
 
 ### Windows
 
 从 [scoop](https://scoop.sh/) 安装：
 
 ```ps1
-scoop install yarn go
+scoop install yarn nodejs-lts go
 ```
 
 你不需要再次安装 git，因为 scoop 依赖于 git。换而言之，当你使用 scoop 的时候，git 是一定安装好了的。
