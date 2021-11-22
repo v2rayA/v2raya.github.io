@@ -21,9 +21,9 @@ v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防
 建议从 brew 安装 v2ray 核心，如此 v2rayA 将自动使用你电脑上现有的 v2ray。如果不从 brew 安装核心，你将需要手动指定核心所在路径。
 {{% /notice %}}
 
-## 搭配 [Homebrew](https://brew.sh/) 方案
+## 搭配 Homebrew 方案
 
-如果你已经安装 Homnebrew，那么 `/usr/local` 目录下会存在一个 `bin` 文件夹，而且你用来安装 Homebrew 的账户对其有完全的访问与写入权限。因此，你不需要使用 `sudo` 来调用 root 权限就能完成安装。同时，如果你使用过 `brew services` 命令，那么 `~/Library/LaunchAgents/` 目录已经存在。如果不然，你需要手动创建这个目录。
+如果你已经安装 [Homnebrew](https://brew.sh/) ，那么 `/usr/local` 目录下会存在一个 `bin` 文件夹，而且你用来安装 Homebrew 的账户对其有完全的访问与写入权限。因此，你不需要使用 `sudo` 来调用 root 权限就能完成安装。同时，如果你使用过 `brew services` 命令，那么 `~/Library/LaunchAgents/` 目录已经存在。如果不然，你需要手动创建这个目录。
 
 ### 下载 v2rayA
 
