@@ -23,7 +23,7 @@ v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防
 
 ## 搭配 Homebrew 方案
 
-如果你已经安装 [Homnebrew](https://brew.sh/) ，那么 `/usr/local` 目录下会存在一个 `bin` 文件夹，而且你用来安装 Homebrew 的账户对其有完全的访问与写入权限。因此，你不需要使用 `sudo` 来调用 root 权限就能完成安装。同时，如果你使用过 `brew services` 命令，那么 `~/Library/LaunchAgents/` 目录已经存在。如果不然，你需要手动创建这个目录。
+如果你已经安装 [Homebrew](https://brew.sh/) ，那么 `/usr/local` 目录下会存在一个 `bin` 文件夹，而且你用来安装 Homebrew 的账户对其有完全的访问与写入权限。因此，你不需要使用 `sudo` 来调用 root 权限就能完成安装。同时，如果你使用过 `brew services` 命令，那么 `~/Library/LaunchAgents/` 目录已经存在。如果不然，你需要手动创建这个目录。
 
 ### 下载 v2rayA
 
@@ -62,7 +62,7 @@ brew install v2ray  ## 或者安装 xray
 给予 v2rayA 可执行权限：
 
 ```bash
-chmod 755 /usr/local/bin/v2raya; hmod 755 /usr/local/bin/v2raya.sh
+chmod 755 /usr/local/bin/v2raya; chmod 755 /usr/local/bin/v2raya.sh
 ```
 
 如果遇到 macOS 的安全限制，那么需要运行以下命令：
