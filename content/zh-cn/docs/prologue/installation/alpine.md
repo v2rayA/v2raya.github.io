@@ -59,6 +59,8 @@ description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS,
 command="/usr/local/bin/v2raya"
 command_args="--config=/usr/local/etc/v2raya"
 pidfile="/run/${RC_SVCNAME}.pid"
+output_logger="/usr/bin/logger"
+error_logger="/usr/bin/logger"
 command_background="yes"
 
 depend() {
