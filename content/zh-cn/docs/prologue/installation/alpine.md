@@ -56,8 +56,11 @@ mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 
 name="v2rayA"
 description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
+
+: ${env:="V2RAYA_CONFIG=/usr/local/etc/v2raya"}
+
 command="/usr/local/bin/v2raya"
-command_args="--config=/usr/local/etc/v2raya"
+command_args="--log-disable-timestamp"
 pidfile="/run/${RC_SVCNAME}.pid"
 output_logger="/usr/bin/logger"
 error_logger="/usr/bin/logger"
@@ -82,6 +85,12 @@ apk add iptables ip6tables
 ```bash
 rc-service v2raya start
 rc-update add v2raya
+```
+
+### 查看日志
+
+```bash
+tail -f /var/log/messages
 ```
 
 ### 其它操作
