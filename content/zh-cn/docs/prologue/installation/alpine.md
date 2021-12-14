@@ -57,14 +57,13 @@ mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 name="v2rayA"
 description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
 
-: ${env:="V2RAYA_CONFIG=/usr/local/etc/v2raya"}
-
 command="/usr/local/bin/v2raya"
 command_args="--log-disable-timestamp"
 pidfile="/run/${RC_SVCNAME}.pid"
 output_logger="/usr/bin/logger"
 error_logger="/usr/bin/logger"
 command_background="yes"
+start_stop_daemon_args=" -e "V2RAYA_CONFIG=\"/usr/local/etc/v2raya"\""
 
 depend() {
     need net
