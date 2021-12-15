@@ -28,7 +28,7 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 ### v2rayA 提供的镜像脚本（推荐）
 
 ```bash
-curl -Ls https://mirrors.v2raya.org/alpine-go.sh | sudo ash
+curl -Ls https://mirrors.v2raya.org/alpine-go.sh | ash
 ```
 
 ## 安装 v2rayA
@@ -41,7 +41,7 @@ curl -Ls https://mirrors.v2raya.org/alpine-go.sh | sudo ash
   
 ```bash
 version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
-wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version -O v2raya
+curl -L https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version --output v2raya
 mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 ```
 
@@ -72,11 +72,10 @@ depend() {
 
 保存文件，然后给予此文件可执行权限。
 
-### 安装 iptables 模块并放行 2017 端口
+### 安装 iptables 模块
 
 ```bash
 apk add iptables ip6tables
-/sbin/iptables -I INPUT -p tcp --dport 2017 -j ACCEPT
 ```
 
 ### 运行 v2rayA 并开机启动（可选）
@@ -99,7 +98,7 @@ tail -f /var/log/messages
 在服务文件的 `command_args` 中加上一个参数 `--webdir`，然后指定到 Web 文件所在目录即可。比如：
 
 ```ini
-command_args="--config=/usr/local/etc/v2raya --webdir=/usr/local/etc/v2raya/web"
+command_args="--log-disable-timestamp --webdir=/usr/local/etc/v2raya/web"
 ```
 
 #### 指定内核
@@ -107,5 +106,5 @@ command_args="--config=/usr/local/etc/v2raya --webdir=/usr/local/etc/v2raya/web"
 在服务文件的 `command_args` 中加上一个参数 `--v2ray-bin`，然后指定到内核所在目录即可。比如：
 
 ```ini
-command_args="--config=/usr/local/etc/v2raya --v2ray-bin=/usr/local/bin/xray"
+command_args="--log-disable-timestamp --v2ray-bin=/usr/local/bin/xray"
 ```
