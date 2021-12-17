@@ -13,7 +13,19 @@ weight: 15
 toc: true
 ---
 
-## 安装 V2Ray 内核 / Xray 内核
+## 通过 v2rayA 自建软件源安装
+
+参考：
+
+1. [v2rayA for OpenWrt 仓库主页](https://github.com/v2raya/v2raya-openwrt)
+
+2. [OSDN 主页](https://osdn.net/projects/v2raya/)
+
+可以使用反向代理了 OSDN 的开源镜像站来加速下载。
+
+## 其它安装方式
+
+### 安装 V2Ray 内核 / Xray 内核
 
 首先安装软件包 `unzip` 与 `wget`，然后从 [Github Releases](https://github.com/v2fly/v2ray-core/releases) 下载 v2ray 内核然后将其保存到 `/usr/bin`，最后给予二进制文件可执行权限。
 
@@ -31,11 +43,11 @@ chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 格外注意你的 OpenWrt 设备的架构，不要下载到不适用于你设备的版本，否则内核将无法运行。
 {{% /notice %}}
 
-Xray 内核亦可参照此方法安装。
+自 OpenWrt 21.02 开始，Xray 内核可以通过 opkg 安装。
 
-## 安装 v2rayA
+### 安装 v2rayA
 
-### 通过软件源安装
+#### 方式 1：通过 OpenWrt 官方软件源安装
 
 {{% notice info %}}
 目前只有 openWrt 最新的 snapshot 版本软件源中含有 v2rayA。使用此版本的用户可以直接从软件源安装。
@@ -51,13 +63,22 @@ opkg install v2raya
 如果你使用 v2ray，则可以手动卸载并忽略依赖警告。
 {{% /notice %}}
 
-### 手动安装
+#### 方式 2：手动安装 ipk
 
 {{% notice info %}}
 对于软件源中没有 v2rayA 的用户，可以从 [此处](https://downloads.openwrt.org/snapshots/packages) 中寻找适合你架构的 ipk 文件进行安装，也可以直接按如下方式手动安装。
 {{% /notice %}}
 
-#### 安装必须的软件包
+#### 方式 3：手动安装可执行文件
+
+从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件，然后移动到 `/usr/bin` 并给予执行权限：
+
+```bash
+wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_$arch_$version --output-document v2raya
+mv v2raya /usr/bin/v2raya && chmod +x /usr/bin/v2raya
+```
+
+### 安装依赖包与内核模块
 
 ```bash
 opkg update
@@ -71,17 +92,7 @@ opkg install \
     kmod-ipt-nat6
 ```
 
-#### 安装二进制可执行文件
-
-从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件。
-移动到 `/usr/bin` 并给予执行权限：
-
-```bash
-mv v2raya /usr/bin/v2raya
-chmod +x /usr/bin/v2raya
-```
-
-#### 创建配置文件和服务文件
+### 创建配置文件和服务文件
 
 `/etc/config/v2raya` 参考[此处](https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.config)。
 
@@ -93,10 +104,17 @@ chmod +x /usr/bin/v2raya
 chmod +x /etc/init.d/v2raya
 ```
 
-## 设置 v2rayA 开机启动
+## 其它操作
+
+### 开启 v2rayA 服务
 
 ```bash
 uci set v2raya.config.enabled='1'
 uci commit v2raya
+```
+
+### 启动 v2rayA
+
+```bash
 /etc/init.d/v2raya start
 ```
