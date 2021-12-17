@@ -19,17 +19,30 @@ toc: true
 如果你已经安装了内核，可以跳过此节。
 {{% /notice %}}
 
+### 方法 1：从软件包管理器安装
+
+从 Alpine Linux 3.15 开始，V2Ray 已经进入了 Community 源。编辑 apk 的配置以启用 Community 源：
+
+```bash
+vi /etc/apk/repositories
+```
+
+```ini
+http://dl-cdn.alpinelinux.org/alpine/v3.15/main
+http://dl-cdn.alpinelinux.org/alpine/v3.15/community
+```
+
+然后安装 V2Ray：
+
+```bash
+apk update && apk add v2ray
+```
+
 ### V2Ray / Xray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 
 Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
-
-### v2rayA 提供的镜像脚本（推荐）
-
-```bash
-curl -Ls https://mirrors.v2raya.org/alpine-go.sh | ash
-```
 
 ## 安装 v2rayA
 
