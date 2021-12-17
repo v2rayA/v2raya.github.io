@@ -38,7 +38,7 @@ http://dl-cdn.alpinelinux.org/alpine/v3.15/community
 apk update && apk add v2ray
 ```
 
-### V2Ray / Xray 的官方脚本
+### 方法 2：V2Ray / Xray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 
