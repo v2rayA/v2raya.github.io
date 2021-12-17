@@ -104,4 +104,4 @@ Start-Process "D:\v2rayA\v2raya.exe" -Arg "--lite --v2ray-bin 'D:\v2ray\v2ray.ex
 
 Scoop 源：<https://github.com/v2raya/v2raya-scoop>
 
-你可以通过 [Scoop](https://scoop.sh) 安装 v2rayA，这样自动安装 v2rayA 与 v2ray 核心，安装完成后可以直接通过 `v2raya` 命令运行。
+你可以通过 [Scoop](https://scoop.sh) 安装 v2rayA，安装完成后可以直接通过 `v2raya` 命令运行。
