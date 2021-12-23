@@ -108,7 +108,7 @@ domain(geosite:category-scholar-!cn, geosite:category-scholar-cn)->direct
 domain(geosite:geolocation-!cn)->proxy
 # Telegram
 # ip(ext:"LoyalsoldierSite.dat:telegram")->proxy
-ip(91.108.4.0/22,91.108.8.0/22,91.108.56.0/22,95.161.64.0/20,149.154.160.0/22,149.154.164.0/22)->proxy
+ip(91.108.4.0/22,91.108.8.0/22,91.108.56.0/22,95.161.64.0/20,149.154.160.0/22,149.154.164.0/22,"2001:67c:4e8::/48")->proxy
 ```
 
 ```bash
