@@ -28,6 +28,7 @@ sudo dnf install v2ray-core
 ```
 
 > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install>
+> 请先安装2rayA之后在使用xray-install.sh的脚本安装xray核心.顺序错了会导致机器网络故障无法启动V2rayA 
 
 ### 安装 v2rayA
 
