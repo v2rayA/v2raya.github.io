@@ -41,6 +41,7 @@ docker run -d \
   -p 2017:2017 \
   -p 20170-20172:20170-20172 \
   --restart=always \
+  --privileged \
   --name v2raya \
   -v /etc/v2raya:/etc/v2raya \
   mzz2017/v2raya
