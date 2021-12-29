@@ -1,7 +1,7 @@
 ---
 title: OpenWrt
-description: Install the V2Ray core and v2rayA
-lead: The function of v2rayA depends on the V2Ray core, so the kernel needs to be installed.
+description: Install V2Ray core and v2rayA
+lead: The function of v2rayA depends on V2Ray core, so it needs to be installed.
 date: '2020-11-16 13:59:39 +0100'
 lastmod: '2020-11-16 13:59:39 +0100'
 draft: 'false'
@@ -13,75 +13,79 @@ weight: '15'
 toc: 'true'
 ---
 
-## Install V2Ray core/ Xray core
+## Install v2rayA via our self-hosted opkg feed (recommended)
 
-First install the packages `unzip` and `wget` , then download the v2ray-core and save it to `/usr/bin` , the binary link is [https://github.com/v2fly/v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases) , and finally give the binary file executable permissions.
+Please move to [v2raya/v2raya-openwrt](https://github.com/v2raya/v2raya-openwrt).
+
+## Install v2rayA manually
+
+### Install V2Ray / Xray core
+
+{{% notice note %}}
+Package `xray-core` is available since OpenWrt 21.02 stable release.
+{{% /notice %}}
+
+First install packages `unzip` and `wget`, then download v2ray-core and move it to `/usr/bin/` \(precompiled builds can be found in [v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases)\), and finally give the binary file executable permission.
 
 E.g:
 
 ```bash
 opkg update; opkg install unzip wget
-wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip
-unzip -d v2ray-core v2ray-linux-64.zip
-cp v2ray-core/v2ray v2ray-core/v2ctl /usr/bin
-chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
+wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip -P /tmp
+unzip -d /tmp/v2ray-core /tmp/v2ray-linux-64.zip
+cp /tmp/v2ray-core/v2ray /usr/bin/
+chmod +x /usr/bin/v2ray
+rm -rf /tmp/v2ray-linux-64.zip /tmp/v2ray-core
 ```
 
-Pay special attention to the architecture of your OpenWrt device, do not download to a version that is not suitable for your device, otherwise the kernel will not run. Xray core can be installed by referring to this method.
+{{% notice note %}} **Be careful**  
+Pay special attention to the architecture of your device: do not download a binary which is incompatible with it, otherwise the binary will not work. Xray core can be installed in a similar way.
+{{% /notice %}}
 
-## Install v2rayA
+### Install v2rayA
 
-### Install the necessary packages:
+{{% notice note %}}
+Package `v2raya` is available at current OpenWrt snapshot builds.
+{{% /notice %}}
+
+#### Install required dependencies:
 
 ```bash
 opkg update
-opkg install ca-certificates tar curl
-opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptables-mod-conntrack-extra iptables-mod-extra
+opkg install \
+    ca-bundle \
+    ip-full \
+    iptables-mod-conntrack-extra \
+    iptables-mod-extra \
+    iptables-mod-filter \
+    iptables-mod-tproxy \
+    kmod-ipt-nat6
 ```
 
-### Install binary executable file
+#### Download v2rayA binary
 
-Download the latest version of the binary file corresponding to the processor architecture from [Github Releases.](https://github.com/v2rayA/v2rayA/releases) Move to `/usr/bin` and give execution permission:
+Download the precompiled binary file corresponding to the processor architecture from [Github Releases](https://github.com/v2rayA/v2rayA/releases), and give it executable permission.
+
+E.g.:
 
 ```bash
-mv v2raya /usr/bin/v2raya
+wget https://github.com/v2rayA/v2rayA/releases/download/v1.5.5/v2raya_linux_x64_1.5.5 -O /usr/bin/v2raya
 chmod +x /usr/bin/v2raya
 ```
 
-### Create service file
+#### Download v2rayA service files
 
 ```bash
-nano /etc/init.d/v2raya
-```
-
-The content is as follows:
-
-```ini
-#!/bin/sh /etc/rc.common
-command=/usr/bin/v2raya
-PIDFILE=/var/run/v2raya.pid
-depend() {
-    need net
-    after firewall
-    use dns logger
-}
-start() {
-    start-stop-daemon -b -S -m -p "${PIDFILE}" -x $command
-}
-stop() {
-    start-stop-daemon -K -p "${PIDFILE}"
-}
-```
-
-Give this file executable permissions:
-
-```bash
+wget https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.config -O /etc/config/v2raya
+wget https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.init -O /etc/init.d/v2raya
 chmod +x /etc/init.d/v2raya
 ```
 
-### Run v2rayA and make it start at boot (optional)
+### Enable and start the service
 
 ```bash
-/etc/init.d/v2raya start
+uci set v2raya.config.enabled='1'
+uci commit v2raya
 /etc/init.d/v2raya enable
+/etc/init.d/v2raya start
 ```
