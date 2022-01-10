@@ -32,7 +32,7 @@ sudo dnf install v2ray-core
 ### Install v2rayA
 
 ```bash
-sudo dnf install v2rayA
+sudo dnf install v2raya
 ```
 
 ## Fedora Silverblue / Kinoite
@@ -62,7 +62,7 @@ sudo dnf copr enable zhullyb/v2rayA
 Download packages:
 
 ```bash
-dnf download --resolve v2ray-core v2rayA
+dnf download --resolve v2ray-core v2raya
 ```
 
 Exit to host:
@@ -104,7 +104,7 @@ COPR repository is not supported by Fedora Silverblue / Kinoite where containeri
 sudo curl -Lo /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:zhullyb:v2rayA.repo \
   https://copr.fedorainfracloud.org/coprs/zhullyb/v2rayA/repo/fedora-$(rpm -E %fedora)/zhullyb-v2rayA-fedora-$(rpm -E %fedora).repo
 # Install packages without rebooting
-sudo rpm-ostree install -A v2ray-core v2rayA
+sudo rpm-ostree install -A v2ray-core v2raya
 # Enable and start the service
 sudo systemctl enable --now v2raya.service
 ```
