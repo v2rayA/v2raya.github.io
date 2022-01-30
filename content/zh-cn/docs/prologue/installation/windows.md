@@ -38,8 +38,6 @@ v2rayA 目前不支持 TUN，因此 Windows 之上的透明代理无法启用。
 
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 Windows 的二进制文件，然后重命名为 `v2raya.exe`（格外注意 Windows 系统下不能丢失扩展名）。
 
-也可通过 [scoop](https://github.com/v2rayA/v2raya-scoop) 安装 v2rayA。
-
 ### 下载 V2Ray 核心 / Xray 核心
 
 #### 方法一：从 scoop 安装
