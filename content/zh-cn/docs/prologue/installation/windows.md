@@ -1,7 +1,7 @@
 ---
 title: "Windows"
 description: "安装核心和 v2rayA"
-lead: "v2rayA 的功能依赖于 V2Ray 核心，因此需要安装内核。"
+lead: "本节介绍如何在 Windows 上安装 v2rayA。需要注意的是，目前在 Windows 上仅支持一键配置系统代理而非透明代理。"
 date: 2021-08-31T14:48:45+08:00
 lastmod: 2021-08-31T14:48:45+08:00
 draft: false
