@@ -58,8 +58,8 @@
     "precommit-hook": "^3.0.0",
     "purgecss-whitelister": "^2.4",
     "shx": "^0.3.4",
-    "stylelint": "^13.13",
-    "stylelint-config-standard": "^22.0"
+    "stylelint": "^14.5",
+    "stylelint-config-standard": "^25.0"
   },
   "otherDependencies": {
     "hugo": "0.87.0"
