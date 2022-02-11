@@ -24,7 +24,7 @@ toc: true
 [WinGet](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) 是微软推出的软件包管理器，适用于 Windows 10 以及更新版本的操作系统。
 
 ```ps1
-winget install --id v2ray.win
+winget install --id v2raya.win
 ```
 
 ### 方法二：手动运行安装包
