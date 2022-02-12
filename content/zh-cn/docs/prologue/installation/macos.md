@@ -47,8 +47,11 @@ curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_
 
 ```bash
 #! /bin/zsh
-PATH=$PATH:/usr/local/bin
-/usr/local/bin/v2raya --lite
+PATH=$PATH:/usr/local/bin 
+# 如若是 ARM64 版本的 Homebrew
+# 则路径应该位于 /opt/homebrew/bin
+# 请注意替换
+/usr/local/bin/v2raya --lite --log-file /tmp/v2raya.log
 ```
 
 ### 下载 V2Ray 核心 / Xray 核心
@@ -112,7 +115,7 @@ sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_da
 ```bash
 #! /bin/zsh
 PATH=$PATH:/usr/local/bin
-/usr/local/bin/v2raya --lite
+/usr/local/bin/v2raya --lite --log-file /tmp/v2raya.log
 ```
 
 ### 下载 V2Ray 核心 / Xray 核心
@@ -177,4 +180,4 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 launchctl load ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 ```
 
-如果要关掉 v2rayA 服务，将上述命令从 `load` 替换为 `unload` 即可。
+如果要关掉 v2rayA 服务，将上述命令从 `load` 替换为 `unload` 即可。可以通过 Web 前端查看日志。
