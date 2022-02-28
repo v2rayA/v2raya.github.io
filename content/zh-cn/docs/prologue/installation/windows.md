@@ -129,10 +129,10 @@ v2rayaWin --lite
 Start-Process "v2rayaWin.exe" -Arg "--lite" -WindowStyle Hidden
 ```
 
-如果想在后台运行时也在前端输出日志，需要在参数里指定日志的输出文件（即指定工作目录，假使你已经在本地已创建了一个文件夹，位置在`C:\Users\MyUserName\temp`），可以使用如下的powershell命令：
+如果想在后台运行时也在前端输出日志，需要在参数里指定日志的输出文件（这里指定工作目录为当前用户的`%temp%`目录），可以使用如下的powershell命令：
 
 ```ps1
-Start-Process "v2raya.exe" -WorkingDirectory "C:\Users\MyUserName\temp" -Arg "--log-file" -WindowStyle Hidden
+Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-file" -WindowStyle Hidden
 ```
 
 #### 后台运行（使用 ConEmu）
