@@ -76,6 +76,7 @@ error_log="/var/log/v2raya/error.log"
 pidfile="/run/${RC_SVCNAME}.pid"
 command_background="yes"
 start_stop_daemon_args=" -e "V2RAYA_CONFIG=\"/usr/local/etc/v2raya"\""
+rc_ulimit="-n 30000"
 rc_cgroup_cleanup="yes"
 
 depend() {
