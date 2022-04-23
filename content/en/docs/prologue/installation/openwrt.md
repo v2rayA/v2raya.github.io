@@ -25,12 +25,12 @@ Please move to [v2raya/v2raya-openwrt](https://github.com/v2raya/v2raya-openwrt)
 Package `xray-core` is available since OpenWrt 21.02 stable release.
 {{% /notice %}}
 
-First install packages `unzip` and `wget`, then download v2ray-core and move it to `/usr/bin/` \(precompiled builds can be found in [v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases)\), and finally give the binary file executable permission.
+First install packages `unzip` and `wget-ssl`, then download v2ray-core and move it to `/usr/bin/` \(precompiled builds can be found in [v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases)\), and finally give the binary file executable permission.
 
 E.g:
 
 ```bash
-opkg update; opkg install unzip wget
+opkg update; opkg install unzip wget-ssl
 wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip -P /tmp
 unzip -d /tmp/v2ray-core /tmp/v2ray-linux-64.zip
 cp /tmp/v2ray-core/v2ray /usr/bin/
@@ -45,7 +45,7 @@ Pay special attention to the architecture of your device: do not download a bina
 ### Install v2rayA
 
 {{% notice note %}}
-Package `v2raya` is available at current OpenWrt snapshot builds.
+Package `v2raya` is available since OpenWrt 22.03 stable release.
 {{% /notice %}}
 
 #### Install required dependencies:
