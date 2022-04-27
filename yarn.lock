@@ -1242,7 +1242,7 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-braces@^3.0.1, braces@~3.0.2:
+braces@^3.0.1, braces@^3.0.2, braces@~3.0.2:
   version "3.0.2"
   resolved "https://registry.npmmirror.com/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
@@ -1528,9 +1528,9 @@ cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-css-functions-list@^3.0.0:
+css-functions-list@^3.0.1:
   version "3.0.1"
-  resolved "https://registry.npmmirror.com/css-functions-list/-/css-functions-list-3.0.1.tgz#1460df7fb584d1692c30b105151dbb988c8094f9"
+  resolved "https://registry.yarnpkg.com/css-functions-list/-/css-functions-list-3.0.1.tgz#1460df7fb584d1692c30b105151dbb988c8094f9"
   integrity sha512-PriDuifDt4u4rkDgnqRCLnjfMatufLmWNfQnGCq34xZwpY3oabwhB9SqRBmuvWUgndbemCFlKqg+nO7C2q0SBw==
 
 cssesc@^3.0.0:
@@ -2053,10 +2053,10 @@ date-now@^0.1.4:
   resolved "https://registry.npmmirror.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha512-AsElvov3LoNB7tf5k37H2jYSB+ZZPMT5sG2QjJCcdlV5chIv6htBUBUui2IKRjgtKAKtCBN7Zbwa+MtwLjSeNw==
 
-debug@^4.1.0, debug@^4.1.1, debug@^4.3.2, debug@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.npmmirror.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
-  integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
+debug@^4.1.0, debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
 
@@ -2803,10 +2803,10 @@ hpagent@0.1.x:
   resolved "https://registry.npmmirror.com/hpagent/-/hpagent-0.1.2.tgz#cab39c66d4df2d4377dbd212295d878deb9bdaa9"
   integrity sha512-ePqFXHtSQWAFXYmj+JtOTHr84iNrII4/QRlAAPPE+zqnKy4xJo7Ie1Y4kC7AdB+LxLxSTTzBMASsEcy0q8YyvQ==
 
-html-tags@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmmirror.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
-  integrity sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
+html-tags@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.2.0.tgz#dbb3518d20b726524e4dd43de397eb0a95726961"
+  integrity sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==
 
 htmlparser2@3.8.x:
   version "3.8.3"
@@ -3323,13 +3323,21 @@ mermaid@^8.14:
     moment-mini "^2.24.0"
     stylis "^4.0.10"
 
-micromatch@4.0.4, micromatch@^4.0.4:
+micromatch@4.0.4:
   version "4.0.4"
   resolved "https://registry.npmmirror.com/micromatch/-/micromatch-4.0.4.tgz#896d519dfe9db25fce94ceb7a500919bf881ebf9"
   integrity sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==
   dependencies:
     braces "^3.0.1"
     picomatch "^2.2.3"
+
+micromatch@^4.0.4, micromatch@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.5.tgz#bc8999a7cbbf77cdc89f132f6e467051b49090c6"
+  integrity sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==
+  dependencies:
+    braces "^3.0.2"
+    picomatch "^2.3.1"
 
 mimic-response@^1.0.0:
   version "1.0.1"
@@ -3384,10 +3392,10 @@ ms@2.1.2:
   resolved "https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-nanoid@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.npmmirror.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
-  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
+nanoid@^3.3.1:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.3.tgz#fd8e8b7aa761fe807dba2d1b98fb7241bb724a25"
+  integrity sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -3583,7 +3591,7 @@ picocolors@^1.0.0:
   resolved "https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
+picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
@@ -3669,10 +3677,10 @@ postcss-scss@^4.0.2:
   resolved "https://registry.npmmirror.com/postcss-scss/-/postcss-scss-4.0.3.tgz#36c23c19a804274e722e83a54d20b838ab4767ac"
   integrity sha512-j4KxzWovfdHsyxwl1BxkUal/O4uirvHgdzMKS1aWJBAV0qh2qj5qAZqpeBfVUYGWv+4iK9Az7SPyZ4fyNju1uA==
 
-postcss-selector-parser@^6.0.6, postcss-selector-parser@^6.0.9:
-  version "6.0.9"
-  resolved "https://registry.npmmirror.com/postcss-selector-parser/-/postcss-selector-parser-6.0.9.tgz#ee71c3b9ff63d9cd130838876c13a2ec1a992b2f"
-  integrity sha512-UO3SgnZOVTwu4kyLR22UQ1xZh086RyNZppb7lLAKBFK8a32ttG5i87Y/P3+2bRSjZNyJ1B7hfFNo273tKe9YxQ==
+postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.6:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
+  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
@@ -3682,12 +3690,12 @@ postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmmirror.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.3.5, postcss@^8.4, postcss@^8.4.6:
-  version "8.4.6"
-  resolved "https://registry.npmmirror.com/postcss/-/postcss-8.4.6.tgz#c5ff3c3c457a23864f32cb45ac9b741498a09ae1"
-  integrity sha512-OovjwIzs9Te46vlEx7+uXB0PLijpwjXGKXjVGGPIGubGpq7uh5Xgf6D6FiJ/SzJMBosHDp6a2hiXOS97iBXcaA==
+postcss@^8.3.5, postcss@^8.4, postcss@^8.4.12:
+  version "8.4.12"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.12.tgz#1e7de78733b28970fa4743f7da6f3763648b1905"
+  integrity sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==
   dependencies:
-    nanoid "^3.2.0"
+    nanoid "^3.3.1"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
@@ -4228,16 +4236,16 @@ stylelint-scss@^4.0.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint@^14.3:
-  version "14.5.0"
-  resolved "https://registry.npmmirror.com/stylelint/-/stylelint-14.5.0.tgz#d94252027164bc918303a6b782652931421d8871"
-  integrity sha512-4dvQjrhAz2njLoE1OvUEZpryNWcmx2w5Lq5jlibxFv6b5W6O8/vob12M2ZzhX3Ndzs5f67F+BEYmhnQXOwfVYQ==
+stylelint@^14.8:
+  version "14.8.0"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.8.0.tgz#506959bc1424610cdac9eaefca8fb2420292cf73"
+  integrity sha512-uIyIWMSBSVcj73Gn3nTvPyNsYdwTpxo1W6dWTIa1nm8JKgUi3FIobSXLgrRE6joLidoA0FdgAhCaqxwTF2ikrQ==
   dependencies:
     balanced-match "^2.0.0"
     colord "^2.9.2"
     cosmiconfig "^7.0.1"
-    css-functions-list "^3.0.0"
-    debug "^4.3.3"
+    css-functions-list "^3.0.1"
+    debug "^4.3.4"
     execall "^2.0.0"
     fast-glob "^3.2.11"
     fastest-levenshtein "^1.0.12"
@@ -4246,7 +4254,7 @@ stylelint@^14.3:
     global-modules "^2.0.0"
     globby "^11.1.0"
     globjoin "^0.1.4"
-    html-tags "^3.1.0"
+    html-tags "^3.2.0"
     ignore "^5.2.0"
     import-lazy "^4.0.0"
     imurmurhash "^0.1.4"
@@ -4254,15 +4262,15 @@ stylelint@^14.3:
     known-css-properties "^0.24.0"
     mathml-tag-names "^2.1.3"
     meow "^9.0.0"
-    micromatch "^4.0.4"
+    micromatch "^4.0.5"
     normalize-path "^3.0.0"
     normalize-selector "^0.2.0"
     picocolors "^1.0.0"
-    postcss "^8.4.6"
+    postcss "^8.4.12"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-safe-parser "^6.0.0"
-    postcss-selector-parser "^6.0.9"
+    postcss-selector-parser "^6.0.10"
     postcss-value-parser "^4.2.0"
     resolve-from "^5.0.0"
     specificity "^0.4.1"
@@ -4273,7 +4281,7 @@ stylelint@^14.3:
     svg-tags "^1.0.0"
     table "^6.8.0"
     v8-compile-cache "^2.3.0"
-    write-file-atomic "^4.0.0"
+    write-file-atomic "^4.0.1"
 
 stylis@^4.0.10:
   version "4.0.13"
@@ -4546,9 +4554,9 @@ wrappy@1:
   resolved "https://registry.npmmirror.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
-write-file-atomic@^4.0.0:
+write-file-atomic@^4.0.1:
   version "4.0.1"
-  resolved "https://registry.npmmirror.com/write-file-atomic/-/write-file-atomic-4.0.1.tgz#9faa33a964c1c85ff6f849b80b42a88c2c537c8f"
+  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-4.0.1.tgz#9faa33a964c1c85ff6f849b80b42a88c2c537c8f"
   integrity sha512-nSKUxgAbyioruk6hU87QzVbY279oYT6uiwgDoujth2ju4mJ+TZau7SQBhtbTmUyuNYTuXnSyRn66FV0+eCgcrQ==
   dependencies:
     imurmurhash "^0.1.4"
