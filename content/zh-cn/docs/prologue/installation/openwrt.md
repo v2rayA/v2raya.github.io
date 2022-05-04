@@ -32,7 +32,7 @@ toc: true
 例如：
 
 ```bash
-opkg update; opkg install unzip wget
+opkg update; opkg install unzip wget-ssl
 wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip
 unzip -d v2ray-core v2ray-linux-64.zip
 cp v2ray-core/v2ray v2ray-core/v2ctl /usr/bin

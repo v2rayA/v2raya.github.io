@@ -114,7 +114,7 @@ sudo systemctl enable --now v2raya.service
 ## 其他基于 rpm 的操作系统
 
 {{% notice info %}}
-此方法可以为 Alma Linux、Rocky Linux、openSUSE 或其它基于 rpm 软件包管理器的 Linux 发行版安装 v2rayA，前提是你所用的**发行版使用了 systemd 作为系统管理工具**。
+此方法可以为 Alma Linux、Rocky Linux、openSUSE、CentOS 7 或其它基于 rpm 软件包管理器的 Linux 发行版安装 v2rayA，前提是你所用的**发行版使用了 systemd 作为系统管理工具**。
 {{% /notice %}}
 
 ### 安装 V2Ray 内核 / Xray 内核

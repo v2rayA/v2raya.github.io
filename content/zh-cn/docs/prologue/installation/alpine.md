@@ -64,23 +64,35 @@ mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 
 在 `/etc/init.d/` 目录下面新建一个名为 `v2raya` 的文本文件，然后编辑，添加内容如下：
 
-```ini
+```sh
 #!/sbin/openrc-run
 
 name="v2rayA"
 description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
 
 command="/usr/local/bin/v2raya"
-command_args="--log-disable-timestamp"
+command_args="--log-file /var/log/v2raya/access.log"
+error_log="/var/log/v2raya/error.log"
 pidfile="/run/${RC_SVCNAME}.pid"
-output_logger="/usr/bin/logger"
-error_logger="/usr/bin/logger"
 command_background="yes"
 start_stop_daemon_args=" -e "V2RAYA_CONFIG=\"/usr/local/etc/v2raya"\""
+rc_ulimit="-n 30000"
+rc_cgroup_cleanup="yes"
 
 depend() {
     need net
+    after net
 }
+
+start_pre() {
+   if [ ! -d "/tmp/v2raya/" ]; then 
+     mkdir "/tmp/v2raya" 
+   fi
+   if [ ! -d "/var/log/v2raya/" ]; then
+   ln -s "/tmp/v2raya/" "/var/log/"
+   fi
+}
+
 ```
 
 保存文件，然后给予此文件可执行权限。
@@ -101,7 +113,7 @@ rc-update add v2raya
 ### 查看日志
 
 ```bash
-tail -f /var/log/messages
+tail -f /var/log/v2raya/access.log
 ```
 
 ### 其它操作
@@ -111,7 +123,7 @@ tail -f /var/log/messages
 在服务文件的 `command_args` 中加上一个参数 `--webdir`，然后指定到 Web 文件所在目录即可。比如：
 
 ```ini
-command_args="--log-disable-timestamp --webdir=/usr/local/etc/v2raya/web"
+command_args=" --webdir=/usr/local/etc/v2raya/web"
 ```
 
 #### 指定内核
@@ -119,5 +131,5 @@ command_args="--log-disable-timestamp --webdir=/usr/local/etc/v2raya/web"
 在服务文件的 `command_args` 中加上一个参数 `--v2ray-bin`，然后指定到内核所在目录即可。比如：
 
 ```ini
-command_args="--log-disable-timestamp --v2ray-bin=/usr/local/bin/xray"
+command_args=" --v2ray-bin=/usr/local/bin/xray"
 ```

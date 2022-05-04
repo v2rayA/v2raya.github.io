@@ -40,7 +40,7 @@ sudo systemctl disable v2ray --now ### Xray needs to replace the service with xr
 #### Add public key
 
 ```bash
-wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo apt-key add -
+wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
 ```
 
 #### Add V2RayA software source
