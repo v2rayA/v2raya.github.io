@@ -13,7 +13,7 @@ weight: '15'
 toc: 'true'
 ---
 
-## Fedora 34 / 35 and CentOS Stream 8
+## Fedora 34 / 35 / 36 and CentOS Stream 8
 
 ### Enable copr source
 

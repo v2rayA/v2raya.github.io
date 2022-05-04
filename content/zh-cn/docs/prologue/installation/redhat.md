@@ -13,7 +13,7 @@ weight: 15
 toc: true
 ---
 
-## Fedora 34 / 35 以及 CentOS Stream 8
+## Fedora 34 / 35 / 36 以及 CentOS Stream 8
 
 ### 添加 copr 源
 
