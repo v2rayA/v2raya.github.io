@@ -1,14 +1,12 @@
 ---
-title: "macOS"
-description: "安装核心和 v2rayA"
-lead: "v2rayA 的功能依赖于 V2Ray 核心，因此需要安装内核。"
-date: 2021-08-31T14:48:45+08:00
-lastmod: 2021-08-31T14:48:45+08:00
+title: macOS
+description: 安装核心和 v2rayA
+lead: v2rayA 的功能依赖于 V2Ray 核心，因此需要安装内核。
+date: 2021-08-31T06:48:45.000Z
+lastmod: 2021-08-31T06:48:45.000Z
 draft: false
 images: []
-menu:
-  docs:
-    parent: "installation"
+menu: {docs: {parent: installation}}
 weight: 15
 toc: true
 ---
@@ -41,17 +39,6 @@ arm64:
 
 ```bash
 curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_arm64_1.5.4 -o /usr/local/bin/v2raya
-```
-
-在相同的目录下建立一个 `.sh`格式的脚本文件，名为 v2raya.sh：
-
-```bash
-#! /bin/zsh
-PATH=$PATH:/usr/local/bin 
-# 如若是 ARM64 版本的 Homebrew
-# 则路径应该位于 /opt/homebrew/bin
-# 请注意替换
-/usr/local/bin/v2raya --lite --log-file /tmp/v2raya.log
 ```
 
 ### 下载 V2Ray 核心 / Xray 核心
@@ -110,14 +97,6 @@ arm64:
 sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.4/v2raya_darwin_arm64_1.5.4 -o /usr/local/bin/v2raya
 ```
 
-在相同的目录下建立一个 `.sh`格式的脚本文件，名为 v2raya.sh：
-
-```bash
-#! /bin/zsh
-PATH=$PATH:/usr/local/bin
-/usr/local/bin/v2raya --lite --log-file /tmp/v2raya.log
-```
-
 ### 下载 V2Ray 核心 / Xray 核心
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
@@ -159,20 +138,30 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>org.v2raya.v2raya</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>/usr/local/bin/v2raya.sh</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
+<dict>
+      <key>EnvironmentVariables</key>
+      <dict>
+            <key>V2RAYA_LOG_FILE</key>
+            <string>/tmp/v2raya.log</string>
+            <key>V2RAYA_V2RAY_BIN</key>
+            <string>/usr/local/bin/v2ray</string>
+      </dict>
+      <key>KeepAlive</key>
+      <true/>
+      <key>Label</key>
+      <string>homebrew.mxcl.v2raya</string>
+      <key>ProgramArguments</key>
+      <array>
+            <string>/usr/local/bin/v2raya</string>
+            <string>--lite</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+</dict>
 </plist>
 ```
+
+注意：V2Ray 核心的路径以及 v2rayA 自身的路径需要根据实际情况做出调整。
 
 ## 运行
 
