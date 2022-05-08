@@ -149,7 +149,7 @@ nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
       <key>KeepAlive</key>
       <true/>
       <key>Label</key>
-      <string>homebrew.mxcl.v2raya</string>
+      <string>org.v2raya.v2raya</string>
       <key>ProgramArguments</key>
       <array>
             <string>/usr/local/bin/v2raya</string>
@@ -170,3 +170,9 @@ launchctl load ~/Library/LaunchAgents/org.v2raya.v2raya.plist
 ```
 
 如果要关掉 v2rayA 服务，将上述命令从 `load` 替换为 `unload` 即可。可以通过 Web 前端查看日志。
+
+## 其它
+
+实验性的 Homebrew Tap：
+
+<https://github.com/MarksonHon/homebrew-v2raya>
