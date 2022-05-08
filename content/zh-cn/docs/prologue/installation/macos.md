@@ -52,7 +52,7 @@ brew install v2ray  ## 或者安装 xray
 给予 v2rayA 可执行权限：
 
 ```bash
-chmod 755 /usr/local/bin/v2raya; chmod 755 /usr/local/bin/v2raya.sh
+chmod 755 /usr/local/bin/v2raya
 ```
 
 如果遇到 macOS 的安全限制，那么需要运行以下命令：
@@ -113,7 +113,7 @@ sudo mv v2ray /usr/local/bin/; sudo mv v2ctl /usr/local/bin/; sudo mv *dat /usr/
 给予 v2rayA 与 v2ray 可执行权限：
 
 ```bash
-sudo chmod 755 /usr/local/bin/v2raya; sudo chmod 755 /usr/local/bin/v2raya.sh; sudo chmod 755 /usr/local/bin/v2ray; sudo chmod 755 /usr/local/bin/v2ctl
+sudo chmod 755 /usr/local/bin/v2raya; sudo chmod 755 /usr/local/bin/v2ray; sudo chmod 755 /usr/local/bin/v2ctl
 ```
 
 如果遇到 macOS 的安全限制，那么需要运行以下命令：
