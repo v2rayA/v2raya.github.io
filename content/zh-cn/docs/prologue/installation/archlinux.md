@@ -28,5 +28,5 @@ sudo pacman -Sy v2ray
 示例：
 
 ```sh
-yay -S v2raya
+yay -S v2raya-bin
 ```
