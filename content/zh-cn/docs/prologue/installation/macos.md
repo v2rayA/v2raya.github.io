@@ -116,7 +116,7 @@ sudo chmod 755 /usr/local/bin/v2ctl
 sudo xattr -d -r com.apple.quarantine  /usr/local/bin/*
 ```
 
-## 建立服务文件
+### 建立服务文件
 
 新建服务文件并保存到 `~/Library/LaunchAgents/`
 
