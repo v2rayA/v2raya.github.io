@@ -88,6 +88,9 @@ ip(1.1.1.1) && protocol(http) && source(10.0.0.1, 172.20.0.0/16) -> direct
 # 大陆白名单模式
 default: proxy
 # 国外域名即使有中国IP也要优先代理
+# 注意，LoyalsoldierSite.dat 文件需要预先通过 v2rayA 下载
+# 或者手动去它的仓库下载，然后保存为 LoyalsoldierSite.dat
+# 仓库地址：https://github.com/Loyalsoldier/v2ray-rules-dat
 # domain(ext:"LoyalsoldierSite.dat:geolocation-!cn")->proxy
 domain(geosite:geolocation-!cn)->proxy
 # scholar sites
@@ -107,7 +110,10 @@ domain(geosite:category-scholar-!cn, geosite:category-scholar-cn)->direct
 # domain(ext:"LoyalsoldierSite.dat:gfw", ext:"LoyalsoldierSite.dat:greatfire")->proxy
 domain(geosite:geolocation-!cn)->proxy
 # Telegram
-# ip(ext:"LoyalsoldierSite.dat:telegram")->proxy
+# 下面这条注释掉的规则需要来自 Loyalsoldiser 的 IP 文件
+# 仓库地址 https://github.com/Loyalsoldier/geoip/
+# 下载后可将其保存为 LoyalsoldierIP.dat
+# ip(ext:"LoyalsoldierIP.dat:telegram")->proxy
 ip(91.108.4.0/22,91.108.8.0/22,91.108.56.0/22,95.161.64.0/20,149.154.160.0/22,149.154.164.0/22,"2001:67c:4e8::/48")->proxy
 ```
 
