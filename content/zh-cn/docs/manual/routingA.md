@@ -23,7 +23,7 @@ inbound:httpauthin=http(address: 0.0.0.0, port: 1081, user: user1, pass: user1pa
 inbound:socksauthin=socks(address: 0.0.0.0, port: 1082, user: 123, pass: 123)
 inbound:sockslocalin=socks(address: 127.0.0.1, port: 1080)
 inbound:sniffing_socks=socks(address: 127.0.0.1, port: 1080, sniffing: http, sniffing: tls)
-inbound:sniffing_http=socks(address: 127.0.0.1, port: 1081, sniffing: 'http, tls')
+inbound:sniffing_http=http(address: 127.0.0.1, port: 1081, sniffing: 'http, tls')
 
 # 自定义出站 outbound，支持http, socks, freedom
 outbound:httpout=http(address: 127.0.0.1, port: 8080, user: 'my-username', pass: 'my-password')
