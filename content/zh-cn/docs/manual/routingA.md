@@ -1,7 +1,7 @@
 ---
 title: "RoutingA 自定义路由分流"
 description: "RoutingA 的介绍"
-lead: "TODO: 引用预设拓展规则库"
+lead: "v2rayA可使用RoutingA书写路由，这是一种v2ray路由标记语言，它可被编译为v2ray-core所支持的json格式。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -13,7 +13,7 @@ toc: true
 weight: 340
 ---
 
-v2rayA可使用RoutingA书写路由，这是一种v2ray路由标记语言，它可被编译为v2ray-core所支持的json格式。
+你可在“设置-规则端口的分流模式”中选择“RoutingA”来开启规则端口的自定义路由分流。如果你想为透明代理设置自定义路由分流，需要在上述设置的前提下，再将“设置-透明代理”选为“与规则端口所选模式一致”来启用。
 
 ## 示例
 
@@ -22,6 +22,8 @@ v2rayA可使用RoutingA书写路由，这是一种v2ray路由标记语言，它�
 inbound:httpauthin=http(address: 0.0.0.0, port: 1081, user: user1, pass: user1pass, user:user2, pass:user2pass)
 inbound:socksauthin=socks(address: 0.0.0.0, port: 1082, user: 123, pass: 123)
 inbound:sockslocalin=socks(address: 127.0.0.1, port: 1080)
+inbound:sniffing_socks=socks(address: 127.0.0.1, port: 1080, sniffing: http, sniffing: tls)
+inbound:sniffing_http=socks(address: 127.0.0.1, port: 1081, sniffing: 'http, tls')
 
 # 自定义出站 outbound，支持http, socks, freedom
 outbound:httpout=http(address: 127.0.0.1, port: 8080, user: 'my-username', pass: 'my-password')
