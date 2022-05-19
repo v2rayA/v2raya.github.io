@@ -13,13 +13,13 @@ weight: 15
 toc: true
 ---
 
-## 使用安装包安装
+## 使用安装包
 
 {{% notice info %}}
 安装包将内置 v2ray-core，如需更换 Xray-core，可在安装完毕后于安装目录手动进行替换。
 {{% /notice %}}
 
-### 方法一：通过 WinGet 安装
+### 方法一：通过 WinGet 自动安装
 
 [WinGet](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) 是微软推出的软件包管理器，适用于 Windows 10 以及更新版本的操作系统。
 
@@ -35,15 +35,15 @@ winget install --id v2raya.win
 
 通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的“服务”选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 http://127.0.0.1:2017 打开管理页面。
 
-## 直接使用 v2rayA 二进制
+## 通过 Scoop 安装
+
+### 安装
 
 {{% notice info %}}
 所有的命令都在 PowerShell 中运行，CMD 用户请注意命令格式。
 {{% /notice %}}
 
-### 方法一：通过 Scoop 安装
-
-你可以通过 [Scoop](https://scoop.sh) 安装 v2rayA，安装完成后可以直接通过 `v2raya` 命令运行。
+你首先需要安装 [Scoop](https://scoop.sh) ，然后才能从 scoop 安装 v2rayA。
 
 添加 Scoop 源：
 
@@ -65,32 +65,46 @@ scoop install v2raya
 
 V2Ray 核心将作为依赖包而被安装，如果想使用 Xray，请指定 `--v2ray-bin` 参数。
 
-### 方法二：手动下载
+### 运行
 
-#### 下载 v2rayA
+#### 前台运行
+
+打开一个 CMD 或者 PowerShell 窗口，然后运行：
+
+```ps1
+v2rayaWin --lite
+```
+
+#### 后台运行
+
+使用 `start-v2ray` 命令运行 v2rayA，使用 `stop-v2raya` 命令关掉 v2rayA。
+
+## 手动安装
+
+### 下载 v2rayA
 
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 Windows 的二进制文件（名称一般类似于 v2raya_windows_arm64_1.5.6.2.exe），然后重命名为 `v2raya.exe`（格外注意 Windows 系统下不能丢失扩展名）。
 
-#### 下载 V2Ray 核心 / Xray 核心
+### 下载 V2Ray 核心 / Xray 核心
 
-> 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
+> 安装 V2Ray：<https://www.v2fly.org/guide/install.html>
 > 安装 Xray：<https://xtls.github.io/document/install.html>
 
 下载压缩包之后解压即可。
 
 ### 运行 v2rayA
 
-以下假设 v2rayA 与核心都是通过 scoop 安装的。如果你手动下载了 v2rayA 与核心，则建议你将它们添加到 Path，或使用绝对路径。
-
-#### 直接运行
-
-运行 `v2raya` 命令即可，该命令自带了 `--lite` 参数。你也可以使用以下命令来运行：
+假设 v2rayA 与 v2ray 都放在了 `D:\v2rayA`:
 
 ```ps1
-v2rayaWin --lite
+D:\v2rayA\v2raya.exe --lite --v2ray-bin D:\v2rayA\v2ray.exe
 ```
 
-#### 作为服务运行
+## 其它信息
+
+以下假设 v2rayA 是通过 scoop 安装的，如果是手动安装的请注意修改路径。
+
+### 作为服务运行
 
 使用 [WinSW](https://github.com/winsw/winsw/) 可以将 v2rayA 作为服务运行并自动开机启动，下载 WinSW 并将其重命名为 `winsw.exe`，再将其放到一个你认为合适的目录，然后同样的目录下新建 `v2raya-service.xml` ：
 
@@ -102,6 +116,7 @@ v2rayaWin --lite
   <executable>C:\Users\YourHomeDir\scoop\apps\v2raya\current\v2rayaWin.exe</executable>
   <arguments>--lite</arguments>
   <log mode="roll"></log>
+  <env name="V2RAYA_LOG_FILE" value="%v2raya.log%"/>
   <delayedAutoStart>true</delayedAutoStart>
   <onfailure action="restart" delay="10 sec"/>
   <onfailure action="restart" delay="20 sec"/>
@@ -115,15 +130,15 @@ v2rayaWin --lite
 
 此处的用户名是你显示在“计算机管理”中的用户名，而非在控制面板或系统设置里面看到的完整用户名。密码是你的本地账户密码或者微软账户密码。
 
-保存文件，然后运行：
+如果是手动安装的 v2rayA，那么你需要指定 `--v2ray-bin` 参数，或者将 v2ray 添加到 path。
+
+保存文件，然后运行（需要管理员权限）：
 
 ```ps1
 .\winsw.exe install .\v2raya-service.xml
 ```
 
-此操作需要管理员权限，在 WinSW 所在目录下可以查看日志文件（由 WinSW 输出）。如果想在 v2rayA 的 Web 前端里面查看日志，你需要使用 `--log-file` 参数指定一个日志文件。
-
-#### 后台运行（使用 PowerShell 的隐藏窗口功能）：
+### 后台运行（通过 PowerShell 隐藏窗口）：
 
 ```ps1
 Start-Process "v2rayaWin.exe" -Arg "--lite" -WindowStyle Hidden
@@ -135,6 +150,6 @@ Start-Process "v2rayaWin.exe" -Arg "--lite" -WindowStyle Hidden
 Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-file v2raya.log" -WindowStyle Hidden
 ```
 
-#### 后台运行（使用 ConEmu）
+### 后台运行（使用 ConEmu）
 
 [ConEmu](https://conemu.github.io/) 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用 [直接运行]({{< ref "#直接运行" >}}) 项里面提到的命令运行 v2rayA 即可。
