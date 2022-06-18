@@ -40,13 +40,13 @@ sudo systemctl disable v2ray --now ### Xray 需要替换服务为 xray
 #### 添加公钥
 
 ```bash
-wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
+wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
 ```
 
 #### 添加 V2RayA 软件源
 
 ```bash
-echo "deb https://apt.v2raya.mzz.pub/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
+echo "deb https://apt.v2raya.org/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
 sudo apt update
 ```
 

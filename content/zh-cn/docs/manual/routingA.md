@@ -36,7 +36,7 @@ default: httpout
 # 预设三个outbounds: proxy, block, direct
 
 # 域名规则
-domain(domain: v2raya.mzz.pub) -> socksout
+domain(domain: v2raya.org) -> socksout
 domain(full: dns.google) -> proxy
 domain(contains: facebook) -> proxy
 domain(regexp: \.goo.*\.com$) -> proxy
@@ -61,7 +61,7 @@ sourcePort(38563) -> direct
 sourcePort(10080-30000) -> direct
 
 # 多域名规则
-domain(contains: google, domain: www.twitter.com, domain: mzz.pub) -> proxy
+domain(contains: google, domain: www.twitter.com, domain: v2raya.org) -> proxy
 # 多IP规则
 ip(geoip:cn, geoip:private) -> direct
 ip(9.9.9.9, 223.5.5.5) -> direct

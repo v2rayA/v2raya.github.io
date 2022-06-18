@@ -51,7 +51,7 @@ According to your platform, obtain the <code>v2raya_linux_xxx</code> <a>file wit
 Example:
 
 ```bash
-version=$(curl -s https://apt.v2raya.mzz.pub/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
+version=$(curl -s https://apt.v2raya.org/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
 curl -L https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version --output v2raya
 mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 ```
