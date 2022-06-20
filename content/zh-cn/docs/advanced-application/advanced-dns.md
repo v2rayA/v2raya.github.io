@@ -43,7 +43,7 @@ redirect 模式下 UDP 流量不会经过 v2ray-core，而 TCP 流量会正常�
 
 ### 当使用 tproxy 模式时
 
-当“透明代理实现方式”使用 tproxy 时，v2ray-core 会接管 UDP 请求，v2ray-core 将会对收到的 DNS 请求再次进行请求。当“防止 DNS 污染”开启时，使用设置中指定的 DNS 进行请求，从而使其他 DNS 客户端的设置失效。当“防止 DNS 污染”关闭时，使用系统默认 DNS 进行请求，从而出现回环。
+当“透明代理实现方式”使用 tproxy 时，将“防止DNS污染”设为关闭即可。否则，v2ray-core 会接管 UDP 请求，v2ray-core 将会对收到的 DNS 请求再次进行请求。当“防止 DNS 污染”开启时，使用设置中指定的 DNS 进行请求，从而使其他 DNS 客户端的设置失效。
 
 当其他 DNS 客户端的上游 DNS 不为普通的 DNS 查询时不受上述影响（普通 DNS 查询意为 `DNS over TCP` 和 `DNS over UDP`），此时虽然 DNS 会经过 v2ray-core，但 v2ray-core 将认为这些请求并非 DNS 请求，从而当做正常流量进行路由分流。
 
