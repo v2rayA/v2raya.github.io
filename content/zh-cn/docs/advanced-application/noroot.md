@@ -21,10 +21,10 @@ weight: 610
 
 一般地，使用环境变量 `V2RAYA_LITE` 或命令行参数 `--lite` 以使用非 ROOT 权限启动 v2rayA。
 
-如果你使用 systemd，可通过控制服务 `v2raya@user.service` 以使用某个用户运行，例如：
+如果你使用 systemd，可通过控制用户服务 `v2raya-lite.service` 以本用户运行，例如：
 
 ```bash
-systemctl enable --now v2raya@mzz.service
+systemctl --user enable --now v2raya-lite.service
 ```
 
 注意，该服务启动后，v2rayA 默认占据 2017 端口。因此如果已有其他实例在 2017 监听，需要先将其关闭，例如：
