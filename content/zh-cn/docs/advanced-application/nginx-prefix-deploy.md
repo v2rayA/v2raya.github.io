@@ -34,7 +34,7 @@ http {
       rewrite ^/v2raya$ / break;
       rewrite ^/v2raya/(.*)$ /$1 break;
       sub_filter '\"static/' '\"/v2raya/static/';
-      sub_filter '\"/api/' '\"/v2raya/api/';
+      sub_filter '\"/api' '\"/v2raya/api';
       sub_filter_once off;
       sub_filter_types application/javascript;
       proxy_pass http://127.0.0.1:2017;
