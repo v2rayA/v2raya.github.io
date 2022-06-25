@@ -156,7 +156,7 @@ nssm install v2raya
 此时会弹出一个 NSSM 窗口：
 `Path` 为 v2rayA 路径 `C:\Users\YourHomeDir\scoop\apps\v2raya\current\v2rayaWin.exe`；
 `Srartup directory` 可留空，默认为 v2rayA 所在目录；
-`Arguments` 填写 `--lite --v2ray-bin "C:\Users\YourHomeDir\scoop\apps\v2ray\current\v2ray.exe`。
+`Arguments` 填写 `--lite --v2ray-bin C:\Users\YourHomeDir\scoop\apps\v2ray\current\v2ray.exe`。
 
 可能用得到的其他参数：`--log-file v2raya.log` 会在 `Srartup directory` 生成 log 文件并在前端显示。
 
