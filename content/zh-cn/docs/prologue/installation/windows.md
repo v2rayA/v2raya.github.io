@@ -104,7 +104,7 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin D:\v2rayA\v2ray.exe
 
 以下假设 v2rayA 是通过 scoop 安装的，如果是手动安装的请注意修改路径。
 
-### 作为服务运行
+### 作为服务运行(使用 WinSW)
 
 使用 [WinSW](https://github.com/winsw/winsw/) 可以将 v2rayA 作为服务运行并自动开机启动，下载 WinSW 并将其重命名为 `winsw.exe`，再将其放到一个你认为合适的目录，然后同样的目录下新建 `v2raya-service.xml` ：
 
@@ -136,6 +136,40 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin D:\v2rayA\v2ray.exe
 
 ```ps1
 .\winsw.exe install .\v2raya-service.xml
+```
+
+### 作为服务运行(使用 NSSM)
+
+使用 [NSSM - the Non-Sucking Service Manager](https://nssm.cc/) 可以将 v2rayA 作为服务运行并自动开机启动。
+下载 NSSM 并放在一个合适的目录或者使用 scoop 安装 NSSM。
+
+```ps1
+scoop install nssm
+```
+
+然后以管理员身份安装一个名为 v2raya 的 service：
+
+```ps1
+nssm install v2raya
+```
+
+此时会弹出一个 NSSM 窗口：
+`Path` 为 v2rayA 路径 `C:\Users\YourHomeDir\scoop\apps\v2raya\current\v2rayaWin.exe`；
+`Srartup directory` 可留空，默认为 v2rayA 所在目录；
+`Arguments` 填写 `--lite --v2ray-bin "C:\Users\YourHomeDir\scoop\apps\v2ray\current\v2ray.exe`。
+
+可能用得到的其他参数：`--log-file v2raya.log` 会在 `Srartup directory` 生成 log 文件并在前端显示。
+
+最后以管理员身份运行：
+
+```ps1
+nssm start v2raya
+```
+
+```ps1
+nssm remove v2raya # 删除服务
+nssm edit v2raya # 编辑服务
+nssm start/stop/restart v2raya # 启动、停止、重启服务
 ```
 
 ### 后台运行（通过 PowerShell 隐藏窗口）：
