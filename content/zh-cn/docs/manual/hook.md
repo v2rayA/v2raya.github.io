@@ -109,7 +109,7 @@ esac
 赋予可执行权限：
 
 ```bash
-chmod +x /etc/v2raya/tproxy-hook.sh
+sudo chmod +x /etc/v2raya/tproxy-hook.sh
 ```
 
 启动 v2raya 时添加参数 `--transparent-hook /etc/v2raya/tproxy-hook.sh`
