@@ -90,7 +90,7 @@ sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.7/v2raya_da
 ### 下载 V2Ray 核心 / Xray 核心
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
-> 安装 Xray：<https://xray.sh/document/install.html>
+> 安装 Xray：<https://xtls.github.io/document/install.html>
 
 解压压缩包后将其中的文件移动到对应目录：
 
