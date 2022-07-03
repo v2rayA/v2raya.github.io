@@ -1,7 +1,7 @@
 ---
 title: "透明代理生命周期钩子"
 description: "透明代理生命周期钩子介绍与示例"
-lead: "本节介绍如何使用透明代理生命周期钩子"
+lead: "本节介绍如何使用透明代理生命周期钩子。"
 date: 2022-07-3T13:59:39+01:00
 lastmod: 2022-07-3T13:59:39+01:00
 draft: false
@@ -13,7 +13,9 @@ toc: true
 weight: 445
 ---
 
-`--transparent-hook` 参数及对应的环境变量 `V2RAYA_TRANSPARENT_HOOK` 可在透明代理生命周期过程中插入执行用户提供的脚本，用户需要将可执行文件路径作为该参数传入。在生命周期阶段 (pre-start, post-start, pre-stop, post-stop) v2rayA 会执行用户提供的可执行文件，并传入两个参数 `--transparent-type` 及 `stage` ，前者为透明代理类型 (tproxy, redirect, system_proxy)，后者为上述生命周期阶段。用户可在提供的程序内部解析传入的两个参数。
+使用 v2rayA 的 `--transparent-hook` 参数以及对应的环境变量 `V2RAYA_TRANSPARENT_HOOK` 可在透明代理生命周期过程中插入执行用户提供的脚本，用户需要将可执行文件路径作为该参数传入。
+
+在生命周期阶段 (pre-start, post-start, pre-stop, post-stop) v2rayA 会执行用户提供的可执行文件，并传入两个参数 `--transparent-type` 及 `--stage` ，前者为透明代理类型 (tproxy, redirect, system_proxy)，后者为上述生命周期阶段。用户可在提供的程序内部解析传入的两个参数。
 
 下面给出 bash 脚本解析参数示例：
 
@@ -43,7 +45,7 @@ echo "Transparent Type = ${TYPE}"
 echo "Stage            = ${STAGE}"
 ```
 
-将脚本保存并通过 `chmod +x` 赋予执行权限后将脚本路径传参给 v2rayA 即可。
+将脚本保存并通过 `chmod +x example.sh` 赋予执行权限后将脚本路径传参给 v2rayA 即可。
 
 另外，也可使用具有执行权限的 python 脚本或其他可执行程序的文件路径作为 `--transparent-hook` 的传参。
 
@@ -120,3 +122,5 @@ sudo sg v2raya-skip 'curl ip.sb'
 # 或使用 su
 sudo su -g v2raya-skip -c 'curl ip.sb'
 ```
+
+同理，可使用类似命令启动 BT 下载程序，以达到不经过 v2ray-core 的直连效果。
