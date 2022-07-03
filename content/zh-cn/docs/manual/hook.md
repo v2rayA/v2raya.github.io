@@ -49,6 +49,10 @@ echo "Stage            = ${STAGE}"
 
 另外，也可使用具有执行权限的 python 脚本或其他可执行程序的文件路径作为 `--transparent-hook` 的传参。
 
+{{% notice warning %}}
+请务必使得传入 --transparent-hook 的脚本仅 root 具有写权限，以防止越权执行漏洞。
+{{% /notice %}}
+
 ## 示例
 
 ### 使本机特定程序无条件直连
@@ -93,8 +97,8 @@ post-start)
   elif [ "$TYPE" = "redirect" ]; then
     TABLE=nat
   else
-  echo "unexpected transparent type: ${TYPE}"
-  exit 1
+    echo "unexpected transparent type: ${TYPE}"
+    exit 1
   fi
   set -ex
   iptables -t "$TABLE" -I TP_OUT -m owner --gid-owner v2raya-skip -j RETURN
@@ -124,3 +128,55 @@ sudo su -g v2raya-skip -c 'curl ip.sb'
 ```
 
 同理，可使用类似命令启动 BT 下载程序，以达到不经过 v2ray-core 的直连效果。
+
+### 使 tproxy 模式支持 docker 容器
+
+由于默认情况下 docker 加载的 iptables 网桥模块并不被 tproxy 所支持，v2rayA 在 tproxy 模式下会添加一条规则跳过 docker 容器的代理。而根据 [springzfx/cgproxy#10](https://github.com/springzfx/cgproxy/issues/10#issuecomment-673437557) ，如果你不需要避免 hairpin nat 问题，可通过一些操作使得 tproxy 模式重新支持代理 docker 容器。
+
+编写如下脚本，将其存储于 `/etc/v2raya/tproxy-hook.sh` ：
+
+```bash
+#!/bin/bash
+
+for i in "$@"; do
+  case $i in
+    --transparent-type=*)
+      TYPE="${i#*=}"
+      shift
+      ;;
+    --stage=*)
+      STAGE="${i#*=}"
+      shift
+      ;;
+    -*|--*)
+      echo "Unknown option $i"
+      exit 1
+      ;;
+    *)
+      ;;
+  esac
+done
+
+
+case "$STAGE" in
+post-start)
+  if [ "$TYPE" = "tproxy" ]; then
+    sysctl net.bridge.bridge-nf-call-ip6tables=0
+    sysctl net.bridge.bridge-nf-call-iptables=0
+    sysctl net.bridge.bridge-nf-call-arptables=0
+    iptables -t mangle -D TP_RULE -i docker+ -j RETURN
+  fi
+  ;;
+*)
+  exit 0
+  ;;
+esac
+```
+
+赋予可执行权限：
+
+```bash
+sudo chmod +x /etc/v2raya/tproxy-hook.sh
+```
+
+启动 v2raya 时添加参数 `--transparent-hook /etc/v2raya/tproxy-hook.sh`
