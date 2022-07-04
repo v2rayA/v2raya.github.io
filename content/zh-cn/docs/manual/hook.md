@@ -54,7 +54,7 @@ echo "Stage            = ${STAGE}"
 该参数并不限于使用 bash 脚本，你也可传入具有执行权限的 python 脚本或其他可执行程序的文件路径。
 
 {{% notice warning %}}
-请务必使得传入 --transparent-hook 的脚本仅 root 具有写权限，以防止越权执行漏洞。
+请务必使得传入 `--transparent-hook` 的脚本仅 root 具有写权限，以防止越权执行漏洞。
 {{% /notice %}}
 
 ## 示例
