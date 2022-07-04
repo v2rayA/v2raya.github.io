@@ -17,6 +17,10 @@ weight: 600
 
 ### 环境变量
 
+{{% notice info %}}
+本节所列变量有可能已过时，可通过 v2raya --help 查看支持的参数，环境变量与之对应。
+{{% /notice %}}
+
 `V2RAYA_ADDRESS`: 监听地址 (默认 "0.0.0.0:2017")
 
 `V2RAYA_CONFIG`: v2rayA 配置文件目录 (默认 "/etc/v2raya")
