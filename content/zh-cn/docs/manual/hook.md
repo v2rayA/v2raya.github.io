@@ -13,9 +13,9 @@ toc: true
 weight: 445
 ---
 
-使用 v2rayA 的 `--transparent-hook` 参数以及对应的环境变量 `V2RAYA_TRANSPARENT_HOOK` 可在透明代理启动前、启动后，停止前、停止后运行用户提供的程序，用户可在自定义程序中添加、删除或修改 iptables 规则、sysctl 规则或执行任意其他命令，以达成高级用法。参数的传递请参考[环境变量和命令行参数]({{% relref "variable-argument#如何设置" %}})一节中的说明。
+使用 v2rayA 的 `--transparent-hook` 参数以及对应的环境变量 `V2RAYA_TRANSPARENT_HOOK` 可在透明代理启动前、启动后，停止前、停止后运行用户提供的程序，用户可在自定义程序中添加、删除或修改 iptables 规则、sysctl 规则或执行任意其他命令，以达成高级用法。v2rayA 参数的传递请参考 [环境变量和命令行参数]({{% relref "variable-argument#如何设置" %}}) 一节中的说明。
 
-用户可在自定义程序中解析传入的参数，以判断当前 v2rayA 的透明代理类型 (tproxy, redirect, system_proxy)，以及当前所处阶段 (pre-start, post-start, pre-stop, post-stop)。
+除了用户需要给 v2rayA 提供的一个参数外，v2rayA 还会在执行用户自定义程序时传入两个参数以告知上下文信息。用户可在自定义程序中解析传入的参数，以判断当前 v2rayA 的透明代理类型 (tproxy, redirect, system_proxy)，以及当前所处阶段 (pre-start, post-start, pre-stop, post-stop)。
 
 下面给出 bash 脚本作为自定义程序的例子，该例子将解析透明代理类型到 `$TYPE` 变量，以及当前所处阶段到 `$STAGE` 变量，最后将两个变量打印出来：
 
