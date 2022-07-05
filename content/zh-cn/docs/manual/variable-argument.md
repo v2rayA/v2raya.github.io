@@ -74,26 +74,42 @@ v2raya --help
 
 ### OpenWrt
 
-修改 `command` ，例如：
+- 针对已适配选项：
 
-```conf
-#!/bin/sh /etc/rc.common
-command="/usr/bin/v2raya --v2ray-bin=/usr/bin/xray"
-PIDFILE=/var/run/v2raya.pid
-depend() {
-    need net
-    after firewall
-    use dns logger
-}
-start() {
-    start-stop-daemon -b -S -m -p "${PIDFILE}" -x $command
-}
-stop() {
-    start-stop-daemon -K -p "${PIDFILE}"
-}
-```
+   详细可配置列表参见 `/etc/config/v2raya`
 
-再重启服务即可。
+   ```bash
+   uci set v2raya.config.v2ray_bin='/usr/bin/xray'
+   uci commit v2raya
+   ```
+
+- 针对未适配选项（nightly / advanced 用户）：
+
+   更改 `/etc/init.d/v2raya`
+
+   ```conf
+   start_service() {
+      config_load "$CONF"
+
+      is_enabled "config" "enabled" || exit 1
+
+      procd_open_instance "$CONF"
+      procd_set_param command "$PROG"
+      procd_set_param env XDG_DATA_HOME="/usr/share"
+
+      # 追加命令行参数
+      procd_append_param command --v2ray-bin="/usr/bin/xray"
+      # 追加环境变量
+      procd_append_param env V2RAYA_V2RAY_BIN="/usr/bin/xray"
+
+      --- cut here ---
+   ```
+
+- 重载服务：
+
+   ```bash
+   /etc/init.d/v2raya restart
+   ```
 
 ### Alpine
 
