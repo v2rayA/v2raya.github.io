@@ -35,9 +35,9 @@ winget install --id v2raya.win
 
 通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的“服务”选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 http://127.0.0.1:2017 打开管理页面。
 
-## 通过 Scoop 安装
+## 使用 Scoop 安装二进制
 
-### 安装
+### 安装 v2rayA
 
 {{% notice info %}}
 所有的命令都在 PowerShell 中运行，CMD 用户请注意命令格式。
@@ -57,7 +57,7 @@ scoop bucket add v2raya https://github.com/v2rayA/v2raya-scoop
 scoop update
 ```
 
-安装 v2rayA：
+安装：
 
 ```ps1
 scoop install v2raya
@@ -65,7 +65,7 @@ scoop install v2raya
 
 V2Ray 核心将作为依赖包而被安装，如果想使用 Xray，请指定 `--v2ray-bin` 参数。
 
-### 运行
+### 运行 v2rayA
 
 #### 前台运行
 
@@ -78,6 +78,14 @@ v2rayaWin --lite
 #### 后台运行
 
 使用 `start-v2ray` 命令运行 v2rayA，使用 `stop-v2raya` 命令关掉 v2rayA。
+
+#### 开机自启
+
+将你 `scoop\shims` 目录下的 `start-v2raya-unstable.cmd` 复制到“启动”文件夹（一般位于 `C:\Users\YourUserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`）即可。示例命令如下：
+
+```ps1
+Copy-Item -Path '~\scoop\shims\start-v2raya.cmd' -Destination '~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
+```
 
 ## 手动安装
 
