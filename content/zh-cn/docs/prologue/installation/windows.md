@@ -195,3 +195,9 @@ Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-
 ### 后台运行（使用 ConEmu）
 
 [ConEmu](https://conemu.github.io/) 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用 [直接运行]({{< ref "#直接运行" >}}) 项里面提到的命令运行 v2rayA 即可。
+
+## 系统代理问题
+
+截至 2022-07-09，v2rayA 在 Windows 上仅支持系统代理，该方式不同于透明代理，无法作用于部分应用。
+
+另外，Windows 存在着开启系统代理后 UWP 应用无法联网的问题，这是因为出于安全问题，UWP 应用在默认情况下不允许访问本地回环地址，因此需要借助一些工具来避免这种问题，例如 Fiddler 的 [Enable Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe) 或开源项目 [Loopback Exemption Manager](https://github.com/tiagonmas/Windows-Loopback-Exemption-Manager)。
