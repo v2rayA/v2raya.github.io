@@ -196,8 +196,26 @@ Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-
 
 [ConEmu](https://conemu.github.io/) 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用 [直接运行]({{< ref "#直接运行" >}}) 项里面提到的命令运行 v2rayA 即可。
 
-## 系统代理问题
+## 系统代理
 
-截至 v1.5.8.2，v2rayA 在 Windows 上仅支持系统代理，该方式不同于透明代理，无法作用于部分应用。
+### 开启系统代理
 
-另外，Windows 存在着开启系统代理后 UWP 应用无法联网的问题，这是因为出于安全问题，UWP 应用在默认情况下不允许访问本地回环地址，因此需要借助一些工具来避免这种问题，例如 Fiddler 的 [Enable Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe) 或开源项目 [Loopback Exemption Manager](https://github.com/tiagonmas/Windows-Loopback-Exemption-Manager)。
+v2rayA 目前在 Windows 上仅支持系统代理，可以在 Web 界面开启 System Proxy 以启用它。
+
+{{% notice info %}}
+部分应用（比如命令行程序）可能不读取或者不使用系统代理，你可能需要 `proxychains` 来强行让它们走代理，或者使用程序自身的代理配置。
+{{% /notice %}}
+
+{{% notice info %}}
+如果 v2rayA 意外退出，那么 v2rayA 无法在退出的时候帮你取消系统代理，这种情况下你需要自行去 Internet 选项或者系统设置里面关掉代理。
+{{% /notice %}}
+
+### 让 UWP 应用走代理
+
+>参考内容：<https://github.com/Qv2ray/Qv2ray/issues/562>
+
+Windows 存在着开启系统代理后 UWP 应用无法联网的问题，这是因为出于安全问题，UWP 应用在默认情况下不允许访问本地回环地址，而大部分代理都会监听回环地址，以便提供 socks 与 http 代理入口。为了规避这个问题，我们需要借助一些工具，例如 Fiddler 的 [Enable Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe) 或开源项目 [Loopback Exemption Manager](https://github.com/tiagonmas/Windows-Loopback-Exemption-Manager)。或者，你可以通过以下 PowerShell 命令来批量完成这个操作，打开一个具有管理员权限的 PowerShell 窗口，然后运行：
+
+```ps1
+Get-ChildItem -Path Registry::"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Mappings\" -name | ForEach-Object {CheckNetIsolation.exe LoopbackExempt -a -p="$_"}
+```
