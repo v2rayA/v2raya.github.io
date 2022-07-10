@@ -66,3 +66,91 @@ weight: 640
    ```
 
 当 docker 服务重启时，容器的 IP 地址可能会发生变化，因此需要固定容器的 IP 地址，方法参见 [StackOverflow](https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container) 上的讨论。
+
+## 方法3：利用生命周期钩子使特定用户或组直连
+
+下面给出利用生命周期钩子修改透明代理规则，使得以 v2raya-skip 组运行的程序直连的例子，该方法可使得特定程序的所有流量均不经过 v2ray-core。生命周期钩子的介绍见 [生命周期钩子]({{% relref "hook" %}}) 一节。
+
+注意，由于 docker 容器中的用户和组与宿主中的用户和组是隔离的，因此该方法对 docker 容器内的程序并不能生效。
+
+首先创建用户组：
+
+```bash
+sudo groupadd v2raya-skip
+```
+
+而后，编写如下脚本，将其存储于 `/etc/v2raya/tproxy-hook.sh` ：
+
+```bash
+#!/bin/bash
+
+# parse the arguments
+for i in "$@"; do
+  case $i in
+    --transparent-type=*)
+      TYPE="${i#*=}"
+      shift
+      ;;
+    --stage=*)
+      STAGE="${i#*=}"
+      shift
+      ;;
+    -*|--*)
+      echo "Unknown option $i"
+      exit 1
+      ;;
+    *)
+      ;;
+  esac
+done
+
+
+case "$STAGE" in
+post-start)
+  # at the post-start stage
+  # we first check the $TYPE so we know which table should we insert into
+  if [ "$TYPE" = "tproxy" ]; then
+    TABLE=mangle
+  elif [ "$TYPE" = "redirect" ]; then
+    TABLE=nat
+  else
+    echo "unexpected transparent type: ${TYPE}"
+    exit 1
+  fi
+  # print what we are excuting and exit if it fails
+  set -ex
+  # insert the iptables rules for ipv4 and ipv6
+  iptables -t "$TABLE" -I TP_OUT -m owner --gid-owner v2raya-skip -j RETURN
+  ip6tables -t "$TABLE" -I TP_OUT -m owner --gid-owner v2raya-skip -j RETURN
+  ;;
+pre-stop)
+  # we do nothing here because the TP_OUT chain will be flushed automatically by v2rayA.
+  # we can also do it manually.
+  ;;
+*)
+  ;;
+esac
+
+exit 0
+```
+
+赋予可执行权限：
+
+```bash
+sudo chmod +x /etc/v2raya/tproxy-hook.sh
+```
+
+启动 v2raya 时添加透明代理生命周期钩子，添加参数 `--transparent-hook /etc/v2raya/tproxy-hook.sh`。
+
+使用指定组启动需要绕过的程序，以 curl 为例：
+
+```bash
+# 使用 sg
+sudo sg v2raya-skip 'curl ip.sb'
+# 或使用 su
+sudo su -g v2raya-skip -c 'curl ip.sb'
+```
+
+同理，可使用类似命令启动 BT 下载程序，以达到不经过 v2ray-core 的直连效果。
+
+使得使用指定用户启动的程序直连的方法思路同上，将 `--gid-owner` 换为 `--uid-owner` 即可。
