@@ -40,13 +40,16 @@ def main():
     # we only modify the config file at the pre-start stage
     if args.stage != 'pre-start':
         return
+
     # read the content from the config.json
     conf_path = path.join(args.v2raya_confdir, 'config.json')
     with open(conf_path) as f:
         conf = json.loads(f.read())
+
     # append a socks with sniffing and routing rule inbound
     sniffing_socks = {'port': 11698, 'protocol': 'socks', 'listen': '0.0.0.0', 'sniffing': {'enabled': True}, 'tag': 'sniffing-socks'}
     conf['inbounds'].append(sniffing_socks)
+
     # add routing rule support for this inbound (follow the rule port)
     for rule in conf['routing']['rules']:
         if 'inboundTag' not in rule:
@@ -70,7 +73,7 @@ if __name__ == '__main__':
 赋予可执行权限：
 
 ```bash
-sudo chmod +x /etc/v2raya/core-hook.sh
+sudo chmod +x /etc/v2raya/core-hook.py
 ```
 
-启动 v2raya 时添加参数 `--core-hook /etc/v2raya/core-hook.sh`。
+启动 v2raya 时添加参数 `--core-hook /etc/v2raya/core-hook.py`。
