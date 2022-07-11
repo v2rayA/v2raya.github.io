@@ -46,7 +46,7 @@ for i in "$@"; do
       ;;
     -*|--*)
       echo "Unknown option $i"
-      exit 1
+      shift
       ;;
     *)
       ;;
