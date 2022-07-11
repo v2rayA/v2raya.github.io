@@ -81,7 +81,7 @@ v2rayaWin --lite
 
 #### 开机自启
 
-将你 `scoop\shims` 目录下的 `start-v2raya-unstable.cmd` 复制到“启动”文件夹（一般位于 `C:\Users\YourUserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`）即可。示例命令如下：
+将你 `scoop\shims` 目录下的 `start-v2raya.cmd` 复制到“启动”文件夹（一般位于 `C:\Users\YourUserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`）即可。示例命令如下：
 
 ```ps1
 Copy-Item -Path '~\scoop\shims\start-v2raya.cmd' -Destination '~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
