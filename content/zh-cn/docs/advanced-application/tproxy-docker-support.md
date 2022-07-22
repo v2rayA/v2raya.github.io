@@ -50,6 +50,7 @@ post-start)
   # at the post-start stage
   if [ "$TYPE" = "tproxy" ]; then
     # we check if the transparent type is tproxy, and if so, we disable the bridge netfilter call and remove the docker rule in the TP_RULE chain.
+    modprobe br_netfilter
     sysctl net.bridge.bridge-nf-call-ip6tables=0
     sysctl net.bridge.bridge-nf-call-iptables=0
     sysctl net.bridge.bridge-nf-call-arptables=0
