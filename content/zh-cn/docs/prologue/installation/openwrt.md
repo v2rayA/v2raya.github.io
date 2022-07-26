@@ -23,7 +23,23 @@ toc: true
 
 可以使用反向代理了 OSDN 的开源镜像站来加速下载。
 
-## 其它安装方式
+## 通过 OpenWrt 官方软件源安装
+
+{{% notice info %}}
+目前只有 openWrt 最新的 snapshot 版本软件源中含有 v2rayA，使用此版本的用户可以直接从软件源安装。
+{{% /notice %}}
+
+```bash
+opkg update
+opkg install v2raya
+```
+
+{{% notice note %}}
+由于目前 openWrt 的软件源中没有 `v2ray-core`, `xray-core` 会作为依赖被安装。
+如果你打算使用 v2ray，那么你需要手动安装它。在同时存在 v2ray 与 xray 的情况下，v2rayA 将优先使用前者。
+{{% /notice %}}
+
+## 手动安装
 
 ### 安装 V2Ray 内核 / Xray 内核
 
@@ -39,37 +55,15 @@ cp v2ray-core/v2ray v2ray-core/v2ctl /usr/bin
 chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
 ```
 
-{{% notice note %}} **擦亮眼睛**  
+{{% notice note %}} **擦亮眼睛**
 格外注意你的 OpenWrt 设备的架构，不要下载到不适用于你设备的版本，否则内核将无法运行。
 {{% /notice %}}
 
-自 OpenWrt 21.02 开始，Xray 内核可以通过 opkg 安装。
-
 ### 安装 v2rayA
-
-#### 方式 1：通过 OpenWrt 官方软件源安装
-
-{{% notice info %}}
-目前只有 openWrt 最新的 snapshot 版本软件源中含有 v2rayA。使用此版本的用户可以直接从软件源安装。
-{{% /notice %}}
-
-```bash
-opkg update
-opkg install v2raya
-```
-
-{{% notice note %}}
-由于目前 openWrt 的软件源中没有 `v2ray-core`, `xray-core` 会作为依赖被安装。
-如果你使用 v2ray，则可以手动卸载并忽略依赖警告。
-{{% /notice %}}
-
-#### 方式 2：手动安装 ipk
 
 {{% notice info %}}
 对于软件源中没有 v2rayA 的用户，可以从 [此处](https://downloads.openwrt.org/snapshots/packages) 中寻找适合你架构的 ipk 文件进行安装，也可以直接按如下方式手动安装。
 {{% /notice %}}
-
-#### 方式 3：手动安装可执行文件
 
 从 [Github Releases](https://github.com/v2rayA/v2rayA/releases) 下载最新版本对应处理器架构的二进制文件，然后移动到 `/usr/bin` 并给予执行权限：
 
@@ -104,7 +98,7 @@ opkg install \
 chmod +x /etc/init.d/v2raya
 ```
 
-## 其它操作
+## 运行
 
 ### 开启 v2rayA 服务
 
@@ -118,3 +112,17 @@ uci commit v2raya
 ```bash
 /etc/init.d/v2raya start
 ```
+
+## 常见故障
+
+### PPPoE 拨号问题
+
+如果你通过 PPPoE 拨号上网，那么你可能会遇到 v2rayA 的透明代理开启一段时间后没有网络连接的故障。解决方法是，使用 v2rayA 的时候不要删除或替换“网络 > 接口”默认的 WAN 连接，而应该新建一个接口来进行拨号。**新建的 PPPoE 拨号接口需要添加到名为 wan 的防火墙区域。**
+
+### 部分设备无法运行
+
+v2rayA 所用的[数据库模块](https://github.com/boltdb/bolt)目前不支持基于 MIPS 的芯片，这部分设备（比如一些便宜的 WiFi 路由器、国产龙芯电脑等）可能无法正确初始化数据库，从而导致无法使用。
+
+另外，如果设备闪存空间太小，v2rayA 也会无法启用。有需要的朋友可以用 `upx` 压缩 v2rayA 与核心再试试。
+
+内核模块不全的操作系统无法开启透明代理，建议使用 OpenWrt 官方发行分支或者 ImmortalWrt 第三方分支。
