@@ -77,7 +77,7 @@ v2rayaWin --lite
 
 #### 后台运行
 
-使用 `start-v2ray` 命令运行 v2rayA，使用 `stop-v2raya` 命令关掉 v2rayA。
+使用 `start-v2raya` 命令运行 v2rayA，使用 `stop-v2raya` 命令关掉 v2rayA。
 
 #### 开机自启
 
