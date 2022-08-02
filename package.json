@@ -36,7 +36,7 @@
     "validate": "npm ls"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17",
+    "@babel/cli": "^7.18",
     "@babel/core": "^7.17",
     "@babel/preset-env": "^7.16",
     "@fullhuman/postcss-purgecss": "^4.1",
