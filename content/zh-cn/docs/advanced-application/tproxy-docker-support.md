@@ -54,6 +54,7 @@ post-start)
     sysctl net.bridge.bridge-nf-call-ip6tables=0
     sysctl net.bridge.bridge-nf-call-iptables=0
     sysctl net.bridge.bridge-nf-call-arptables=0
+    iptables -t mangle -D TP_RULE -i br-+ -j RETURN
     iptables -t mangle -D TP_RULE -i docker+ -j RETURN
   fi
   ;;
