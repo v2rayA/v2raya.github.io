@@ -26,7 +26,7 @@ images: []
 scoop install yarn nodejs-lts go
 ```
 
-你不需要再次安装 git，因为 scoop 依赖于 git。换而言之，当你使用 scoop 的时候，git 是一定安装好了的。
+如果你是在刚刚安装 scoop 之后运行该命令，那么你还需要安装 `git` 或 `mingit`。
 
 建议安装 PowerShell Core，，如此 scoop 将能更好地工作（尤其是在旧版本 Windows 系统中）。可以从 [GitHub](https://aka.ms/powershell-release?tag=stable) 或 [Microsoft Store](https://www.microsoft.com/en-us/p/powershell/9mz1snwt0n5d) 下载 PowerShell Core。
 
@@ -37,6 +37,10 @@ sudo pacman -S git yarn go
 ```
 
 ### 其它 Linux
+
+{{% notice info %}}
+部分发行版可能提供了 NodeJS 与 Go 语言的安装包，下面的安装方法主要以手动安装为主。
+{{% /notice %}}
 
 #### 安装 Git：
 
@@ -75,7 +79,7 @@ sudo zypper in git
 首先安装 [brew](https://brew.sh/)，然后在终端中运行：
 
 ```bash
-brew install git yarn go
+brew install git yarn go node
 ```
 
 您可以使用 bash 脚本构建 v2rayA。如果要使用 PowerShell 脚本编译 v2rayA，则应先安装 PowerShell Core。可以[从 GitHub](https://aka.ms/powershell-release?tag=stable) 下载 PowerShell Core。
@@ -86,13 +90,17 @@ brew install git yarn go
 
 Bash 脚本在类 UNIX 操作系统上运行，例如 Linux 或 macOS。
 
+{{% notice info %}}
+注意：bash 脚本不适用于 Windows 上的 `git-bash`，编译的时候会发生错误。有需要的可以使用 PowerShell 脚本编译。
+{{% /notice %}}
+
 打开终端，`cd` 到 v2rayA 源代码所在路径，然后运行`bash ./build.sh`
 
 ### PowerShell 脚本
 
 PowerShell 脚本可在所有主流操作系统上运行，包括 Windows、Linux 和 macOS。
 
-打开 PowerShell 窗口并将 `cd` v2rayA 源代码所在路径，然后运行 ​​`./build-in-pwsh.ps1`
+打开 PowerShell 窗口并将 `cd` v2rayA 源代码所在路径，然后运行 ​​`pwsh -c build-in-pwsh.ps1` 或者 ​​`powershell.exe -c build-in-pwsh.ps1`。
 
 无论使用哪种编译脚本，只要编译成功，v2rayA 源代码所在路径里面就会多出一个 `v2raya` 或 `v2raya.exe` 的可执行文件。
 
