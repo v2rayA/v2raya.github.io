@@ -54,7 +54,6 @@ v2ray.exe 可执行文件所在目录
 /usr/local/share/v2ray/
 /usr/share/v2ray/
 /opt/share/v2ray/
-v2ray 二进制文件所在目录
 ```
 
 ## 使用方法
