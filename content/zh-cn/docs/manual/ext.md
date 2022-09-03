@@ -2,8 +2,8 @@
 title: "拓展规则库 .dat 文件"
 description: "v2rayA 拓展规则库的介绍"
 lead: "扩展规则库可用于 RoutingA 书写，下面以 v2ray-core 为例，其他 core 需要对应做出修改。"
-date: 2022-09-02T13:59:39+01:00
-lastmod: 2020-11-16T13:59:39+01:00
+date: 2020-11-16T13:59:39+01:00
+lastmod: 2022-09-02T13:59:39+01:00
 draft: false
 images: []
 menu:
