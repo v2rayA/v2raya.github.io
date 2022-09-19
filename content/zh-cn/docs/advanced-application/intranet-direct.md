@@ -78,7 +78,7 @@ post-start)
   ip6tables -t "$TABLE" -I TP_RULE -s 192.168.0.12/32 -j RETURN
   ;;
 pre-stop)
-  # we do nothing here because the TP_OUT chain will be flushed automatically by v2rayA.
+  # we do nothing here because the TP_RULE chain will be flushed automatically by v2rayA.
   # we can also do it manually.
   ;;
 *)
