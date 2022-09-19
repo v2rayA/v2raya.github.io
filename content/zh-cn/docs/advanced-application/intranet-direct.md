@@ -75,9 +75,8 @@ post-start)
   fi
   # print what we are excuting and exit if it fails
   set -ex
-  # insert the iptables rules for ipv4 and ipv6
+  # insert the iptables rules for ipv4
   iptables -t "$TABLE" -I TP_RULE "$POS" -s 192.168.0.12/32 -j RETURN
-  ip6tables -t "$TABLE" -I TP_RULE "$POS" -s 192.168.0.12/32 -j RETURN
   ;;
 pre-stop)
   # we do nothing here because the TP_RULE chain will be flushed automatically by v2rayA.
