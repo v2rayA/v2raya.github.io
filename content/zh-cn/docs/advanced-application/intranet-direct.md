@@ -65,8 +65,10 @@ post-start)
   # we first check the $TYPE so we know which table should we insert into
   if [ "$TYPE" = "tproxy" ]; then
     TABLE=mangle
+    POS=3
   elif [ "$TYPE" = "redirect" ]; then
     TABLE=nat
+    POS=1
   else
     echo "unexpected transparent type: ${TYPE}"
     exit 1
@@ -74,8 +76,8 @@ post-start)
   # print what we are excuting and exit if it fails
   set -ex
   # insert the iptables rules for ipv4 and ipv6
-  iptables -t "$TABLE" -I TP_RULE -s 192.168.0.12/32 -j RETURN
-  ip6tables -t "$TABLE" -I TP_RULE -s 192.168.0.12/32 -j RETURN
+  iptables -t "$TABLE" -I TP_RULE "$POS" -s 192.168.0.12/32 -j RETURN
+  ip6tables -t "$TABLE" -I TP_RULE "$POS" -s 192.168.0.12/32 -j RETURN
   ;;
 pre-stop)
   # we do nothing here because the TP_RULE chain will be flushed automatically by v2rayA.
