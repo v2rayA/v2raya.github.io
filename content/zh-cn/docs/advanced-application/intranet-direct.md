@@ -76,7 +76,7 @@ post-start)
   # print what we are excuting and exit if it fails
   set -ex
   # insert the iptables rules for ipv4
-  iptables -t "$TABLE" -I TP_RULE "$POS" -s 192.168.0.12/32 -j RETURN
+  iptables -t "$TABLE" -I TP_RULE "$POS" -s 192.168.0.12/32,192.168.0.15/32 -j RETURN
   ;;
 pre-stop)
   # we do nothing here because the TP_RULE chain will be flushed automatically by v2rayA.
@@ -89,7 +89,7 @@ esac
 exit 0
 ```
 
-上述脚本将在 TP_RULE 链的最前插入使得 `192.168.0.12/32` 的源 IP 地址跳过的规则。上述 IP 表示法为 CIDR，如需表示多个 IP，可于互联网搜索 CIDR 相关写法，也可通过多写几条规则实现。
+上述脚本将在 TP_RULE 链的最前插入使得 `192.168.0.12/32` 和 `192.168.0.15/32`的源 IP 地址跳过的规则。上述 IP 表示法为 CIDR，如需表示多个 IP，可于互联网搜索 CIDR 相关写法，也可通过多写几条规则实现。
 
 赋予可执行权限：
 
