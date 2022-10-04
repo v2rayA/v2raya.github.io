@@ -77,9 +77,7 @@ Install downloaded packages on the host:
 rpm-ostree install ./*.rpm
 ```
 
-{{% notice warning %}}
-Warning: Be aware of the race condition where downloaded packages got replaced by unprivileged malware before installing it on the host.
-{{% /notice %}}
+{{% notice warning %}} Warning: Be aware of the race condition where downloaded packages got replaced by unprivileged malware before installing it on the host. {{% /notice %}}
 
 Then, reboot your PC, either by GUI or by command:
 
@@ -113,9 +111,7 @@ Package updates are handled by `rpm-ostree` automatically.
 
 ## Other rpm-based operating systems
 
-{{% notice info %}}
-This method can install v2rayA for Alma Linux, Rocky Linux, openSUSE or other Linux distributions based on the rpm package manager, provided that the **distribution you are using uses systemd as a system management tool** .
-{{% /notice %}}
+{{% notice info %}} This way can install v2rayA for Alma Linux, Rocky Linux, openSUSE, CentOS 7 or other Linux distribution based on rpm package manager, provided that the **distribution you are using uses systemd as system management tools** . {{% /notice %}}
 
 ### Install V2Ray core / Xray core
 
