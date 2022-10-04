@@ -1,7 +1,7 @@
 ---
 title: macOS
-description: 安装核心和 v2rayA
-lead: v2rayA 的功能依赖于 V2Ray 核心，因此需要安装内核。
+description: Install core and v2rayA
+lead: The functionality of v2rayA depends on the V2Ray core, so the kernel needs to be installed.
 date: '2021-08-31 06:48:45 +0000'
 lastmod: '2021-08-31 06:48:45 +0000'
 draft: 'false'
@@ -13,7 +13,7 @@ weight: '15'
 toc: 'true'
 ---
 
-{{% notice info %}} v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此透明代理无法启用。安全起见，本 wiki 将以非 root 权限来运行 v2rayA。 {{% /notice %}}
+{{% notice info %}} v2rayA and v2ray/xray do not yet support Packet Filter firewall on macOS/FreeBSD, so transparent proxy cannot be enabled. For security, this wiki will run v2rayA with non-root privileges. {{% /notice %}}
 
 {{% notice info %}} It is recommended to install v2ray core by using Homebrew, so v2rayA will automatically use the existing v2ray core on your computer. Without installing the core from brew, you will need to manually specify the path of v2ray core. {{% /notice %}}
 
