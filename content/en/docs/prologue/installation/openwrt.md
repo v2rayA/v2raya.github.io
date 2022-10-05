@@ -83,7 +83,7 @@ opkg install \
 
 `/etc/init.d/v2raya` reference [here](https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.init) .
 
-给予此文件可执行权限：
+Give this file executable permissions:
 
 ```bash
 chmod +x /etc/init.d/v2raya
