@@ -15,8 +15,8 @@ toc: 'true'
 
 ## Install V2Ray core / Xray core
 
-Install `v2ray` from official repository, or install `xray` or `xray-bin` from AUR.
+Install `v2ray` from Arch Linux official software source, or install `xray` or `xray-bin` from the AUR.
 
 ## Install v2rayA
 
-Just install `v2raya` or `v2raya-bin` or `v2raya-git` from AUR.
+Install `v2raya` or `v2raya-bin` &amp; `v2raya-git` from the AUR.
