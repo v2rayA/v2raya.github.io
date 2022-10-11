@@ -19,6 +19,8 @@ toc: true
 安装包将内置 v2ray-core，如需更换 Xray-core，可在安装完毕后于安装目录手动进行替换。
 {{% /notice %}}
 
+通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的"服务"选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 <http://127.0.0.1:2017> 打开管理页面。
+
 ### 方法一：通过 WinGet 自动安装
 
 [WinGet](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) 是微软推出的软件包管理器，适用于 Windows 10 以及更新版本的操作系统。
@@ -31,41 +33,65 @@ winget install --id v2raya.win
 
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 下载适用于 Windows 的安装包，例如 installer_windows_x64_1.5.6.exe，按照指示安装完毕即可。
 
-### 使用方法
+### 方法三：通过 Scoop 自动安装
 
-通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的“服务”选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 http://127.0.0.1:2017 打开管理页面。
+{{< details "安装 Scoop" >}}
 
-## 使用 Scoop 安装二进制
+1. 安装 [Git for Windows](https://github.com/git-for-windows/git/releases/latest). 国内用户从 [这里](https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/LatestRelease/) 下载.
+2. 安装 [PowerShell Core](https://aka.ms/PowerShell-Release?tag=stable). 国内用户从 [这里](https://mirrors.tuna.tsinghua.edu.cn/github-release/PowerShell/PowerShell/LatestRelease/) 下载.
+3. (可选) 安装 [Windows Terminal](https://github.com/microsoft/terminal/releases/latest).
+4. 安装 [Scoop](https://scoop.sh).
 
-### 安装 v2rayA
+   ```powershell
+   > Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+   > irm get.scoop.sh | iex
+   ```
+
+{{< /details >}}
+
+安装 v2rayA:
+
+```ps1
+scoop bucket add v2raya https://github.com/v2rayA/v2raya-scoop # 添加 Scoop 源
+scoop update # 更新 Scoop 信息
+scoop install v2raya-np # 安装 v2raya 稳定版 (recommended)
+#scoop install v2raya-unstable-np # 安装 v2raya 测试版 (unstable)
+```
+
+## 使用二进制
+
+### 通过 Scoop 自动安装
+
+#### 安装 v2rayA
 
 {{% notice info %}}
 所有的命令都在 PowerShell 中运行，CMD 用户请注意命令格式。
 {{% /notice %}}
 
-你首先需要安装 [Scoop](https://scoop.sh) ，然后才能从 scoop 安装 v2rayA。
+{{< details "安装 Scoop" >}}
 
-添加 Scoop 源：
+1. 安装 [Git for Windows](https://github.com/git-for-windows/git/releases/latest). 国内用户从 [这里](https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/LatestRelease/) 下载.
+2. 安装 [PowerShell Core](https://aka.ms/PowerShell-Release?tag=stable). 国内用户从 [这里](https://mirrors.tuna.tsinghua.edu.cn/github-release/PowerShell/PowerShell/LatestRelease/) 下载.
+3. (可选) 安装 [Windows Terminal](https://github.com/microsoft/terminal/releases/latest).
+4. 安装 [Scoop](https://scoop.sh).
+
+   ```powershell
+   > Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+   > irm get.scoop.sh | iex
+   ```
+
+{{< /details >}}
+
+安装 v2rayA:
 
 ```ps1
-scoop bucket add v2raya https://github.com/v2rayA/v2raya-scoop
-```
-
-更新 Scoop 信息：
-
-```ps1
-scoop update
-```
-
-安装：
-
-```ps1
-scoop install v2raya
+scoop bucket add v2raya https://github.com/v2rayA/v2raya-scoop # 添加 Scoop 源
+scoop update # 更新 Scoop 信息
+scoop install v2raya # 安装 v2raya
+scoop install v2ray-rules-dat # 安装 V2Ray 路由规则文件(可选)
 ```
 
 V2Ray 核心将作为依赖包而被安装，如果想使用 Xray，请指定 `--v2ray-bin` 参数。
-
-### 运行 v2rayA
 
 #### 前台运行
 
@@ -77,30 +103,28 @@ v2rayaWin --lite
 
 #### 后台运行
 
-使用 `start-v2raya` 命令运行 v2rayA，使用 `stop-v2raya` 命令关掉 v2rayA。
+使用 `⊞ + R` 打开运行窗口，输入 `start-v2raya` 命令运行 v2rayA，输入 `stop-v2raya` 命令关掉 v2rayA。
 
 #### 开机自启
 
-将你 `scoop\shims` 目录下的 `start-v2raya.cmd` 复制到“启动”文件夹（一般位于 `C:\Users\YourUserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`）即可。示例命令如下：
-
-```ps1
-Copy-Item -Path '~\scoop\shims\start-v2raya.cmd' -Destination '~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
+```powershell
+reg import \"$(scoop prefix v2raya)\\add-startup.reg\"
 ```
 
-## 手动安装
+### 手动安装
 
-### 下载 v2rayA
+#### 下载 v2rayA
 
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 Windows 的二进制文件（名称一般类似于 v2raya_windows_arm64_1.5.6.2.exe），然后重命名为 `v2raya.exe`（格外注意 Windows 系统下不能丢失扩展名）。
 
-### 下载 V2Ray 核心 / Xray 核心
+#### 下载 V2Ray 核心 / Xray 核心
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>
 > 安装 Xray：<https://xtls.github.io/document/install.html>
 
 下载压缩包之后解压即可。
 
-### 运行 v2rayA
+#### 运行 v2rayA
 
 假设 v2rayA 与 v2ray 都放在了 `D:\v2rayA`:
 
@@ -136,7 +160,7 @@ D:\v2rayA\v2raya.exe --lite --v2ray-bin D:\v2rayA\v2ray.exe
 </service>
 ```
 
-此处的用户名是你显示在“计算机管理”中的用户名，而非在控制面板或系统设置里面看到的完整用户名。密码是你的本地账户密码或者微软账户密码。
+此处的用户名是你显示在"计算机管理"中的用户名，而非在控制面板或系统设置里面看到的完整用户名。密码是你的本地账户密码或者微软账户密码。
 
 如果是手动安装的 v2rayA，那么你需要指定 `--v2ray-bin` 参数，或者将 v2ray 添加到 path。
 
@@ -180,13 +204,13 @@ nssm edit v2raya # 编辑服务
 nssm start/stop/restart v2raya # 启动、停止、重启服务
 ```
 
-### 后台运行（通过 PowerShell 隐藏窗口）：
+### 后台运行（通过 PowerShell 隐藏窗口）
 
 ```ps1
 Start-Process "v2rayaWin.exe" -Arg "--lite" -WindowStyle Hidden
 ```
 
-如果想在后台运行时也在前端输出日志，需要在参数里指定日志的输出文件（这里指定工作目录为当前用户的`%temp%`目录），可以使用如下的powershell命令：
+如果想在后台运行时也在前端输出日志，需要在参数里指定日志的输出文件（这里指定工作目录为当前用户的`%temp%`目录），可以使用如下的 powershell 命令：
 
 ```ps1
 Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-file v2raya.log" -WindowStyle Hidden
@@ -212,7 +236,7 @@ v2rayA 目前在 Windows 上仅支持系统代理，可以在 Web 界面开启 S
 
 ### 让 UWP 应用走代理
 
->参考内容：<https://github.com/Qv2ray/Qv2ray/issues/562>
+> 参考内容：<https://github.com/Qv2ray/Qv2ray/issues/562>
 
 Windows 存在着开启系统代理后 UWP 应用无法联网的问题，这是因为出于安全问题，UWP 应用在默认情况下不允许访问本地回环地址，而大部分代理都会监听回环地址，以便提供 socks 与 http 代理入口。为了规避这个问题，我们需要借助一些工具，例如 Fiddler 的 [Enable Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe) 或开源项目 [Loopback Exemption Manager](https://github.com/tiagonmas/Windows-Loopback-Exemption-Manager)。或者，你可以通过以下 PowerShell 命令来批量完成这个操作，打开一个具有管理员权限的 PowerShell 窗口，然后运行：
 
