@@ -84,6 +84,8 @@ ip(1.1.1.1) && protocol(http) && source(10.0.0.1, 172.20.0.0/16) -> direct
 + 暂不支持转义字符 `\`
 + 越早书写的路由规则将被优先匹配
 
+也可以参考 [新V2Ray白话文指南/路由篇](https://guide.v2fly.org/routing/routing.html)
+
 ## 常见用法
 
 ```bash
