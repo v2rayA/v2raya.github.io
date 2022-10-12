@@ -84,6 +84,8 @@ For more concepts, please check [V2Ray-Routing](https://www.v2ray.com/chapter_02
 - Escape character `\` is not supported yet
 - Routing rules written earlier will be matched first
 
+Also refer to [V2Ray Beginner's Guide](https://guide.v2fly.org/en_US/routing/routing.html)
+
 ## Common usage
 
 ```bash
