@@ -3104,10 +3104,10 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-katex@^0.15:
-  version "0.15.2"
-  resolved "https://registry.npmmirror.com/katex/-/katex-0.15.2.tgz#c05ece41ab497597b17abca2cecde3e4c0127f9d"
-  integrity sha512-FfZ/f6f8bQdLmJ3McXDNTkKenQkoXkItpW0I9bsG2wgb+8JAY5bwpXFtI8ZVrg5hc1wo1X/UIhdkVMpok46tEQ==
+katex@^0.16:
+  version "0.16.3"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.3.tgz#29640560b8fa0403e45f3aa20da5fdbb6d2b83a8"
+  integrity sha512-3EykQddareoRmbtNiNEDgl3IGjryyrp2eg/25fHDEnlHymIDi33bptkMv6K4EOC2LZCybLW/ZkEo6Le+EM9pmA==
   dependencies:
     commander "^8.0.0"
 
