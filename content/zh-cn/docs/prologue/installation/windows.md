@@ -196,9 +196,9 @@ Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-
 
 [ConEmu](https://conemu.github.io/) 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用 [直接运行]({{< ref "#直接运行" >}}) 项里面提到的命令运行 v2rayA 即可。
 
-## 系统代理
+### 系统代理
 
-### 开启系统代理
+#### 开启系统代理
 
 v2rayA 目前在 Windows 上仅支持系统代理，可以在 Web 界面开启 System Proxy 以启用它。
 
@@ -210,7 +210,7 @@ v2rayA 目前在 Windows 上仅支持系统代理，可以在 Web 界面开启 S
 如果 v2rayA 意外退出，那么 v2rayA 无法在退出的时候帮你取消系统代理，这种情况下你需要自行去 Internet 选项或者系统设置里面关掉代理。
 {{% /notice %}}
 
-### 让 UWP 应用走代理
+#### 让 UWP 应用走代理
 
 >参考内容：<https://github.com/Qv2ray/Qv2ray/issues/562>
 
@@ -218,4 +218,36 @@ Windows 存在着开启系统代理后 UWP 应用无法联网的问题，这是�
 
 ```ps1
 Get-ChildItem -Path Registry::"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Mappings\" -name | ForEach-Object {CheckNetIsolation.exe LoopbackExempt -a -p="$_"}
+```
+
+### Windows 下重置密码
+
+#### Scoop 安装的 v2rayA
+
+```ps1
+v2raya --reset-password
+```
+
+根据你安装的包将命令替换为 `v2raya-unstable` 或 `v2raya-git`，密码重置后需要重启 v2rayA。
+
+#### NSIS 安装包安装的 v2rayA
+
+打开安装目录（一般是`C:\Program Files\v2rayA`），然后打开一个具有管理员权限的 PowerShell 窗口，然后运行：
+
+```ps1
+sc stop v2rayA
+&'./v2raya-windows-$version.exe' --lite --reset-password --config "./""
+sc start v2rayA
+```
+
+`v2raya-windows-$version.exe` 需要根据实际情况替换为真正的可执行文件。
+
+#### inno 安装包安装的 v2rayA
+
+打开安装目录（一般是`C:\Program Files\v2rayA`），然后打开一个具有管理员权限的 PowerShell 窗口，然后运行：
+
+```ps1
+sc stop v2rayA
+&'./bin/v2raya.exe' --lite --reset-password --config "./""
+sc start v2rayA
 ```
