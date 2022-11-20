@@ -1,7 +1,7 @@
 ---
 title: "Podman"
 description: "Use Podman to run v2rayA"
-lead: "This tutorial requires SystemD to be installed. Auto-start needs to be handled manually otherwise"
+lead: "This tutorial requires SystemD to be installed. Auto-start needs to be handled manually otherwise."
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
