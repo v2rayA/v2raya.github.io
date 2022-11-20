@@ -1,7 +1,7 @@
 ---
 title: "Podman"
 description: "使用Podman运行v2rayA"
-lead: "此教程需要你的发行版使用SystemD。如果使用其它init系统则需要你手动配置开机自动启动。"
+lead: "此教程需要你的发行版使用systemd。如果使用其它init系统则需要你手动配置开机自动启动。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -100,7 +100,7 @@ sudo systemctl enable --now podman-auto-update.timer
 
 #### 开启v2rayA服务
 
-现在你可以用SystemD控制v2rayA服务了。
+现在你可以用systemd控制v2rayA服务了。
 
 查看服务状态：
 
@@ -198,7 +198,7 @@ systemctl --user enable --now podman-auto-update.timer
 
 #### 开启v2rayA服务
 
-现在你可以用SystemD控制v2rayA服务了。
+现在你可以用systemd控制v2rayA服务了。
 
 查看服务状态：
 
