@@ -34,7 +34,7 @@ https://podman.io/getting-started/installation.html#installing-on-linux)
 
 ## Setup v2rayA
 
-Both [rootful mode](#Rootful-Mode) and [rootless mode](#Rootless-Mode) are supported.
+Both [rootful mode](#rootful-mode) and [rootless mode](#rootless-mode) are supported.
 
 Warning: The container image used in this tutorial is maintained directly by @mzz2017, circumventing security audits by your distribution repository. Continuing using it implies trusting @mzz2017.
 
