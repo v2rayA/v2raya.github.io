@@ -1,7 +1,7 @@
 ---
 title: "Podman"
 description: "Use Podman to run v2rayA"
-lead: "This tutorial requires SystemD to be installed. Auto-start needs to be handled manually otherwise."
+lead: "This tutorial requires systemd to be installed. Auto-start needs to be handled manually otherwise."
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -82,7 +82,7 @@ sudo podman create -it \
 
 Configurations are stored in `/etc/v2raya`.
 
-#### Create SystemD service
+#### Create systemd service
 
 ```bash
 bash -c \
@@ -100,7 +100,7 @@ sudo systemctl enable --now podman-auto-update.timer
 
 #### Enable v2rayA service
 
-Now you can manage v2rayA service with SystemD.
+Now you can manage v2rayA service with systemd.
 
 Check service status:
 
@@ -180,7 +180,7 @@ podman create -it \
 
 Configurations are stored in `~/.config/v2raya`.
 
-#### Create SystemD service
+#### Create systemd service
 
 ```bash
 bash -c \
