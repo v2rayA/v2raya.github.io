@@ -29,7 +29,8 @@ But it also works on general-purpose distributions, such as:
 
 Podman came pre-installed on some distributions. If yours haven't, follow this tutorial:
 
-https://podman.io/getting-started/installation.html#installing-on-linux
+[https://podman.io/getting-started/installation.html#installing-on-linux](
+https://podman.io/getting-started/installation.html#installing-on-linux)
 
 ## Setup v2rayA
 
