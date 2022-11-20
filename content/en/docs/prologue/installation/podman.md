@@ -130,6 +130,12 @@ Optionally delete v2rayA configurations:
 sudo rm -r /etc/v2raya
 ```
 
+In case you do not want to use v2rayA again, remove image from local storage:
+
+```bash
+sudo podman image rm docker.io/mzz2017/v2raya
+```
+
 ### Rootless Mode
 
 In case the only thing you need was a SOCKS5/HTTP port, you may run the container as standard user account, furthur reducing attack surface:
@@ -222,4 +228,10 @@ Optionally delete v2rayA configurations:
 
 ```bash
 rm -r ~/.config/v2raya
+```
+
+In case you do not want to use v2rayA again, remove image from local storage:
+
+```bash
+podman image rm docker.io/mzz2017/v2raya
 ```
