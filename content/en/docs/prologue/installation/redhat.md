@@ -74,7 +74,7 @@ sudo rpm-ostree ex apply-live --allow-replacement
 
 Enable and start the service:
 
-```
+```bash
 sudo systemctl enable --now v2raya.service
 ```
 
