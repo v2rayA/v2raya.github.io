@@ -130,6 +130,12 @@ sudo systemctl daemon-reload
 sudo rm -r /etc/v2raya
 ```
 
+如果您不再想使用v2rayA，移除v2rayA镜像：
+
+```bash
+sudo podman image rm docker.io/mzz2017/v2raya
+```
+
 ### Rootless 模式
 
 如果你只需要一个SOCKS5/HTTP代理端口，则可以让容器运行于普通用户权限，进一步降低风险。
@@ -222,4 +228,10 @@ systemctl --user daemon-reload
 
 ```bash
 rm -r ~/.config/v2raya
+```
+
+如果您不再想使用v2rayA，移除v2rayA镜像：
+
+```bash
+podman image rm docker.io/mzz2017/v2raya
 ```
