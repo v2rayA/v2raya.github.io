@@ -74,7 +74,7 @@ sudo rpm-ostree ex apply-live --allow-replacement
 
 ### 设置开机自启动，并且现在开始运行
 
-```
+```bash
 sudo systemctl enable --now v2raya.service
 ```
 
