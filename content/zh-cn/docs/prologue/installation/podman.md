@@ -221,5 +221,5 @@ systemctl --user daemon-reload
 你也可以选择删除v2rayA的配置文件：
 
 ```bash
-sudo rm -r ~/.config/v2raya
+rm -r ~/.config/v2raya
 ```
