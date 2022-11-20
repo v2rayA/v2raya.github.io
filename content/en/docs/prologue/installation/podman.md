@@ -221,5 +221,5 @@ systemctl --user daemon-reload
 Optionally delete v2rayA configurations:
 
 ```bash
-sudo rm -r ~/.config/v2raya
+rm -r ~/.config/v2raya
 ```
