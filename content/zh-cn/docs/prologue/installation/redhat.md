@@ -17,7 +17,7 @@ toc: true
 
 如果你的发行版拥有不可写的运行时文件系统结构，请不要使用RPM安装v2rayA。
 
-跳转：[Podman教程]()。
+跳转：[Podman教程]({{% relref "podman" %}})。
 
 ## Fedora 34 / 35 / 36 以及 CentOS Stream 8
 
@@ -25,7 +25,7 @@ toc: true
 
 > Fedora 37 没有人打包 golang 1.18，最新的 golang 无法编译 v4 版本的 v2ray-core，v2rayA 最后一个 tag 仍然不支持 v5 版本的 v2ray-core
 
-如果你想要在Fedora 37上立刻使用v2rayA、或者避免以后升级Fedora时出现类似的问题，请参照[Podman教程]()。
+如果你想要在Fedora 37上立刻使用v2rayA、或者避免以后升级Fedora时出现类似的问题，请参照[Podman教程]({{% relref "podman" %}})。
 
 ### 添加 copr 源
 
@@ -49,7 +49,7 @@ sudo dnf install v2raya
 
 ## Fedora Silverblue / Kinoite
 
-提醒：你应该参照[Podman教程]()。请避免在Silverblue / Kinoite的宿主机中直接安装软件。
+提醒：你应该参照[Podman教程]({{% relref "podman" %}})。请避免在Silverblue / Kinoite的宿主机中直接安装软件。
 
 如果你依然要直接安装，以下是在宿主机中安装v2rayA的方法。
 
