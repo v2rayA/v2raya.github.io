@@ -29,7 +29,8 @@ toc: true
 
 Podman已经在一部分发行版中预装了。若你的发行版没有预装Podman，请参考具体安装步骤：
 
-https://podman.io/getting-started/installation.html#installing-on-linux
+[https://podman.io/getting-started/installation.html#installing-on-linux](
+https://podman.io/getting-started/installation.html#installing-on-linux)
 
 ## 配置
 
