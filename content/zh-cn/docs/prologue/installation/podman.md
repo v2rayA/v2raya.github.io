@@ -63,7 +63,23 @@ HTTPS_PROXY=http://<Address>:<Port> \
 
 你也可以使用 `sudo podman image import` 导入其它来源提供的v2rayA容器镜像。
 
+### 配置iptables自动加载
+
+```bash
+sudo mkdir /etc/modules-load.d
+cat << 'EOF' | sudo tee /etc/modules-load.d/ip_tables.conf >> /dev/null 2>&1
+ip_tables
+ip6_tables
+EOF
+sudo modprobe ip_tables ip6_tables
+```
+
 ### 创建SELinux规则
+
+{{% notice %}}
+如果你的发行版不使用SELinux，可以跳过这一节。</br>
+跳转：[创建容器](#创建容器)
+{{% /notice %}}
 
 SELinux会拦截一部分v2rayA的行为，导致透明代理不能正常使用。
 
@@ -74,7 +90,7 @@ SELinux会拦截一部分v2rayA的行为，导致透明代理不能正常使用�
 创建规则：
 
 ```bash
-cat << 'EOF' | tee my_v2raya_container.cil
+cat << 'EOF' | tee my_v2raya_container.cil >> /dev/null 2>&1
 (block v2raya_container
 	(type process)
 	(type socket)
@@ -184,10 +200,11 @@ sudo rm -r /etc/v2raya
 sudo podman image rm docker.io/mzz2017/v2raya
 ```
 
-以及移除SELinux规则：
+以及移除SELinux规则 / iptables自动加载：
 
 ```bash
 sudo semodule -r my_v2raya_container
+sudo rm /etc/modules-load.d/ip_tables.conf
 ```
 
 ### Rootless 模式
