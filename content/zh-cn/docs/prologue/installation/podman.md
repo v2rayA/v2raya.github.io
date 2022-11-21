@@ -36,7 +36,9 @@ https://podman.io/getting-started/installation.html#installing-on-linux)
 
 你可以使用[rootful模式](#rootful-模式) 或者 [rootless模式](#rootless-模式)。
 
-注意：此教程使用的容器镜像由@mzz2017直接维护，意味着没有发行版软件源的审查。继续使用此镜像意味着你信任@mzz2017。
+{{% notice info %}}
+此教程使用的容器镜像由@mzz2017直接维护，意味着没有发行版软件源的审查。继续使用此镜像意味着你信任@mzz2017。
+{{% /notice %}}
 
 ### Rootful 模式
 
