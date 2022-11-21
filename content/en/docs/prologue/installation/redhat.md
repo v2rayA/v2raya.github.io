@@ -21,11 +21,13 @@ Go to: [Podman tutorial]({{% relref "podman" %}}).
 
 ## Fedora 34 / 35 / 36 and CentOS Stream 8
 
+{{% notice info %}}
 Warning: v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
 
-> Fedora 37 doesn't have golang 1.18, and the latest golang can't compile v2ray-core v4.X, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X.
+> golang 1.18 isn't available on Fedora 37 yet, and the latest golang can't compile v2ray-core v4.X, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X.
 
 If you want to use v2rayA on Fedora 37 right away, or to avoid this type of issues in the future, please follow the [podman tutorial]({{% relref "podman" %}}).
+{{% /notice %}}
 
 ### Enable copr source
 
@@ -49,7 +51,9 @@ sudo dnf install v2raya
 
 ## Fedora Silverblue / Kinoite
 
-Warning: You should follow [podman tutorial]({{% relref "podman" %}}) instead. Avoid overlaying packages on Silverblue / Kinoite.
+{{% notice warning %}}
+You should follow [podman tutorial]({{% relref "podman" %}}) instead. Avoid overlaying packages on Silverblue / Kinoite.
+{{% /notice %}}
 
 If you want to install it on host anyway, the tutorial to install v2rayA is as of the following:
 
