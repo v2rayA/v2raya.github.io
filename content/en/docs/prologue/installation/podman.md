@@ -63,7 +63,6 @@ HTTPS_PROXY=http://<Address>:<Port> \
 
 You may also use `sudo podman image import` to import container image from other sources.
 
-
 ### Auto load iptables modules
 
 ```bash
