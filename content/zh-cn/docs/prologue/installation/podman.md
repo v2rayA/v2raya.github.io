@@ -287,6 +287,12 @@ systemctl --user enable --now container-v2raya.service
 
 然后你可以在系统设置中使用代理： `http://localhost:20171` 。
 
+v2rayA服务会跟随用户会话一起启动/停止。如果你想让v2rayA随系统启动，并且在用户会话结束后保持运行，使用以下命令：
+
+```bash
+loginctl enable-linger
+```
+
 #### 移除容器
 
 ```bash
@@ -305,4 +311,10 @@ rm -r ~/.config/v2raya
 
 ```bash
 podman image rm docker.io/mzz2017/v2raya
+```
+
+关闭linger：
+
+```bash
+loginctl disable-linger
 ```
