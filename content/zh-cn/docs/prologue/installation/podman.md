@@ -76,7 +76,7 @@ sudo modprobe ip_tables ip6_tables
 
 ### 创建SELinux规则
 
-{{% notice %}}
+{{% notice info %}}
 如果你的发行版不使用SELinux，可以跳过这一节。</br>
 跳转：[创建容器](#创建容器)
 {{% /notice %}}
