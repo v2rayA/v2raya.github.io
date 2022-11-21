@@ -22,11 +22,9 @@ Go to: [Podman tutorial]({{% relref "podman" %}}).
 ## Fedora 34 / 35 / 36 and CentOS Stream 8
 
 {{% notice info %}}
-Warning: v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
+v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
 
 > golang 1.18 isn't available on Fedora 37 yet, and the latest golang can't compile v2ray-core v4.X, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X.
-
-If you want to use v2rayA on Fedora 37 right away, or to avoid this type of issues in the future, please follow the [podman tutorial]({{% relref "podman" %}}).
 {{% /notice %}}
 
 ### Enable copr source
