@@ -22,7 +22,7 @@ toc: true
 ## Fedora 34 / 35 / 36 以及 CentOS Stream 8
 
 {{% notice info %}}
-提醒：截止至2022/11/19，Fedora 37的COPR源依然没有v2rayA。来自COPR源维护者@zhullyb的消息：
+截止至2022/11/19，Fedora 37的COPR源依然没有v2rayA。来自COPR源维护者@zhullyb的消息：
 
 > Fedora 37 没有人打包 golang 1.18，最新的 golang 无法编译 v4 版本的 v2ray-core，v2rayA 最后一个 tag 仍然不支持 v5 版本的 v2ray-core
 {{% /notice %}}
