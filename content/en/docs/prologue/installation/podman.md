@@ -287,6 +287,12 @@ Open your browser and visit [http://localhost:2017](http://localhost:2017).
 
 Then you can configure proxy settings to `http://localhost:20171` in system settings.
 
+v2rayA service starts/stops with user session. If you want to make v2rayA start regardless of user session and to continue running after user session is destroyed, use this command:
+
+```bash
+loginctl enable-linger
+```
+
 #### Remove container
 
 ```bash
@@ -305,4 +311,10 @@ In case you do not want to use v2rayA again, remove image from local storage:
 
 ```bash
 podman image rm docker.io/mzz2017/v2raya
+```
+
+Disable lingering:
+
+```bash
+loginctl disable-linger
 ```
