@@ -16,7 +16,7 @@ toc: true
 此页面的内容适用于：
 
 - Fedora Silverblue / Kinoite
-- SLE Micro / openSUSE Micro Leap
+- SLE Micro / openSUSE Leap Micro
 - openSUSE MicroOS
 
 但同时也适用于普通发行版，如：
