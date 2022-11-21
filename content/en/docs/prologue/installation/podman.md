@@ -83,7 +83,7 @@ If your distribution does not use SELinux, skip this part.</br>
 Go to: [Create container](#create-container)
 {{% /notice %}}
 
-SELinux tends to block some v2rayA actions, causing transparent proxy to faild to setup.
+SELinux tends to block some v2rayA actions, causing transparent proxy to fail to setup.
 
 {{% notice warning %}}
 Security warning: Make sure no other user privilege process have write access to the current working directory.
