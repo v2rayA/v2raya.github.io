@@ -64,7 +64,23 @@ HTTPS_PROXY=http://<Address>:<Port> \
 You may also use `sudo podman image import` to import container image from other sources.
 
 
+### Auto load iptables modules
+
+```bash
+sudo mkdir /etc/modules-load.d
+cat << 'EOF' | sudo tee /etc/modules-load.d/ip_tables.conf >> /dev/null 2>&1
+ip_tables
+ip6_tables
+EOF
+sudo modprobe ip_tables ip6_tables
+```
+
 ### Create SELinux policies
+
+{{% notice info %}}
+If your distribution does not use SELinux, skip this part.</br>
+Go to: [Create container](#create-container)
+{{% /notice %}}
 
 SELinux tends to block some v2rayA actions, causing transparent proxy to faild to setup.
 
@@ -185,10 +201,11 @@ In case you do not want to use v2rayA again, remove image from local storage:
 sudo podman image rm docker.io/mzz2017/v2raya
 ```
 
-And remove SELinux policy:
+And remove SELinux policy / iptables auto load:
 
 ```bash
 sudo semodule -r my_v2raya_container
+sudo rm /etc/modules-load.d/ip_tables.conf
 ```
 
 ### Rootless Mode
