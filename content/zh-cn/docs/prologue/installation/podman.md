@@ -63,6 +63,53 @@ HTTPS_PROXY=http://<Address>:<Port> \
 
 你也可以使用 `sudo podman image import` 导入其它来源提供的v2rayA容器镜像。
 
+### 创建SELinux规则
+
+SELinux会拦截一部分v2rayA的行为，导致透明代理不能正常使用。
+
+{{% notice warning %}}
+安全警告：请确保当前工作目录不会被**任何**其它低权限用户程序写入。
+{{% /notice %}}
+
+创建规则：
+
+```bash
+cat << 'EOF' | tee my_v2raya_container.cil
+(block v2raya_container
+	(type process)
+	(type socket)
+	(roletype system_r process)
+	(typeattributeset domain ( process ))
+	(typeattributeset container_domain ( process ))
+	(typeattributeset svirt_sandbox_domain ( process ))
+	(typeattributeset mcs_constrained_type ( process ))
+	(typeattributeset file_type ( socket ))
+	(allow process socket ( sock_file ( create open getattr setattr read write rename link unlink ioctl lock append )))
+	(allow process proc_type ( file ( getattr open read )))
+	(allow process cpu_online_t ( file ( getattr open read )))
+	(allow container_runtime_t process ( key ( create link read search setattr view write )))
+	(allow process kernel_t ( system ( module_request )))
+	(allow process dns_port_t ( udp_socket ( name_bind )))
+	(allow process ephemeral_port_t ( tcp_socket ( name_connect )))
+	(allow process http_port_t ( tcp_socket ( name_connect )))
+	(allow process node_t ( tcp_socket ( node_bind )))
+	(allow process node_t ( udp_socket ( node_bind )))
+	(allow process ntp_port_t ( udp_socket ( name_bind )))
+	(allow process reserved_port_t ( udp_socket (name_bind )))
+	(allow process self ( netlink_route_socket ( nlmsg_write )))
+	(allow process self ( tcp_socket ( listen )))
+	(allow process unreserved_port_t ( tcp_socket ( name_bind name_connect )))
+	(allow process unreserved_port_t ( udp_socket ( name_bind )))
+)
+EOF
+```
+
+加载这个规则：
+
+```bash
+sudo semodule -i my_v2raya_container.cil
+```
+
 #### 创建容器
 
 ```bash
@@ -73,6 +120,7 @@ sudo podman create -it \
   --label io.containers.autoupdate=registry \
   --cgroup-parent=machine-v2raya.slice \
   --security-opt no-new-privileges \
+  --security-opt label=type:v2raya_container.process \
   --cap-drop all --cap-add cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw \
   --network=host \
   --memory=500M \
@@ -134,6 +182,12 @@ sudo rm -r /etc/v2raya
 
 ```bash
 sudo podman image rm docker.io/mzz2017/v2raya
+```
+
+以及移除SELinux规则：
+
+```bash
+sudo semodule -r my_v2raya_container
 ```
 
 ### Rootless 模式
