@@ -16,7 +16,7 @@ toc: true
 This tutorial is made for:
 
 - Fedora Silverblue / Kinoite
-- SLE Micro / openSUSE Micro Leap
+- SLE Micro / openSUSE Leap Micro
 - openSUSE MicroOS
 
 But it also works on general-purpose distributions, such as:
