@@ -1,7 +1,7 @@
 ---
 title: "Podman"
 description: "Use Podman to run v2rayA"
-lead: "This tutorial requires systemd to be installed. Auto-start needs to be handled manually otherwise."
+lead: "This wiki requires systemd on your Linux system, if you use other init(s), you should write service file yourself."
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -13,7 +13,7 @@ weight: 15
 toc: true
 ---
 
-This tutorial is made for:
+This wiki might be suitable for:
 
 - Fedora Silverblue / Kinoite
 - SLE Micro / openSUSE Leap Micro
@@ -36,9 +36,9 @@ https://podman.io/getting-started/installation.html#installing-on-linux)
 
 Both [rootful mode](#rootful-mode) and [rootless mode](#rootless-mode) are supported.
 
-{{% notice info %}}
+<!-- {{% notice info %}}
 The container image used in this tutorial is maintained directly by @mzz2017, circumventing security audits by your distribution repository. Continuing using it implies trusting @mzz2017.
-{{% /notice %}}
+{{% /notice %}} -->
 
 ### Rootful Mode
 
