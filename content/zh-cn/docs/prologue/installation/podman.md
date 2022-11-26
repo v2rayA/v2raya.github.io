@@ -1,7 +1,7 @@
 ---
 title: "Podman"
-description: "使用Podman运行v2rayA"
-lead: "此教程需要你的发行版使用systemd。如果使用其它init系统则需要你手动配置开机自动启动。"
+description: "使用 Podman 运行 v2rayA"
+lead: "确认你的发行版使用 systemd，如果使用其它 init 系统则需要你手动配置开机自动启动。"
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -27,7 +27,7 @@ toc: true
 
 ## 安装 Podman
 
-Podman已经在一部分发行版中预装了。若你的发行版没有预装Podman，请参考具体安装步骤：
+Podman 已经在一部分发行版中预装了。若你的发行版没有预装Podman，请参考具体安装步骤：
 
 [https://podman.io/getting-started/installation.html#installing-on-linux](
 https://podman.io/getting-started/installation.html#installing-on-linux)
@@ -36,13 +36,13 @@ https://podman.io/getting-started/installation.html#installing-on-linux)
 
 你可以使用[rootful模式](#rootful-模式)或者[rootless模式](#rootless-模式)。
 
-{{% notice info %}}
+<!-- {{% notice info %}}
 此教程使用的容器镜像由@mzz2017直接维护，意味着没有发行版软件源的审查。继续使用此镜像意味着你信任@mzz2017。
-{{% /notice %}}
+{{% /notice %}} -->
 
 ### Rootful 模式
 
-如果你想使用透明代理、路由转发等功能，则需要使用rootful模式。
+如果你想使用透明代理、路由转发等功能，则需要使用 rootful 模式。
 
 #### 下载容器镜像
 
@@ -53,7 +53,7 @@ sudo podman pull \
     docker.io/mzz2017/v2raya
 ```
 
-如果你的设备无法直接访问到Docker Hub，可以使用现有的HTTP代理下载镜像：
+如果你的设备无法直接访问到 Docker Hub，可以使用现有的 HTTP 代理下载镜像：
 
 ```bash
 sudo env \
@@ -65,7 +65,7 @@ HTTPS_PROXY=http://<Address>:<Port> \
 
 你也可以使用 `sudo podman image import` 导入其它来源提供的v2rayA容器镜像。
 
-### 配置iptables自动加载
+#### 配置 iptables 自动加载
 
 ```bash
 sudo mkdir /etc/modules-load.d
@@ -76,14 +76,14 @@ EOF
 sudo modprobe ip_tables ip6_tables
 ```
 
-### 创建SELinux规则
+#### 创建 SELinux 规则
 
 {{% notice info %}}
-如果你的发行版不使用SELinux，可以跳过这一节。</br>
+如果你的发行版不使用 SELinux，可以跳过这一节。</br>
 跳转：[创建容器](#创建容器)
 {{% /notice %}}
 
-SELinux会拦截一部分v2rayA的行为，导致透明代理不能正常使用。
+SELinux 会拦截一部分 v2rayA 的行为，导致透明代理不能正常使用。
 
 {{% notice warning %}}
 安全警告：请确保当前工作目录不会被**任何**其它低权限用户程序写入。
@@ -164,7 +164,7 @@ bash -c \
 sudo systemctl enable --now podman-auto-update.timer
 ```
 
-#### 开启v2rayA服务
+#### 开启 v2rayA 服务
 
 现在你可以用systemd控制v2rayA服务了。
 
@@ -211,7 +211,7 @@ sudo rm /etc/modules-load.d/ip_tables.conf
 
 ### Rootless 模式
 
-如果你只需要一个SOCKS5/HTTP代理端口，则可以让容器运行于普通用户权限，进一步降低风险。
+如果你只需要一个 SOCKS5/HTTP 代理端口，则可以让容器运行于普通用户权限，进一步降低风险。
 
 #### 下载容器镜像
 
@@ -222,7 +222,7 @@ podman pull \
     docker.io/mzz2017/v2raya
 ```
 
-如果你的设备无法直接访问到Docker Hub，可以使用现有的HTTP代理下载镜像：
+如果你的设备无法直接访问到 Docker Hub，可以使用现有的HTTP代理下载镜像：
 
 ```bash
 env \
@@ -269,7 +269,7 @@ bash -c \
 systemctl --user enable --now podman-auto-update.timer
 ```
 
-#### 开启v2rayA服务
+#### 开启 v2rayA 服务
 
 现在你可以用systemd控制v2rayA服务了。
 
