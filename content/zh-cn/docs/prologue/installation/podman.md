@@ -72,8 +72,10 @@ sudo mkdir /etc/modules-load.d
 cat << 'EOF' | sudo tee /etc/modules-load.d/ip_tables.conf >> /dev/null 2>&1
 ip_tables
 ip6_tables
+iptable_mangle
+ip6table_mangle
 EOF
-sudo modprobe ip_tables ip6_tables
+sudo modprobe ip_tables ip6_tables iptable_mangle ip6table_mangle
 ```
 
 #### 创建 SELinux 规则
