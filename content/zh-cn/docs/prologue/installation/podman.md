@@ -253,6 +253,11 @@ podman create -it \
   docker.io/mzz2017/v2raya
 ```
 
+{{% notice info %}}
+`--cgroup-parent` 使用 systemd slice 依赖内核启动参数 `systemd.unified_cgroup_hierarchy=1`。
+若出现 `systemd slice received as cgroup parent when using cgroupfs` 错误，请手动添加对应的启动参数。
+{{% /notice %}}
+
 配置文件保存在 `~/.config/v2raya` 中。
 
 #### 创建服务
