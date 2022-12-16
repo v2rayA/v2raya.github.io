@@ -16,7 +16,8 @@ v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防
 {{% /notice %}}
 
 {{% notice info %}}
-建议从 brew 安装 v2ray 核心，如此 v2rayA 将自动使用你电脑上现有的 v2ray。如果不从 brew 安装核心，你将需要手动指定核心所在路径。
+<!-- 建议从 brew 安装 v2ray 核心，如此 v2rayA 将自动使用你电脑上现有的 v2ray。如果不从 brew 安装核心，你将需要手动指定核心所在路径。 -->
+brew 的 v2ray 核心停留在了 4.45 版本，但是 v2rayA 需要 5.x 版本的核心。如果你选择手动安装，请注意这项更改。
 {{% /notice %}}
 
 ## 使用 Homebrew 安装
@@ -36,6 +37,8 @@ brew tap v2raya/v2raya
 ```bash
 brew install v2raya/v2raya/v2raya
 ```
+
+该 Tap 提供了 `v2ray5` 这个包，并设置为了 v2rayA 的依赖包，如此，v2rayA 将正确运行。
 
 ### 运行
 
@@ -89,7 +92,7 @@ sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.7/v2raya_da
 
 ### 下载 V2Ray 核心 / Xray 核心
 
-> 安装 V2Ray：<https://www.v2fly.org/guide/install.html>  
+> 安装 V2Ray：<https://www.v2fly.org/guide/install.html>
 > 安装 Xray：<https://xtls.github.io/document/install.html>
 
 解压压缩包后将其中的文件移动到对应目录：
