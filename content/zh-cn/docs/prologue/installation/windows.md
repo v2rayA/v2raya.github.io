@@ -24,16 +24,16 @@ toc: true
 [WinGet](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) 是微软推出的软件包管理器，适用于 Windows 10 以及更新版本的操作系统。
 
 ```ps1
-winget install --id v2raya.win
+winget install --id v2rayA.v2rayA
 ```
 
 ### 方法二：手动运行安装包
 
-从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 下载适用于 Windows 的安装包，例如 installer_windows_x64_1.5.6.exe，按照指示安装完毕即可。
+从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 下载适用于 Windows 的安装包，例如 `installer_windows_inno_x64_2.0.1.exe`，按照指示安装完毕即可。
 
 ### 使用方法
 
-通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的“服务”选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 http://127.0.0.1:2017 打开管理页面。
+通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的“服务”选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 <http://127.0.0.1:2017> 打开管理页面。
 
 ## 使用 Scoop 安装二进制
 
