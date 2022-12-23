@@ -12,7 +12,7 @@ toc: true
 ---
 
 {{% notice info %}}
-v2rayA 与 v2ray / xray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此透明代理无法启用。安全起见，本 wiki 将以非 root 权限来运行 v2rayA。
+v2rayA 与 v2ray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此透明代理无法启用。安全起见，本 wiki 将以非 root 权限来运行 v2rayA。
 {{% /notice %}}
 
 {{% notice info %}}
@@ -99,7 +99,6 @@ sudo curl -L https://github.com/v2rayA/v2rayA/releases/download/v1.5.7/v2raya_da
 
 ```bash
 sudo mv v2ray /usr/local/bin/
-sudo mv v2ctl /usr/local/bin/
 sudo mv *dat /usr/local/share/v2ray/
 ```
 

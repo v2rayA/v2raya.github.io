@@ -63,7 +63,7 @@ scoop update
 scoop install v2raya
 ```
 
-V2Ray 核心将作为依赖包而被安装，如果想使用 Xray，请指定 `--v2ray-bin` 参数。
+V2Ray 核心将作为依赖包而被安装。
 
 ### 运行 v2rayA
 
@@ -93,10 +93,9 @@ Copy-Item -Path '~\scoop\shims\start-v2raya.cmd' -Destination '~\AppData\Roaming
 
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 Windows 的二进制文件（名称一般类似于 v2raya_windows_arm64_1.5.6.2.exe），然后重命名为 `v2raya.exe`（格外注意 Windows 系统下不能丢失扩展名）。
 
-### 下载 V2Ray 核心 / Xray 核心
+### 下载 V2Ray 核心
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>
-> 安装 Xray：<https://xtls.github.io/document/install.html>
 
 下载压缩包之后解压即可。
 

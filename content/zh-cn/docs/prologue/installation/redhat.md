@@ -39,7 +39,7 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray-core
 ```
 
-> 如需Xray内核请参考: <https://github.com/XTLS/Xray-install>
+<!-- > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install> -->
 
 ### 安装 v2rayA
 
@@ -88,11 +88,11 @@ sudo systemctl enable --now v2raya.service
 
 ### 安装 V2Ray 内核 / Xray 内核
 
-#### V2Ray / Xray 的官方脚本
+#### V2Ray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
 
-Xray 安装参考：<https://github.com/XTLS/Xray-install>
+<!-- Xray 安装参考：<https://github.com/XTLS/Xray-install> -->
 
 #### v2rayA 提供的镜像脚本（推荐）
 

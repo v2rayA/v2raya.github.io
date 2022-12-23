@@ -13,13 +13,13 @@ weight: 15
 toc: true
 ---
 
-## 安装 V2Ray 内核 / Xray 内核
+## 安装 V2Ray 内核
 
-### V2Ray / Xray 的官方脚本
+### V2Ray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
 
-Xray 安装参考：<https://github.com/XTLS/Xray-install>
+<!-- Xray 安装参考：<https://github.com/XTLS/Xray-install> -->
 
 ### v2rayA 提供的镜像脚本（推荐）
 
@@ -30,7 +30,7 @@ curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
 安装后可以关掉服务，因为 v2rayA 不依赖于该 systemd 服务。
 
 ```bash
-sudo systemctl disable v2ray --now ### Xray 需要替换服务为 xray
+sudo systemctl disable v2ray --now
 ```
 
 ## 安装 v2rayA
