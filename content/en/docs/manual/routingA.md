@@ -1,5 +1,5 @@
 ---
-title: RoutingA 自定义路由分流
+title: RoutingA Custom Routing
 description: Introduction of RoutingA
 lead: v2rayA can use RoutingA to write routes, which is a v2ray routing markup language, which can be compiled into the json format supported by v2ray-core.
 date: '2020-11-16 13:59:39 +0100'
