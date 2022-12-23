@@ -31,7 +31,7 @@ toc: true
 
 ```bash
 opkg update
-opkg install v2raya2 ##如果想要用 Xray 可以安装 v2raya 这个包
+opkg install v2raya
 ```
 
 {{% notice note %}}
