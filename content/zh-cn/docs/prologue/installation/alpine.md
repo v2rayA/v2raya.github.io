@@ -13,7 +13,7 @@ weight: 15
 toc: true
 ---
 
-## 安装 V2Ray 内核 / Xray 内核
+## 安装 V2Ray 内核
 
 {{% notice info %}}
 如果你已经安装了内核，可以跳过此节。

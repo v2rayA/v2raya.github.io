@@ -15,9 +15,9 @@ toc: true
 
 ## 使用安装包
 
-{{% notice info %}}
+<!-- {{% notice info %}}
 安装包将内置 v2ray-core，如需更换 Xray-core，可在安装完毕后于安装目录手动进行替换。
-{{% /notice %}}
+{{% /notice %}} -->
 
 ### 方法一：通过 WinGet 自动安装
 
