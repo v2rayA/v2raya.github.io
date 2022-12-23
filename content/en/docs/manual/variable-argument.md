@@ -17,7 +17,7 @@ weight: '600'
 
 ### environment variables
 
-{{% notice info %}} 本节所列变量有可能已过时，可通过 `v2raya --help` 查看支持的参数，环境变量与之对应。 {{% /notice %}}
+{{% notice info %}} Something might be old here, run `v2raya --help` to get more informations about environment variables and parameters. {{% /notice %}}
 
 `V2RAYA_ADDRESS`: The Listening Address of v2rayA. ("0.0.0.0:2017" for default)
 
