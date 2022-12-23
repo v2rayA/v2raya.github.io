@@ -21,11 +21,9 @@ Go to: [Podman tutorial]({{% relref "podman" %}}).
 
 ## Fedora 34 / 35 / 36 and CentOS Stream 8
 
-{{% notice info %}}
-v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
+{{% notice info %}} v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
 
-> golang 1.18 isn't available on Fedora 37 yet, and v2ray-core v4.X doesn't compile with the latest golang, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X.
-{{% /notice %}}
+> golang 1.18 isn't available on Fedora 37 yet, and v2ray-core v4.X doesn't compile with the latest golang, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X. {{% /notice %}}
 
 ### Enable copr source
 
@@ -39,7 +37,7 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray-core
 ```
 
-> Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+<!-- > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install> -->
 
 ### Install v2rayA
 
@@ -49,9 +47,7 @@ sudo dnf install v2raya
 
 ## Fedora Silverblue / Kinoite
 
-{{% notice warning %}}
-You should follow [podman tutorial]({{% relref "podman" %}}) instead. Avoid overlaying packages on Silverblue / Kinoite.
-{{% /notice %}}
+{{% notice warning %}} You should follow [podman tutorial]({{% relref "podman" %}}) instead. Avoid overlaying packages on Silverblue / Kinoite. {{% /notice %}}
 
 If you want to install it on host anyway, the tutorial to install v2rayA is as of the following:
 
@@ -74,7 +70,7 @@ Then, reboot your system. Or use the following command to apply changes to your 
 sudo rpm-ostree ex apply-live --allow-replacement
 ```
 
-Enable and start the service:
+### Enable and start the service:
 
 ```bash
 sudo systemctl enable --now v2raya.service
@@ -84,13 +80,13 @@ sudo systemctl enable --now v2raya.service
 
 {{% notice info %}} This way can install v2rayA for Alma Linux, Rocky Linux, openSUSE, CentOS 7 or other Linux distribution based on rpm package manager, provided that the **distribution you are using uses systemd as system management tools** . {{% /notice %}}
 
-### Install V2Ray core / Xray core
+### Install V2Ray core
 
-#### Official script of V2Ray / Xray
+#### V2Ray's official script
 
 V2Ray installation: [https://github.com/v2fly/fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray)
 
-Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+<!-- Xray 安装参考：<https://github.com/XTLS/Xray-install> -->
 
 #### Mirror script provided by v2rayA (recommended)
 
