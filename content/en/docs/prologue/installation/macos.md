@@ -13,9 +13,13 @@ weight: '15'
 toc: 'true'
 ---
 
-{{% notice info %}} v2rayA and v2ray/xray do not yet support Packet Filter firewall on macOS/FreeBSD, so transparent proxy cannot be enabled. For security, this wiki will run v2rayA with non-root privileges. {{% /notice %}}
+{{% notice info %}} v2rayA and v2ray do not yet support Packet Filter on macOS / FreeBSD, so transparent proxy cannot be enabled. For security reasons, this wiki will run v2rayA with non-root privileges. {{% /notice %}}
 
-{{% notice info %}} It is recommended to install v2ray core by using Homebrew, so v2rayA will automatically use the existing v2ray core on your computer. Without installing the core from brew, you will need to manually specify the path of v2ray core. {{% /notice %}}
+{{% notice info %}}
+
+<!-- 建议从 brew 安装 v2ray 核心，如此 v2rayA 将自动使用你电脑上现有的 v2ray。如果不从 brew 安装核心，你将需要手动指定核心所在路径。 -->
+
+The v2ray core of brew stays at version 4.45, but v2rayA needs the core of version 5.x. Be aware of this change if you choose to install manually. {{% /notice %}}
 
 ## Install with Homebrew
 
@@ -34,6 +38,8 @@ Install v2rayA:
 ```bash
 brew install v2raya/v2raya/v2raya
 ```
+
+The Tap provides the `v2ray5` package, and set it as a dependent package of v2rayA, so that v2rayA will run correctly.
 
 ### Start up
 
@@ -93,7 +99,6 @@ After decompressing the compressed package, move the files in it to the correspo
 
 ```bash
 sudo mv v2ray /usr/local/bin/
-sudo mv v2ctl /usr/local/bin/
 sudo mv *dat /usr/local/share/v2ray/
 ```
 
@@ -107,7 +112,7 @@ sudo chmod 755 /usr/local/bin/v2ray
 sudo chmod 755 /usr/local/bin/v2ctl
 ```
 
-If you encounter the security restrictions of macOS, then you need to run the following command:
+If you encounter security restrictions of macOS, then you need to run the following command:
 
 ```bash
 sudo xattr -d -r com.apple.quarantine  /usr/local/bin/*
@@ -117,7 +122,7 @@ sudo xattr -d -r com.apple.quarantine  /usr/local/bin/*
 
 Create a new service file and save it to `~/Library/LaunchAgents/`
 
-For example:
+Example:
 
 ```bash
 nano ~/Library/LaunchAgents/org.v2raya.v2raya.plist
