@@ -13,6 +13,7 @@ toc: true
 
 {{% notice info %}}
 v2rayA 与 v2ray 尚未支持 macOS / FreeBSD 之上的 Packet Filter 防火墙，因此透明代理无法启用。安全起见，本 wiki 将以非 root 权限来运行 v2rayA。
+v2rayA 使用 `networksetup` 命令来设置 macOS 上的系统代理，请确保你运行 v2rayA 的账户是 admin 组的成员。
 {{% /notice %}}
 
 {{% notice info %}}
