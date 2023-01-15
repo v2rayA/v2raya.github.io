@@ -21,7 +21,64 @@ Docker 是一个以服务生产环境而开发的应用平台，在使用 Docker
 以下命令假定你在 root 用户下操作，如果你所使用的用户不是 root，那么你可能需要 `sudo` 或 `doas` 命令来进行提权操作。
 {{% /notice %}}
 
-## 获取镜像
+## 方式一：始终使用最新版
+
+### 获取镜像
+
+```sh
+docker pull mzz2017/v2raya
+```
+
+### 运行
+
+停止正在运行的版本（如果存在）：
+
+```sh
+docker container stop v2raya
+docker container rm v2raya
+```
+
+运行 v2rayA:
+
+```bash
+# run v2raya
+docker run -d \
+  --restart=always \
+  --privileged \
+  --network=host \
+  --name v2raya \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -v /lib/modules:/lib/modules:ro \
+  -v /etc/resolv.conf:/etc/resolv.conf \
+  -v /etc/v2raya:/etc/v2raya \
+  mzz2017/v2raya
+```
+
+如果你使用 MacOSX 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
+
+```bash
+# run v2raya
+docker run -d \
+  -p 2017:2017 \
+  -p 20170-20172:20170-20172 \
+  --restart=always \
+  --name v2raya \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -v /etc/v2raya:/etc/v2raya \
+  mzz2017/v2raya
+```
+
+查看状态：
+
+```sh
+docker container stats v2raya
+```
+
+## 方式二：版本控制
+
+Docker 允许用户同时下载不同版本的 v2rayA。通过错开端口等操作，用户还可以运行多个不同版本的 v2rayA。
+
+### 获取镜像
 
 获取最新的版本号：
 
@@ -36,7 +93,7 @@ echo $Latest_version
 docker pull mzz2017/v2raya:$Latest_version
 ```
 
-## 运行 v2rayA
+### 运行 v2rayA
 
 使用 docker 运行 v2rayA:
 
@@ -74,7 +131,7 @@ docker run -d \
 docker container stats v2raya
 ```
 
-## 更新 v2rayA
+### 更新 v2rayA
 
 使用 [获取镜像]({{< ref "#获取镜像" >}}) 中所提到的命令获取最新版本的镜像，然后停止当前容器：
 
