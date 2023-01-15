@@ -13,9 +13,32 @@ weight: 15
 toc: true
 ---
 
-### Docker 方式
+{{% notice info %}}
+Docker 是一个以服务生产环境而开发的应用平台，在使用 Docker 部署之时，我们相信你已经掌握了运维一台服务器所必须的知识，同时也理解了容器化的概念与 Docker 的基础操作。如若不然，请使用其它更加简单的部署方式。
+{{% /notice %}}
 
-使用 docker 命令部署。
+{{% notice info %}}
+以下命令假定你在 root 用户下操作，如果你所使用的用户不是 root，那么你可能需要 `sudo` 或 `doas` 命令来进行提权操作。
+{{% /notice %}}
+
+## 获取镜像
+
+获取最新的版本号：
+
+```bash
+Latest_version=$(curl -L "https://api.github.com/repos/v2rayA/v2rayA/releases/latest" | grep 'tag_name' | awk -F '"' '{print $4}' | awk -F 'v' '{print $2}')
+echo $Latest_version
+```
+
+获取 Docker 镜像：
+
+```sh
+docker pull mzz2017/v2raya:$Latest_version
+```
+
+## 运行 v2rayA
+
+使用 docker 运行 v2rayA:
 
 ```bash
 # run v2raya
@@ -24,14 +47,12 @@ docker run -d \
   --privileged \
   --network=host \
   --name v2raya \
-  -e V2RAYA_ADDRESS=0.0.0.0:2017 \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
-  mzz2017/v2raya
+  mzz2017/v2raya:$Latest_version
 ```
-
----
 
 如果你使用 MacOSX 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
 
@@ -42,6 +63,24 @@ docker run -d \
   -p 20170-20172:20170-20172 \
   --restart=always \
   --name v2raya \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -v /etc/v2raya:/etc/v2raya \
-  mzz2017/v2raya
+  mzz2017/v2raya:$Latest_version
 ```
+
+查看状态：
+
+```sh
+docker container stats v2raya
+```
+
+## 更新 v2rayA
+
+使用 [获取镜像]({{< ref "#获取镜像" >}}) 中所提到的命令获取最新版本的镜像，然后停止当前容器：
+
+```sh
+docker container stop v2raya
+docker container rm v2raya
+```
+
+最后使用 [运行 v2rayA]({{< ref "#运行 v2rayA" >}}) 里面所提到的命令运行新版本 v2rayA。更新 v2rayA 之后，你可以考虑删除旧版本镜像。
