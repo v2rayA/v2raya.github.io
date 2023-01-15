@@ -74,7 +74,7 @@ docker run -d \
 docker container stats v2raya
 ```
 
-## 方式二：版本控制
+## 方式二：获取指定版本
 
 Docker 允许用户同时下载不同版本的 v2rayA。通过错开端口等操作，用户还可以运行多个不同版本的 v2rayA。
 
@@ -86,6 +86,8 @@ Docker 允许用户同时下载不同版本的 v2rayA。通过错开端口等操
 Latest_version=$(curl -L "https://api.github.com/repos/v2rayA/v2rayA/releases/latest" | grep 'tag_name' | awk -F '"' '{print $4}' | awk -F 'v' '{print $2}')
 echo $Latest_version
 ```
+
+如果你不需要最新的版本，你也可以访问 [Docker 镜像仓库](https://hub.docker.com/r/mzz2017/v2raya/tags) 查找所需的版本。比如，你需要 1.5.8 版本，那么将 `$Latest_version` 替换为你所需的版本即可。
 
 获取 Docker 镜像：
 
