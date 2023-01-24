@@ -22,7 +22,7 @@ weight: 640
 2. 使用 RoutingA 开放一个直连端口：
 
    ```python
-   inbound: socks_direct = socks(address: 0.0.0.0, port: 30000)
+   inbound: socks_direct = socks(address: 0.0.0.0, port: 30000, udp:true)
    # 下条规则需要插入靠前位置
    inboundTag(socks_direct) -> direct
    ```
