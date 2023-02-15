@@ -82,7 +82,15 @@ sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 d
 
 ## 切换 iptables 为 iptables-nft
 
-对于 Debian11 用户来说，iptables 已被弃用。使用 nftables 作为 iptables 的后端以进行适配：
+对于 Debian11 用户来说，iptables 已被弃用。安装 iptables 后，Debian 会自动设置使用 iptables-nft 作为后端。
+
+安装 iptables，自动启用 iptables-nft：
+
+```bash
+apt install iptables
+```
+
+也可以手动设置使用 nftables 作为 iptables 的后端以进行适配：
 
 ```bash
 update-alternatives --set iptables /usr/sbin/iptables-nft
