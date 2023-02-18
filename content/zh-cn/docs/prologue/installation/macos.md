@@ -20,8 +20,8 @@ v2rayA 使用 `networksetup` 命令来设置 macOS 上的系统代理，请确�
 {{% /notice %}}
 
 {{% notice info %}}
-<!-- 建议从 brew 安装 v2ray 核心，如此 v2rayA 将自动使用你电脑上现有的 v2ray。如果不从 brew 安装核心，你将需要手动指定核心所在路径。 -->
-brew 的 v2ray 核心停留在了 4.45 版本，但是 v2rayA 需要 5.x 版本的核心。如果你选择手动安装，请注意这项更改。
+建议从 brew 安装 v2ray 核心，如此 v2rayA 将自动使用你电脑上现有的 v2ray。如果不从 brew 安装核心，你将需要手动指定核心所在路径。
+<!-- brew 的 v2ray 核心停留在了 4.45 版本，但是 v2rayA 需要 5.x 版本的核心。如果你选择手动安装，请注意这项更改。 -->
 {{% /notice %}}
 
 ## 使用 Homebrew 安装
