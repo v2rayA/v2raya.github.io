@@ -13,13 +13,13 @@ weight: '15'
 toc: 'true'
 ---
 
-## 使用安装包
+## Use the installation package
 
 <!-- {{% notice info %}}
 安装包将内置 v2ray-core，如需更换 Xray-core，可在安装完毕后于安装目录手动进行替换。
 {{% /notice %}} -->
 
-### 方法一：通过 WinGet 自动安装
+### Method 1: Automatic installation through WinGet
 
 [WinGet](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) is a package manager launched by Microsoft for Windows 10 and newer operating systems.
 
@@ -35,13 +35,13 @@ Download the installation package for Windows from [GitHub Releases](https://git
 
 After installing v2rayA through the installation package, v2rayA will run as a service. By default, it will start automatically. You can also manage the start and stop of v2rayA in the "Service" tab of the task manager. You can open the management page by running the desktop shortcut or directly visiting [http://127.0.0.1:2017](http://127.0.0.1:2017) .
 
-## 使用 Scoop 安装二进制
+## Install binaries through Scoop
 
-### 安装 v2rayA
+### Install v2rayA
 
 {{% notice info %}} All commands are run in PowerShell, CMD users please pay attention to the command format. {{% /notice %}}
 
-你首先需要安装 [Scoop](https://scoop.sh) ，然后才能从 scoop 安装 v2rayA。
+You need to install [Scoop](https://scoop.sh) first, then you can install v2rayA from scoop.
 
 Add Scoop repo:
 
@@ -65,27 +65,27 @@ V2Ray core will be installed as a dependency package.
 
 ### Run v2rayA
 
-#### 前台运行
+#### Running in the foreground
 
-打开一个 CMD 或者 PowerShell 窗口，然后运行：
+Open a CMD or PowerShell window and run:
 
 ```ps1
 v2rayaWin --lite
 ```
 
-#### 后台运行
+#### Running in the background
 
-使用 `start-v2raya` 命令运行 v2rayA，使用 `stop-v2raya` 命令关掉 v2rayA。
+Use the `start-v2raya` command run v2rayA, and use the `stop-v2raya` command to shut down v2rayA.
 
-#### 开机自启
+#### Auto-start
 
-将你 `scoop\shims` 目录下的 `start-v2raya.cmd` 复制到“启动”文件夹（一般位于 `C:\Users\YourUserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`）即可。示例命令如下：
+Copy `start-v2raya.cmd` in `scoop\shims` directory to the "Startup" folder (usually located at `C:\Users\YourUserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` ). Example commands are as follows:
 
 ```ps1
 Copy-Item -Path '~\scoop\shims\start-v2raya.cmd' -Destination '~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
 ```
 
-## 手动安装
+## Manual installation
 
 ### Download v2rayA
 
@@ -97,7 +97,7 @@ Download the binary for Windows (generally named like v2raya_windows_amd64_1.5.6
 
 After downloading the compressed package, unzip it.
 
-### 运行 v2rayA
+### Run v2rayA
 
 Suppose both v2rayA and v2ray are placed in `D:\v2rayA` :
 
