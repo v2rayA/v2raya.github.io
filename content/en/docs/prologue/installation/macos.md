@@ -39,7 +39,7 @@ Install v2rayA:
 brew install v2raya/v2raya/v2raya
 ```
 
-The Tap provides the `v2ray5` package, and set it as a dependent package of v2rayA, so that v2rayA will run correctly.
+`v2ray5` will be installed as a dependent package of v2rayA, so that v2rayA will run correctly.
 
 ### Start up
 

@@ -42,7 +42,7 @@ brew tap v2raya/v2raya
 brew install v2raya/v2raya/v2raya
 ```
 
-该 Tap 提供了 `v2ray5` 这个包，并设置为了 v2rayA 的依赖包，如此，v2rayA 将正确运行。
+`v2ray` 设置为了 v2rayA 的依赖包，如此，v2rayA 将正确运行。
 
 ### 运行
 
