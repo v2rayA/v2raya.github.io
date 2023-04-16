@@ -13,7 +13,7 @@ weight: 15
 toc: true
 ---
 
-## 安装 V2Ray 内核 / Xray 内核
+## 安装 V2Ray 内核
 
 {{% notice info %}}
 如果你已经安装了内核，可以跳过此节。
@@ -38,11 +38,11 @@ http://dl-cdn.alpinelinux.org/alpine/v3.15/community
 apk update && apk add v2ray
 ```
 
-### 方法 2：V2Ray / Xray 的官方脚本
+### 方法 2：V2Ray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 
-Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
+<!-- Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray> -->
 
 ## 安装 v2rayA
 
@@ -51,7 +51,7 @@ Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 根据你的平台，从 [Release](https://github.com/v2rayA/v2rayA/releases) 获取具有 `v2raya_linux_xxx` 字样的无后缀名文件，并将其重命名为 `v2raya`，再把 `v2raya` 移动到 `/usr/local/bin` 并给予可执行权限。
 
 示例：
-  
+
 ```bash
 version=$(curl -s https://apt.v2raya.org/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
 curl -L https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version --output v2raya
@@ -85,8 +85,8 @@ depend() {
 }
 
 start_pre() {
-   if [ ! -d "/tmp/v2raya/" ]; then 
-     mkdir "/tmp/v2raya" 
+   if [ ! -d "/tmp/v2raya/" ]; then
+     mkdir "/tmp/v2raya"
    fi
    if [ ! -d "/var/log/v2raya/" ]; then
    ln -s "/tmp/v2raya/" "/var/log/"

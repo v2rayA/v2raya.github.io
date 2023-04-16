@@ -27,6 +27,8 @@ weight: 600
 
 `V2RAYA_V2RAY_BIN`: v2ray 可执行文件路径。留空将自动检测。可修改为 v2ray 分支如 xray 等文件路径。
 
+`V2RAYA_V2RAY_ASSETSDIR`: v2ray 所使用的数据文件所在路径。
+
 `V2RAYA_V2RAY_CONFDIR`: 附加的 v2ray 配置文件目录，该目录中的 v2ray 配置文件会与 v2rayA 生成的配置文件进行组合。
 
 `V2RAYA_WEBDIR`: v2rayA 前端 GUI 文件目录，如不指定，将使用二进制内嵌 GUI 文件。

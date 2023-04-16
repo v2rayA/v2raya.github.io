@@ -1,5 +1,5 @@
 ---
-title: RoutingA 自定义路由分流
+title: RoutingA Custom Routing
 description: Introduction of RoutingA
 lead: v2rayA can use RoutingA to write routes, which is a v2ray routing markup language, which can be compiled into the json format supported by v2ray-core.
 date: '2020-11-16 13:59:39 +0100'
@@ -83,6 +83,8 @@ For more concepts, please check [V2Ray-Routing](https://www.v2ray.com/chapter_02
 - Quotation marks can be omitted, but cannot be omitted when they contain special symbols, such as `,` `'` `"` and `)`
 - Escape character `\` is not supported yet
 - Routing rules written earlier will be matched first
+
+Also refer to [V2Ray Beginner's Guide](https://guide.v2fly.org/en_US/routing/routing.html)
 
 ## Common usage
 

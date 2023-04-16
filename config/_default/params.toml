@@ -51,8 +51,8 @@ portraitPhotoWidths = [800, 700, 600, 500]
 lqipWidth = "20x"
 
 # Footer
-footer = "CC-BY-SA | Copyright (c) 2022 v2rayA Organization"
-copyright = "Copyright (c) 2022 v2rayA Organization"
+footer = "CC-BY-SA | Copyright (c) 2021 - {year} v2rayA Organization"
+copyright = "Copyright (c) 2021 - {year} v2rayA Organization"
 
 # Alert
 alert = false

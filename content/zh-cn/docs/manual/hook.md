@@ -40,7 +40,7 @@ for i in "$@"; do
       STAGE="${i#*=}"
       shift
       ;;
-    --v2raya-confidr=*)
+    --v2raya-confdir=*)
       CONFDIR="${i#*=}"
       shift
       ;;

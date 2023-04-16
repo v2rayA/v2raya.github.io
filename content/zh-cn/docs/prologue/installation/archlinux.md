@@ -13,9 +13,9 @@ weight: 15
 toc: true
 ---
 
-## 安装 V2Ray 内核 / Xray 内核
+## 安装 V2Ray 内核
 
-从官方源安装 `v2ray`，或者从 AUR 安装 `xray` 或 `xray-bin`。
+从官方源安装 `v2ray`。
 
 ## 安装 v2rayA
 

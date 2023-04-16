@@ -15,9 +15,9 @@ toc: true
 
 ## 使用安装包
 
-{{% notice info %}}
+<!-- {{% notice info %}}
 安装包将内置 v2ray-core，如需更换 Xray-core，可在安装完毕后于安装目录手动进行替换。
-{{% /notice %}}
+{{% /notice %}} -->
 
 通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的"服务"选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 <http://127.0.0.1:2017> 打开管理页面。
 
@@ -26,12 +26,12 @@ toc: true
 [WinGet](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) 是微软推出的软件包管理器，适用于 Windows 10 以及更新版本的操作系统。
 
 ```ps1
-winget install --id v2raya.win
+winget install --id v2rayA.v2rayA
 ```
 
 ### 方法二：手动运行安装包
 
-从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 下载适用于 Windows 的安装包，例如 installer_windows_x64_1.5.6.exe，按照指示安装完毕即可。
+从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 下载适用于 Windows 的安装包，例如 `installer_windows_inno_x64_2.0.1.exe`，按照指示安装完毕即可。
 
 ### 方法三：通过 Scoop 自动安装
 
@@ -58,7 +58,7 @@ scoop install v2raya-np # 安装 v2raya 稳定版 (recommended)
 #scoop install v2raya-unstable-np # 安装 v2raya 测试版 (unstable)
 ```
 
-## 使用二进制
+通过安装包安装 v2rayA 后，v2rayA 将以服务的形式运行，默认情况下将开机自启，你也可以在任务管理器中的“服务”选项卡管理 v2rayA 的启动与停止。你可以通过运行桌面快捷方式或直接访问 <http://127.0.0.1:2017> 打开管理页面。
 
 ### 通过 Scoop 自动安装
 
@@ -91,7 +91,7 @@ scoop install v2raya # 安装 v2raya
 scoop install v2ray-rules-dat # 安装 V2Ray 路由规则文件(可选)
 ```
 
-V2Ray 核心将作为依赖包而被安装，如果想使用 Xray，请指定 `--v2ray-bin` 参数。
+V2Ray 核心将作为依赖包而被安装。
 
 #### 前台运行
 
@@ -117,10 +117,9 @@ reg import \"$(scoop prefix v2raya)\\add-startup.reg\"
 
 从 [GitHub Releases](https://github.com/v2rayA/v2rayA/releases) 或 GitHub Action 下载适用于 Windows 的二进制文件（名称一般类似于 v2raya_windows_arm64_1.5.6.2.exe），然后重命名为 `v2raya.exe`（格外注意 Windows 系统下不能丢失扩展名）。
 
-#### 下载 V2Ray 核心 / Xray 核心
+### 下载 V2Ray 核心
 
 > 安装 V2Ray：<https://www.v2fly.org/guide/install.html>
-> 安装 Xray：<https://xtls.github.io/document/install.html>
 
 下载压缩包之后解压即可。
 
@@ -220,9 +219,9 @@ Start-Process "v2raya.exe" -WorkingDirectory "~\AppData\Local\Temp" -Arg "--log-
 
 [ConEmu](https://conemu.github.io/) 是一个 Windows 下的终端程序，右击它窗口上的最小化按钮可以让它把窗口最小化到托盘区。在 ConEmu 中的 PowerShell 会话中使用 [直接运行]({{< ref "#直接运行" >}}) 项里面提到的命令运行 v2rayA 即可。
 
-## 系统代理
+### 系统代理
 
-### 开启系统代理
+#### 开启系统代理
 
 v2rayA 目前在 Windows 上仅支持系统代理，可以在 Web 界面开启 System Proxy 以启用它。
 
@@ -234,7 +233,7 @@ v2rayA 目前在 Windows 上仅支持系统代理，可以在 Web 界面开启 S
 如果 v2rayA 意外退出，那么 v2rayA 无法在退出的时候帮你取消系统代理，这种情况下你需要自行去 Internet 选项或者系统设置里面关掉代理。
 {{% /notice %}}
 
-### 让 UWP 应用走代理
+#### 让 UWP 应用走代理
 
 > 参考内容：<https://github.com/Qv2ray/Qv2ray/issues/562>
 
@@ -242,4 +241,36 @@ Windows 存在着开启系统代理后 UWP 应用无法联网的问题，这是�
 
 ```ps1
 Get-ChildItem -Path Registry::"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Mappings\" -name | ForEach-Object {CheckNetIsolation.exe LoopbackExempt -a -p="$_"}
+```
+
+### Windows 下重置密码
+
+#### Scoop 安装的 v2rayA
+
+```ps1
+v2raya --reset-password
+```
+
+根据你安装的包将命令替换为 `v2raya-unstable` 或 `v2raya-git`，密码重置后需要重启 v2rayA。
+
+#### NSIS 安装包安装的 v2rayA
+
+打开安装目录（一般是`C:\Program Files\v2rayA`），然后打开一个具有管理员权限的 PowerShell 窗口，然后运行：
+
+```ps1
+sc stop v2rayA
+&'./v2raya-windows-$version.exe' --lite --reset-password --config "./""
+sc start v2rayA
+```
+
+`v2raya-windows-$version.exe` 需要根据实际情况替换为真正的可执行文件。
+
+#### inno 安装包安装的 v2rayA
+
+打开安装目录（一般是`C:\Program Files\v2rayA`），然后打开一个具有管理员权限的 PowerShell 窗口，然后运行：
+
+```ps1
+sc stop v2rayA
+&'./bin/v2raya.exe' --lite --reset-password --config "./""
+sc start v2rayA
 ```

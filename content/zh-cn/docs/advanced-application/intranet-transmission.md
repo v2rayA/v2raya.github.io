@@ -23,8 +23,8 @@ v2rayA 利用 RoutingA 可以自由开启 HTTP/Socks5 入站，并设置密码�
 
    ```python
    inbound: httpauthin = http(address: 0.0.0.0, port: 1081, user: user1, pass: user1pass, user:user2, pass:user2pass)
-   inbound: socksauthin = socks(address: 0.0.0.0, port: 1082, user: 123, pass: 123)
-   inbound: sockslocalin = socks(address: 127.0.0.1, port: 1080)
+   inbound: socksauthin = socks(address: 0.0.0.0, port: 1082, udp:true, user: 123, pass: 123)
+   inbound: sockslocalin = socks(address: 127.0.0.1, udp:true, port: 1080)
    ```
 
    注意，不要将此处的端口和预设端口冲突。预设端口（如 20170）的关闭可在 `设置-地址与端口` 中进行。

@@ -20,14 +20,14 @@ weight: 340
 ```bash
 # 自定义入站 inbound，支持http, socks
 inbound:httpauthin=http(address: 0.0.0.0, port: 1081, user: user1, pass: user1pass, user:user2, pass:user2pass)
-inbound:socksauthin=socks(address: 0.0.0.0, port: 1082, user: 123, pass: 123)
-inbound:sockslocalin=socks(address: 127.0.0.1, port: 1080)
-inbound:sniffing_socks=socks(address: 127.0.0.1, port: 1080, sniffing: http, sniffing: tls)
+inbound:socksauthin=socks(address: 0.0.0.0, port: 1082, udp:true, user: 123, pass: 123)
+inbound:sockslocalin=socks(address: 127.0.0.1, port: 1080, udp:true)
+inbound:sniffing_socks=socks(address: 127.0.0.1, port: 1080, udp:true, sniffing: http, sniffing: tls)
 inbound:sniffing_http=http(address: 127.0.0.1, port: 1081, sniffing: 'http, tls')
 
 # 自定义出站 outbound，支持http, socks, freedom
 outbound:httpout=http(address: 127.0.0.1, port: 8080, user: 'my-username', pass: 'my-password')
-outbound:socksout=socks(address: 127.0.0.1, port: 10800, user: "my-username", pass: "my-password")
+outbound:socksout=socks(address: 127.0.0.1, port: 10800, udp:true, user: "my-username", pass: "my-password")
 outbound:special=freedom(domainStrategy: AsIs, redirect: "127.0.0.1:3366", userLevel: 0)
 
 # 设置默认outbound，不设置则默认为proxy （该选项只作用于默认入站）
@@ -84,6 +84,8 @@ ip(1.1.1.1) && protocol(http) && source(10.0.0.1, 172.20.0.0/16) -> direct
 + 暂不支持转义字符 `\`
 + 越早书写的路由规则将被优先匹配
 
+也可以参考 [新V2Ray白话文指南/路由篇](https://guide.v2fly.org/routing/routing.html)
+
 ## 常见用法
 
 ```bash
@@ -127,8 +129,8 @@ domain(ext:"yourdatfile.dat:yourtag")->direct
 
 ```bash
 # 带认证和路由的端口
-inbound: socksauthin=socks(address: 0.0.0.0, port: 1080, user: 123, pass: 123)
-inbound: httpauthin=http(address: 0.0.0.0, port: 1081, user: 123, pass: 123)
+inbound: socksauthin=socks(address: 0.0.0.0, port: 1080, udp:true, user: 123, pass: 123)
+inbound: httpauthin=http(address: 0.0.0.0, port: 1081, udp:true, user: 123, pass: 123)
 
 inboundTag(socksauthin, httpauthin)->direct
 ```

@@ -44,13 +44,13 @@ v2ray.exe 可执行文件所在目录
 /opt/share/v2ray/
 ```
 
-然而，当 v2rayA 检查到 `$V2RAY_LOCATION_ASSET` 和 `--v2ray-assetsdir` 未被显式定义时，`$V2RAY_LOCATION_ASSET` 将被 v2rayA 定义为 `/run/user/{uid}/v2raya`，一般 root 用户的 uid 为 0。此时，v2rayA 会按 `$XDG_DATA_HOME`、`$XDG_DATA_DIRS` 的顺序查找文件并软链接到 `/run/user/{uid}/v2raya`。
+然而，当 v2rayA 检查到 `$V2RAY_LOCATION_ASSET` 和 `--v2ray-assetsdir` 未被显式定义时，`$V2RAY_LOCATION_ASSET` 将被 v2rayA 定义为 `/run/user/{uid}/v2raya`，一般 root 用户的 uid 为 0。此时，v2rayA 会按 `$XDG_DATA_HOME/v2ray`、`$XDG_DATA_DIRS 下的 v2ray 目录`的顺序查找文件并软链接到 `/run/user/{uid}/v2raya`。
 
 简言之，当 `$V2RAY_LOCATION_ASSET` 或 `--v2ray-assetsdir` 未被显式定义时，v2ray-core 的查找顺序是：
 
 ```text
-环境变量 $XDG_DATA_HOME 所定义的路径
-环境变量 $XDG_DATA_DIRS 所定义的路径
+$XDG_DATA_HOME/v2ray
+$XDG_DATA_DIRS 下的 v2ray 目录
 /usr/local/share/v2ray/
 /usr/share/v2ray/
 /opt/share/v2ray/

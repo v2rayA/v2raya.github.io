@@ -13,7 +13,17 @@ weight: '15'
 toc: 'true'
 ---
 
+## openSUSE MicroOS， SLE Micro， Fedora Silverblue / Kinoite
+
+If your distribution uses an immutable file system layout, please **avoid** installing RPM version on host directly.
+
+Go to: [Podman tutorial]({{% relref "podman" %}}).
+
 ## Fedora 34 / 35 / 36 and CentOS Stream 8
+
+{{% notice info %}} v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
+
+> golang 1.18 isn't available on Fedora 37 yet, and v2ray-core v4.X doesn't compile with the latest golang, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X. {{% /notice %}}
 
 ### Enable copr source
 
@@ -27,7 +37,7 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray-core
 ```
 
-> Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+<!-- > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install> -->
 
 ### Install v2rayA
 
@@ -37,89 +47,46 @@ sudo dnf install v2raya
 
 ## Fedora Silverblue / Kinoite
 
-### Reliable way
+{{% notice warning %}} You should follow [podman tutorial]({{% relref "podman" %}}) instead. Avoid overlaying packages on Silverblue / Kinoite. {{% /notice %}}
 
-Switch to a suitable directory:
+If you want to install it on host anyway, the tutorial to install v2rayA is as of the following:
 
-```bash
-cd ~/Downloads
-mkdir v2rayA
-cd v2rayA
-```
-
-Enter the toolbox:
+### Add COPR source
 
 ```bash
-toolbox enter
-```
-
-Enable the copr repository:
-
-```bash
-sudo dnf copr enable zhullyb/v2rayA
-```
-
-Download packages:
-
-```bash
-dnf download --resolve v2ray-core v2raya
-```
-
-Exit to host:
-
-```bash
-exit
-```
-
-Install downloaded packages on the host:
-
-```bash
-rpm-ostree install ./*.rpm
-```
-
-{{% notice warning %}} Warning: Be aware of the race condition where downloaded packages got replaced by unprivileged malware before installing it on the host. {{% /notice %}}
-
-Then, reboot your PC, either by GUI or by command:
-
-```bash
-systemctl reboot
-```
-
-Enable and start `v2rayA`:
-
-```bash
-sudo systemctl enable --now v2raya.service
-```
-
-Package updates should be handled by user manually.
-
-### Fast way
-
-COPR repository is not supported by Fedora Silverblue / Kinoite where containerized workflows are expected, use it at your own risk. It seems to work for now but relavent functionalities may be changed or removed in the future.
-
-```bash
-# Add copr repository to your system
 sudo curl -Lo /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:zhullyb:v2rayA.repo \
   https://copr.fedorainfracloud.org/coprs/zhullyb/v2rayA/repo/fedora-$(rpm -E %fedora)/zhullyb-v2rayA-fedora-$(rpm -E %fedora).repo
-# Install packages without rebooting
-sudo rpm-ostree install -A v2ray-core v2raya
-# Enable and start the service
-sudo systemctl enable --now v2raya.service
 ```
 
-Package updates are handled by `rpm-ostree` automatically.
+### Install v2rayA
+
+```bash
+sudo rpm-ostree install v2ray-core v2raya
+```
+
+Then, reboot your system. Or use the following command to apply changes to your running system:
+
+```bash
+sudo rpm-ostree ex apply-live --allow-replacement
+```
+
+### Enable and start the service:
+
+```bash
+sudo systemctl enable --now v2raya.service
+```
 
 ## Other rpm-based operating systems
 
 {{% notice info %}} This way can install v2rayA for Alma Linux, Rocky Linux, openSUSE, CentOS 7 or other Linux distribution based on rpm package manager, provided that the **distribution you are using uses systemd as system management tools** . {{% /notice %}}
 
-### Install V2Ray core / Xray core
+### Install V2Ray core
 
-#### Official script of V2Ray / Xray
+#### V2Ray's official script
 
 V2Ray installation: [https://github.com/v2fly/fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray)
 
-Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
+<!-- Xray 安装参考：<https://github.com/XTLS/Xray-install> -->
 
 #### Mirror script provided by v2rayA (recommended)
 

@@ -13,7 +13,19 @@ weight: 15
 toc: true
 ---
 
+## openSUSE MicroOS， SLE Micro， Fedora Silverblue / Kinoite
+
+如果你的发行版拥有不可写的运行时文件系统结构，请不要使用RPM安装v2rayA。
+
+跳转：[Podman教程]({{% relref "podman" %}})。
+
 ## Fedora 34 / 35 / 36 以及 CentOS Stream 8
+
+{{% notice info %}}
+截止至2022/11/19，Fedora 37的COPR源依然没有v2rayA。来自COPR源维护者@zhullyb的消息：
+
+> Fedora 37 没有人打包 golang 1.18，最新的 golang 无法编译 v4 版本的 v2ray-core，v2rayA 最后一个 tag 仍然不支持 v5 版本的 v2ray-core
+{{% /notice %}}
 
 ### 添加 copr 源
 
@@ -27,7 +39,7 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray-core
 ```
 
-> 如需Xray内核请参考: <https://github.com/XTLS/Xray-install>
+<!-- > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install> -->
 
 ### 安装 v2rayA
 
@@ -37,79 +49,36 @@ sudo dnf install v2raya
 
 ## Fedora Silverblue / Kinoite
 
-### 稳定方法
-
-切换到合适的路径:
-
-```bash
-cd ~/Downloads
-mkdir v2rayA
-cd v2rayA
-```
-
-进入 toolbox:
-
-```bash
-toolbox enter
-```
-
-开启 copr 仓库:
-
-```bash
-sudo dnf copr enable zhullyb/v2rayA
-```
-
-下载软件包:
-
-```bash
-dnf download --resolve v2ray-core v2raya
-```
-
-退出到宿主机:
-
-```bash
-exit
-```
-
-在宿主机上安装软件包:
-
-```bash
-rpm-ostree install ./*.rpm
-```
-
 {{% notice warning %}}
-警告：注意刚下载的软件包可能在被安装之前被低权限恶意软件替换。
+你应该参照[Podman教程]({{% relref "podman" %}})。请避免在Silverblue / Kinoite的宿主机中直接安装软件。
 {{% /notice %}}
 
-然后，用GUI或者命令行重启电脑:
+如果你依然要直接安装，以下是在宿主机中安装v2rayA的方法。
+
+### 添加COPR软件仓库到系统
 
 ```bash
-systemctl reboot
-```
-
-启用并开始运行 `v2rayA`:
-
-```bash
-sudo systemctl enable --now v2raya.service
-```
-
-用户应该自己手动更新软件。
-
-### 快速方法
-
-COPR软件仓库不受Silverblue / Kinoite支持，此方法风险自负。目前此方法似乎可用，但未来相关功能可能被修改或删除。
-
-```bash
-# 添加copr软件仓库到系统
 sudo curl -Lo /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:zhullyb:v2rayA.repo \
   https://copr.fedorainfracloud.org/coprs/zhullyb/v2rayA/repo/fedora-$(rpm -E %fedora)/zhullyb-v2rayA-fedora-$(rpm -E %fedora).repo
-# 不重启的情况下安装软件包
-sudo rpm-ostree install -A v2ray-core v2raya
-# 启用并开始运行服务
-sudo systemctl enable --now v2raya.service
 ```
 
-软件更新由 `rpm-ostree` 自动完成。
+### 安装v2rayA
+
+```bash
+sudo rpm-ostree install v2ray-core v2raya
+```
+
+然后，重启系统；或者使用以下命令将修改应用到当前系统中：
+
+```bash
+sudo rpm-ostree ex apply-live --allow-replacement
+```
+
+### 设置开机自启动，并且现在开始运行
+
+```bash
+sudo systemctl enable --now v2raya.service
+```
 
 ## 其他基于 rpm 的操作系统
 
@@ -119,11 +88,11 @@ sudo systemctl enable --now v2raya.service
 
 ### 安装 V2Ray 内核 / Xray 内核
 
-#### V2Ray / Xray 的官方脚本
+#### V2Ray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
 
-Xray 安装参考：<https://github.com/XTLS/Xray-install>
+<!-- Xray 安装参考：<https://github.com/XTLS/Xray-install> -->
 
 #### v2rayA 提供的镜像脚本（推荐）
 
