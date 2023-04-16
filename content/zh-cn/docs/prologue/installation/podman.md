@@ -72,8 +72,10 @@ sudo mkdir /etc/modules-load.d
 cat << 'EOF' | sudo tee /etc/modules-load.d/ip_tables.conf >> /dev/null 2>&1
 ip_tables
 ip6_tables
+iptable_mangle
+ip6table_mangle
 EOF
-sudo modprobe ip_tables ip6_tables
+sudo modprobe ip_tables ip6_tables iptable_mangle ip6table_mangle
 ```
 
 #### 创建 SELinux 规则
@@ -250,6 +252,11 @@ podman create -it \
   --volume ~/.config/v2raya:/etc/v2raya:z \
   docker.io/mzz2017/v2raya
 ```
+
+{{% notice info %}}
+`--cgroup-parent` 使用 systemd slice 依赖内核启动参数 `systemd.unified_cgroup_hierarchy=1`。
+若出现 `systemd slice received as cgroup parent when using cgroupfs` 错误，请手动添加对应的启动参数。
+{{% /notice %}}
 
 配置文件保存在 `~/.config/v2raya` 中。
 
