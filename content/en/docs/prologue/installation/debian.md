@@ -13,6 +13,11 @@ weight: '15'
 toc: 'true'
 ---
 
+<!-- {{% notice info %}}
+If you want to install from Snap Store, you can visit:
+<https://snapcraft.io/v2raya>
+{{% /notice %}} -->
+
 ## Install V2Ray core / Xray core
 
 ### Official script of V2Ray / Xray

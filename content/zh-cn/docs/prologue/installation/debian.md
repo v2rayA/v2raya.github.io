@@ -13,6 +13,12 @@ weight: 15
 toc: true
 ---
 
+<!-- {{% notice info %}}
+如果你想使用 Snap 包，那么你可以参考以下链接：
+<https://snapcraft.io/v2raya>
+以下内容为经典安装方式。
+{{% /notice %}} -->
+
 ## 安装 V2Ray 内核
 
 ### V2Ray 的官方脚本
