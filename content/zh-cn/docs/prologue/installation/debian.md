@@ -13,11 +13,10 @@ weight: 15
 toc: true
 ---
 
-<!-- {{% notice info %}}
+{{% notice info %}}
 如果你想使用 Snap 包，那么你可以参考以下链接：
 <https://snapcraft.io/v2raya>
-以下内容为经典安装方式。
-{{% /notice %}} -->
+{{% /notice %}}
 
 ## 安装 V2Ray 内核
 
@@ -86,7 +85,7 @@ sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 d
   sudo systemctl enable v2raya.service
   ```
 
-## 切换 iptables 为 iptables-nft
+<!-- ## 切换 iptables 为 iptables-nft
 
 对于 Debian11 用户来说，iptables 已被弃用。安装 iptables 后，Debian 会自动设置使用 iptables-nft 作为后端。
 
@@ -114,4 +113,8 @@ update-alternatives --set arptables /usr/sbin/arptables-legacy
 update-alternatives --set ebtables /usr/sbin/ebtables-legacy
 ```
 
-切换后重启即可。
+切换后重启即可。 -->
+
+## 使用 nftables
+
+如果你的系统上已经有了 `nftables` 防火墙，那么 v2rayA 将优先使用 `nft` 命令来创建防火墙规则。可以使用 `--nftables-support` 参数或者 `V2RAYA_NFTABLES_SUPPORT` 来进行控制是否开启 nftables 支持。

@@ -13,10 +13,10 @@ weight: '15'
 toc: 'true'
 ---
 
-<!-- {{% notice info %}}
+{{% notice info %}}
 If you want to install from Snap Store, you can visit:
 <https://snapcraft.io/v2raya>
-{{% /notice %}} -->
+{{% /notice %}}
 
 ## Install V2Ray core / Xray core
 
@@ -85,9 +85,17 @@ sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### Replace the ac
     sudo systemctl enable v2raya.service
     ```
 
-## Switch iptables to iptables-nft
+<!-- ## Switch iptables to iptables-nft
 
 For Debian11 users, iptables has been deprecated. Use nftables as the backend of iptables for adaptation:
+
+Install iptables, automatically enabling iptables-nft:
+
+```bash
+apt install iptables
+```
+
+It is also possible to manually set up nftables as the backend for iptables for adaptation:
 
 ```bash
 update-alternatives --set iptables /usr/sbin/iptables-nft
@@ -105,4 +113,8 @@ update-alternatives --set arptables /usr/sbin/arptables-legacy
 update-alternatives --set ebtables /usr/sbin/ebtables-legacy
 ```
 
-Restart after switching.
+Restart after switching. -->
+
+## Use nftables
+
+If you already have `nftables` firewall on your system, then v2rayA will use `nft` command first to create firewall rules. You can use the `--nftables-support` parameter or `V2RAYA_NFTABLES_SUPPORT` to control whether to enable nftables support.
