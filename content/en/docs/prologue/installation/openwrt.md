@@ -1,7 +1,7 @@
 ---
 title: OpenWrt
 description: Install V2Ray core and v2rayA
-lead: The function of v2rayA depends on V2Ray core, so it needs to be installed.
+lead: The function of v2rayA depends on V2Ray core, so it needs to be installed firstly.
 date: '2020-11-16 13:59:39 +0100'
 lastmod: '2020-11-16 13:59:39 +0100'
 draft: 'false'
@@ -13,57 +13,74 @@ weight: '15'
 toc: 'true'
 ---
 
-## Install from v2rayA self-built software source
+## Install v2rayA via our self-hosted opkg feed (recommended)
 
-refer to:
+Please move to [v2raya/v2raya-openwrt](https://github.com/v2raya/v2raya-openwrt).
 
-1. [v2rayA for OpenWrt repository Homepage](https://github.com/v2raya/v2raya-openwrt)
+## Install v2rayA via official OpenWrt feed
 
-2. [OSDN Homepage](https://osdn.net/projects/v2raya/)
-
-You can use open source mirror sites that reverse proxy OSDN to speed up downloads.
-
-## Install from OpenWrt official repositories
-
-{{% notice info %}} Currently only the latest snapshot version of openWrt contains v2rayA in the software source. Users of this version can install it directly from the software source. {{% /notice %}}
+{{% notice info %}}
+v2rayA has been merged into official OpenWrt since OpenWrt 21.02 stable release.
+{{% /notice %}}
 
 ```bash
 opkg update
 opkg install v2raya
 ```
 
-{{% notice note %}} Since there is no `v2ray-core` in the `xray-core` will be installed as a dependency. If you plan to use v2ray then you need to install it manually. In the presence of both v2ray and xray, v2rayA will take precedence over the former. {{% /notice %}}
+{{% notice note %}}
+Due to poor dependencies management provided by opkg, v2rayA depends to Xray by default.
 
-## Manual installation
+If you like V2Ray, you may install v2rayA with addtional argument `--nodeps` (Do not follow dependencies) and install all other necessary dependencies by yourself.
 
-### Install V2Ray Kernel / Xray Kernel
+If you have both V2Ray and Xray installed, v2rayA will use the latter by default.
+{{% /notice %}}
 
-First install the packages `unzip` and `wget` , then download the v2ray kernel from [Github Releases](https://github.com/v2fly/v2ray-core/releases) and save it to `/usr/bin` , and finally give the binary executable permission.
+## Install v2rayA manually
+
+### Install V2Ray / Xray core
+
+{{% notice info %}}
+Package `xray-core` has been available since OpenWrt 21.02 stable release.
+
+Package `v2ray-core` has been available since OpenWrt 22.03 stable release.
+{{% /notice %}}
+
+First install packages `unzip` and `wget-ssl`, then download v2ray-core and move it to `/usr/bin/` \(precompiled builds can be found in [v2ray-core/releases](https://github.com/v2fly/v2ray-core/releases)\), and finally give the binary file executable permission.
 
 E.g:
 
 ```bash
 opkg update; opkg install unzip wget-ssl
-wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip
-unzip -d v2ray-core v2ray-linux-64.zip
-cp v2ray-core/v2ray v2ray-core/v2ctl /usr/bin
-chmod +x /usr/bin/v2ray; chmod +x /usr/bin/v2ctl
+wget https://github.com/v2fly/v2ray-core/releases/download/v4.40.1/v2ray-linux-64.zip -P /tmp
+unzip -d /tmp/v2ray-core /tmp/v2ray-linux-64.zip
+cp /tmp/v2ray-core/v2ray /usr/bin/
+chmod +x /usr/bin/v2ray
+rm -rf /tmp/v2ray-linux-64.zip /tmp/v2ray-core
 ```
 
-{{% notice note %}} **keep** your eyes open Pay extra attention to the architecture of your OpenWrt device, don't download a version that doesn't work for your device, or the kernel won't work. {{% /notice %}}
+Xray-core can be installed in a similar way.
+
+{{% notice note %}} **Be careful**
+
+Pay special attention to the architecture of your device: do not download a binary which is incompatible with it, otherwise the binary will not work.
+{{% /notice %}}
 
 ### Install v2rayA
 
-{{% notice info %}} For users who do not have v2rayA in the software source, you can find the ipk file suitable for your architecture from [here](https://downloads.openwrt.org/snapshots/packages) to install, or you can install it manually as follows. {{% /notice %}}
+#### Install required dependencies:
 
-Download the latest version of the binaries for the processor architecture from [Github Releases](https://github.com/v2rayA/v2rayA/releases) , then move to `/usr/bin` and give execute permissions:
+For OpenWrt 22.03 and higher version:
 
 ```bash
-wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_$arch_$version --output-document v2raya
-mv v2raya /usr/bin/v2raya && chmod +x /usr/bin/v2raya
+opkg update
+opkg install \
+    ca-bundle \
+    ip-full \
+    kmod-nft-tproxy
 ```
 
-### Install dependencies and kernel modules
+For OpenWrt 21.02 and lower version:
 
 ```bash
 opkg update
@@ -77,43 +94,30 @@ opkg install \
     kmod-ipt-nat6
 ```
 
-### Create configuration and service files
+#### Download v2rayA binary
 
-`/etc/config/v2raya` reference [here](https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.config) .
+Download the precompiled binary file corresponding to the processor architecture from [Github Releases](https://github.com/v2rayA/v2rayA/releases), and give it executable permission.
 
-`/etc/init.d/v2raya` reference [here](https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.init) .
-
-Give this file executable permissions:
+E.g.:
 
 ```bash
+wget https://github.com/v2rayA/v2rayA/releases/download/v2.0.5/v2raya_linux_x64_2.0.5 -O /usr/bin/v2raya
+chmod +x /usr/bin/v2raya
+```
+
+#### Download v2rayA service files
+
+```bash
+wget https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.config -O /etc/config/v2raya
+wget https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/v2raya.init -O /etc/init.d/v2raya
 chmod +x /etc/init.d/v2raya
 ```
 
-## run v2rayA
-
-### Enable v2rayA service
+#### Enable and start the service
 
 ```bash
 uci set v2raya.config.enabled='1'
 uci commit v2raya
-```
-
-### start v2rayA
-
-```bash
+/etc/init.d/v2raya enable
 /etc/init.d/v2raya start
 ```
-
-## Some tips
-
-### PPPoE dial-up problem
-
-If you are dial-up via PPPoE, then you may experience the failure of v2rayA's transparent proxy to have no network connection after a period of time. As a workaround, when using v2rayA, do not delete or replace the "Network &gt; Interface" default WAN connection (which uses the DHCP protocol), but instead create a new interface for dialing. **The newly created PPPoE dial-up interface needs to be added to the firewall zone named wan.**
-
-### Some devices do not work
-
-The [database module](https://github.com/boltdb/bolt) used by ~~v2rayA currently does not support MIPS-based chips. These devices (such as some cheap WiFi routers, domestic Loongson computers, etc.) may not be able to properly initialize the database, resulting in unusable use. ~~ This issue has been resolved in v1.5.9.1698.1 version.
-
-Also, v2rayA cannot be enabled if the device flash space is too small. if you are in need, you can use `upx` to compress v2rayA and the core and try again.
-
-Operating systems with incomplete kernel modules cannot enable transparent proxy. It is recommended to use the official OpenWrt distribution, or a third-party flavor called ImmortalWrt.
