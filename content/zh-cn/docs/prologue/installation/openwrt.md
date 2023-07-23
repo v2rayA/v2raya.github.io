@@ -114,7 +114,7 @@ wget https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/
 chmod +x /etc/init.d/v2raya
 ```
 
-#### 启用并运行 v2rayA
+### 启用并运行 v2rayA
 
 ```bash
 uci set v2raya.config.enabled='1'
