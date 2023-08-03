@@ -17,6 +17,14 @@ toc: true
 
 从官方源安装 `v2ray`。
 
+```bash
+sudo pacman -S v2ray
+```
+
 ## 安装 v2rayA
 
 从 AUR 安装 `v2raya` 或 `v2raya-bin`、`v2raya-git` 即可。
+
+```bash
+sudo yay -S v2raya #软件包也可以是 v2raya-bin 或 v2raya-git，看你自己
+```
