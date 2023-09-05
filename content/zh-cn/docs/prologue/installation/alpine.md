@@ -38,11 +38,11 @@ http://dl-cdn.alpinelinux.org/alpine/v3.15/community
 apk update && apk add v2ray
 ```
 
-### 方法 2：V2Ray 的官方脚本
+### 方法 2：V2Ray / Xray 的官方脚本
 
 V2Ray 安装参考：<https://github.com/v2fly/alpinelinux-install-v2ray>
 
-<!-- Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray> -->
+Xray 安装参考：<https://github.com/XTLS/alpinelinux-install-xray>
 
 ## 安装 v2rayA
 
@@ -68,14 +68,11 @@ mv ./v2raya /usr/local/bin/ && chmod +x /usr/local/bin/v2raya
 #!/sbin/openrc-run
 
 name="v2rayA"
-description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
-
+description="A web GUI client of Project V which supports VMess, VLESS, SS, SSR, Trojan, Tuic and Juicity protocols"
 command="/usr/local/bin/v2raya"
-command_args="--log-file /var/log/v2raya/access.log"
 error_log="/var/log/v2raya/error.log"
 pidfile="/run/${RC_SVCNAME}.pid"
 command_background="yes"
-start_stop_daemon_args=" -e "V2RAYA_CONFIG=\"/usr/local/etc/v2raya"\""
 rc_ulimit="-n 30000"
 rc_cgroup_cleanup="yes"
 
@@ -85,6 +82,8 @@ depend() {
 }
 
 start_pre() {
+   export V2RAYA_CONFIG="/usr/local/etc/v2raya"
+   export V2RAYA_LOG_FILE="/tmp/v2raya/access.log"
    if [ ! -d "/tmp/v2raya/" ]; then
      mkdir "/tmp/v2raya"
    fi

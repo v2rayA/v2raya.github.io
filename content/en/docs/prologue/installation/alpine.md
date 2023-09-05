@@ -66,14 +66,11 @@ Create a new file named `v2raya` under the `/etc/init.d/` directory, then edit i
 #!/sbin/openrc-run
 
 name="v2rayA"
-description="A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel"
-
+description="A web GUI client of Project V which supports VMess, VLESS, SS, SSR, Trojan, Tuic and Juicity protocols"
 command="/usr/local/bin/v2raya"
-command_args="--log-file /var/log/v2raya/access.log"
 error_log="/var/log/v2raya/error.log"
 pidfile="/run/${RC_SVCNAME}.pid"
 command_background="yes"
-start_stop_daemon_args=" -e "V2RAYA_CONFIG=\"/usr/local/etc/v2raya"\""
 rc_ulimit="-n 30000"
 rc_cgroup_cleanup="yes"
 
@@ -83,6 +80,8 @@ depend() {
 }
 
 start_pre() {
+   export V2RAYA_CONFIG="/usr/local/etc/v2raya"
+   export V2RAYA_LOG_FILE="/tmp/v2raya/access.log"
    if [ ! -d "/tmp/v2raya/" ]; then
      mkdir "/tmp/v2raya"
    fi
@@ -90,7 +89,6 @@ start_pre() {
    ln -s "/tmp/v2raya/" "/var/log/"
    fi
 }
-
 ```
 
 Save the file, and then give the file executable permissions.
