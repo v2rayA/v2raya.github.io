@@ -13,31 +13,6 @@ weight: '15'
 toc: 'true'
 ---
 
-{{% notice info %}}
-If you want to install from Snap Store, you can visit:
-<https://snapcraft.io/v2raya>
-{{% /notice %}}
-
-## Install V2Ray core / Xray core
-
-### Official script of V2Ray / Xray
-
-V2Ray installation: [https://github.com/v2fly/fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray)
-
-Xray installation: [https://github.com/XTLS/Xray-install](https://github.com/XTLS/Xray-install)
-
-### Mirror script provided by v2rayA (recommended)
-
-```bash
-curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
-```
-
-You can turn off the service after installation, because v2rayA does not depend on the systemd service.
-
-```bash
-sudo systemctl disable v2ray --now ### Xray needs to replace the service with xray
-```
-
 ## Install v2rayA
 
 ### Method 1: Install through the software source
@@ -58,7 +33,7 @@ sudo apt update
 #### Install V2RayA
 
 ```bash
-sudo apt install v2raya
+sudo apt install v2raya v2ray ## you can install xray package instead of if you want
 ```
 
 ### Method 2: Manually install the deb package
@@ -68,6 +43,8 @@ After [downloading the deb package](https://github.com/v2rayA/v2rayA/releases) ,
 ```bash
 sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### Replace the actual path where the deb package is located by yourself
 ```
+
+V2Ray and Xray debian packages can be found in [APT Repo](https://github.com/v2rayA/v2raya-apt/tree/master/pool/main/)
 
 ## Start v2rayA / Enable v2rayA start automatically
 
