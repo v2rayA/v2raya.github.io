@@ -13,31 +13,6 @@ weight: 15
 toc: true
 ---
 
-{{% notice info %}}
-如果你想使用 Snap 包，那么你可以参考以下链接：
-<https://snapcraft.io/v2raya>
-{{% /notice %}}
-
-## 安装 V2Ray 内核
-
-### V2Ray 的官方脚本
-
-V2Ray 安装参考：<https://github.com/v2fly/fhs-install-v2ray>
-
-<!-- Xray 安装参考：<https://github.com/XTLS/Xray-install> -->
-
-### v2rayA 提供的镜像脚本（推荐）
-
-```bash
-curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
-```
-
-安装后可以关掉服务，因为 v2rayA 不依赖于该 systemd 服务。
-
-```bash
-sudo systemctl disable v2ray --now
-```
-
 ## 安装 v2rayA
 
 ### 方法一：通过软件源安装
@@ -58,16 +33,18 @@ sudo apt update
 #### 安装 V2RayA
 
 ```bash
-sudo apt install v2raya
+sudo apt install v2raya v2ray ## 也可以使用 xray 包
 ```
 
 ### 方法二：手动安装 deb 包
 
-[下载 deb 包](https://github.com/v2rayA/v2rayA/releases)后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：
+[从 Release 下载 v2rayA 的 deb 包](https://github.com/v2rayA/v2rayA/releases)后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：
 
 ```bash
 sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径
 ```
+
+V2Ray / Xray 的 deb 包可以在 [APT 软件源中](https://github.com/v2rayA/v2raya-apt/tree/master/pool/main/)找到。
 
 ## 启动 v2rayA / 设置 v2rayA 自动启动
 
