@@ -1,5 +1,5 @@
 ---
-title: Linux 通用安装方法
+title: Linux 后备安装方式
 description: Install the V2Ray core and v2rayA
 date: '2023-9-5 13:10:00 +0100'
 lastmod: '2023-9-5 13:10:00 +0100'
@@ -70,7 +70,7 @@ v2rayA 只有一个单独的二进制，下载下来放到 `/usr/local/bin/` 或
 ```sh
 pushd /tmp
 version="$(wget -qO- https://apt.v2raya.org/dists/v2raya/main/binary-amd64/Packages | grep Version cut -d' ' -f2)"
-wget https://github.com/v2rayA/v2rayA/releases/latest/download/v$version/v2raya_linux_x64_$version
+wget https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version
 install -Dm755 ./v2raya_linux_x64_$version /usr/local/bin/v2raya
 popd
 ```
