@@ -15,9 +15,9 @@ toc: 'true'
 
 ## Use the installation package
 
-<!-- {{% notice info %}}
-安装包将内置 v2ray-core，如需更换 Xray-core，可在安装完毕后于安装目录手动进行替换。
-{{% /notice %}} -->
+{{% notice info %}}
+The installation package will have v2ray-core built-in. If you need to replace Xray-core, you can manually replace it in the installation directory after the installation is complete.
+{{% /notice %}}
 
 ### Method 1: Automatic installation through WinGet
 
@@ -219,24 +219,14 @@ v2raya --reset-password
 
 Replace the command with `v2raya-unstable` or `v2raya-git` according to the package you installed, and you need to restart v2rayA after password reset.
 
-#### v2rayA installed by NSIS installation package
-
-Open the installation directory (usually `C:\Program Files\v2rayA` ), then open a PowerShell window with administrator privileges, and run:
-
-```ps1
-sc stop v2rayA
-&'./v2raya-windows-$version.exe' --lite --reset-password --config "./""
-sc start v2rayA
-```
-
-`v2raya-windows-$version.exe` needs to be replaced with a real executable file according to the actual situation.
-
 #### v2rayA installed by the inno installation package
 
-Open the installation directory (usually `C:\Program Files\v2rayA` ), then open a PowerShell window with administrator privileges, and run:
+Open a PowerShell window with administrator privileges, and run:
 
 ```ps1
-sc stop v2rayA
-&'./bin/v2raya.exe' --lite --reset-password --config "./""
-sc start v2rayA
+sc.exe stop v2rayA
+${env:V2RAYA_CONFIG} = 'C:\Program Files\v2rayA'
+&'C:\Program Files\v2rayA\bin\v2raya.exe' --lite --reset-password
+sc.exe start v2rayA
+
 ```
