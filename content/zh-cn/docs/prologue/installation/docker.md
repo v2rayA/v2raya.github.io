@@ -48,6 +48,12 @@ docker run -d \
   --network=host \
   --name v2raya \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
+  #V2RAYA_V2RAY_BIN 的值应当是 /usr/local/bin/v2ray 或 /usr/local/bin/xray
+  #默认的核心是 xray
+  -e V2RAYA_NFTABLES_SUPPORT=off \
+  #如果你的宿主系统使用 nftables，
+  #那么就把 V2RAYA_NFTABLES_SUPPORT 设置为 on
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -63,6 +69,7 @@ docker run -d \
   -p 20170-20172:20170-20172 \
   --restart=always \
   --name v2raya \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -v /etc/v2raya:/etc/v2raya \
   mzz2017/v2raya

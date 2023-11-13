@@ -24,7 +24,13 @@ docker run -d \
   --privileged \
   --network=host \
   --name v2raya \
-  -e V2RAYA_ADDRESS=0.0.0.0:2017 \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
+  #use /usr/local/bin/v2ray or /usr/local/bin/xray for V2RAYA_V2RAY_BIN
+  #the default core is xray
+  -e V2RAYA_NFTABLES_SUPPORT=off \
+  #If you have nftables support on your host
+  #set V2RAYA_NFTABLES_SUPPORT to on
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -42,6 +48,8 @@ docker run -d \
   -p 20170-20172:20170-20172 \
   --restart=always \
   --name v2raya \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -v /etc/v2raya:/etc/v2raya \
   mzz2017/v2raya
 ```
