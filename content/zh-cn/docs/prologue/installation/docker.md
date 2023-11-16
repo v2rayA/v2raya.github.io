@@ -49,18 +49,20 @@ docker run -d \
   --name v2raya \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
-  #V2RAYA_V2RAY_BIN 的值应当是 /usr/local/bin/v2ray 或 /usr/local/bin/xray
-  #默认的核心是 xray
+  # V2RAYA_V2RAY_BIN 的值应当是 /usr/local/bin/v2ray
+  # 或 /usr/local/bin/xray
+  # 默认的核心是 xray
   -e V2RAYA_NFTABLES_SUPPORT=off \
-  #如果你的宿主系统使用 nftables，
-  #那么就把 V2RAYA_NFTABLES_SUPPORT 设置为 on
+  # 如果你的宿主系统使用 nftables
+  # 那么就把 V2RAYA_NFTABLES_SUPPORT 设置为 on
+  # 否则会遇到 iptables 找不到 table 的故障
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
   mzz2017/v2raya
 ```
 
-如果你使用 MacOSX 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
+如果你使用 macOS 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
 
 ```bash
 # run v2raya

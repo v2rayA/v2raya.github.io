@@ -26,11 +26,13 @@ docker run -d \
   --name v2raya \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
-  #use /usr/local/bin/v2ray or /usr/local/bin/xray for V2RAYA_V2RAY_BIN
-  #the default core is xray
+  # use /usr/local/bin/v2ray or
+  # /usr/local/bin/xray for V2RAYA_V2RAY_BIN
+  # the default core is xray
   -e V2RAYA_NFTABLES_SUPPORT=off \
-  #If you have nftables support on your host
-  #set V2RAYA_NFTABLES_SUPPORT to on
+  # If you have nftables support on your host
+  # set V2RAYA_NFTABLES_SUPPORT to on
+  # Or you might meet iptables errors
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -39,7 +41,7 @@ docker run -d \
 
 ---
 
-If you use MacOSX or other environments that do not support host mode **, you cannot use the global transparent proxy** in this case, or you do not want to use the global transparent proxy, the docker command will be slightly different:
+If you use macOS or other environments that do not support host mode, **you cannot use the global transparent proxy** in this case, or you do not want to use the global transparent proxy, the docker command will be slightly different:
 
 ```bash
 # run v2raya
