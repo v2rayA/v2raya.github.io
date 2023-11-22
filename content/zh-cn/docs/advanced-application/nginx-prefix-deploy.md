@@ -27,17 +27,17 @@ http {
     listen 8080;
     server_name example.com;
     location ^~ /v2raya {
-      proxy_redirect off;
-      proxy_set_header Accept-Encoding "";
+      proxy_pass http://bla:2017/;
+      proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection $connection_upgrade;
-      rewrite ^/v2raya$ / break;
-      rewrite ^/v2raya/(.*)$ /$1 break;
-      sub_filter '\"static/' '\"/v2raya/static/';
-      sub_filter '\"/api' '\"/v2raya/api';
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+
+      proxy_redirect http://bla:2017/ /v2rayb/;
+      sub_filter 'href="/' 'href="/v2rayb/';
+      sub_filter 'src="/' 'src="/v2rayb/';
       sub_filter_once off;
-      sub_filter_types application/javascript;
-      proxy_pass http://127.0.0.1:2017;
     }
   }
 }
