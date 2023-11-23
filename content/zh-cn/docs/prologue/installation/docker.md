@@ -29,7 +29,7 @@ Docker 是一个以服务生产环境而开发的应用平台，在使用 Docker
 docker pull mzz2017/v2raya
 ```
 
-### 运行
+### 运行 v2rayA
 
 停止正在运行的版本（如果存在）：
 
@@ -151,4 +151,4 @@ docker container stop v2raya
 docker container rm v2raya
 ```
 
-最后使用 [运行 v2rayA]({{< ref "#运行 v2rayA" >}}) 里面所提到的命令运行新版本 v2rayA。更新 v2rayA 之后，你可以考虑删除旧版本镜像。
+最后使用 [运行 v2rayA]({{< ref "#运行-v2raya" >}}) 里面所提到的命令运行新版本 v2rayA。更新 v2rayA 之后，你可以考虑删除旧版本镜像。
