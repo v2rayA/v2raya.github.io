@@ -34,9 +34,9 @@ http {
       proxy_set_header Host $host;
       proxy_cache_bypass $http_upgrade;
 
-      proxy_redirect http://bla:2017/ /v2rayb/;
-      sub_filter 'href="/' 'href="/v2rayb/';
-      sub_filter 'src="/' 'src="/v2rayb/';
+      proxy_redirect http://bla:2017/ /v2raya/;
+      sub_filter 'href="/' 'href="/v2raya/';
+      sub_filter 'src="/' 'src="/v2raya/';
       sub_filter_once off;
     }
   }
