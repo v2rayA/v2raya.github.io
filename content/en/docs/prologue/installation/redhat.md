@@ -19,11 +19,7 @@ If your distribution uses an immutable file system layout, please **avoid** inst
 
 Go to: [Podman tutorial]({{% relref "podman" %}}).
 
-## Fedora 34 / 35 / 36 and CentOS Stream 8
-
-{{% notice info %}} v2rayA is yet to make into Fedora 37 as of 11/19/2022. The following message from its COPR repo maintainer @zhullyb:
-
-> golang 1.18 isn't available on Fedora 37 yet, and v2ray-core v4.X doesn't compile with the latest golang, v2rayA latest tag still hasn't implemented compatibility with v2ray-core v5.X. {{% /notice %}}
+## Fedora and CentOS Stream
 
 ### Enable copr source
 
@@ -34,7 +30,7 @@ sudo dnf copr enable zhullyb/v2rayA
 ### Install V2ray Core
 
 ```bash
-sudo dnf install v2ray-core
+sudo dnf install v2ray
 ```
 
 <!-- > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install> -->

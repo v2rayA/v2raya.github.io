@@ -19,13 +19,7 @@ toc: true
 
 跳转：[Podman教程]({{% relref "podman" %}})。
 
-## Fedora 34 / 35 / 36 以及 CentOS Stream 8
-
-{{% notice info %}}
-截止至2022/11/19，Fedora 37的COPR源依然没有v2rayA。来自COPR源维护者@zhullyb的消息：
-
-> Fedora 37 没有人打包 golang 1.18，最新的 golang 无法编译 v4 版本的 v2ray-core，v2rayA 最后一个 tag 仍然不支持 v5 版本的 v2ray-core
-{{% /notice %}}
+## Fedora 及 CentOS Stream
 
 ### 添加 copr 源
 
@@ -36,7 +30,7 @@ sudo dnf copr enable zhullyb/v2rayA
 ### 安装 V2Ray 内核
 
 ```bash
-sudo dnf install v2ray-core
+sudo dnf install v2ray
 ```
 
 <!-- > 如需Xray内核请参考: <https://github.com/XTLS/Xray-install> -->
