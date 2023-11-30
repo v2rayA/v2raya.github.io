@@ -18,7 +18,7 @@ features:
 - title: 多出站负载均衡和分流
   description: v2rayA 允许用户创建和连接多个出站节点，以实现负载均衡及分流。
 - title: RoutingA 自定义路由
-  description: "[RoutingA](https://github.com/v2rayA/v2rayA/wiki/RoutingA) 是 v2rayA 专为 V2Ray 设计的一种路由语言，为分流提供强大而便捷的支持。"
+  description: "[RoutingA](https://v2raya.org/docs/manual/routinga/) 是 v2rayA 专为 V2Ray 设计的一种路由语言，为分流提供强大而便捷的支持。"
 - title: 多种策略应对 DNS 污染
   description: v2rayA 提供多种策略应对 DNS 污染，高级设置可为用户提供更多的客制化定义。
 ---
