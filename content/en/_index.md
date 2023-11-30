@@ -18,7 +18,7 @@ features:
 - title: Multi-outbound Load Balancing and Traffic Split 
   description: v2rayA allows users to create and connect multiple outbound nodes to achieve load balancing and traffic split. 
 - title: Custom Routing Powered by RoutingA
-  description: "[RoutingA](https://github.com/v2rayA/v2rayA/wiki/RoutingA) is a routing language specially designed for V2Ray by v2rayA, which provides powerful and convenient support for traffic split." 
+  description: "[RoutingA](https://v2raya.org/docs/manual/routinga/) is a routing language specially designed for V2Ray by v2rayA, which provides powerful and convenient support for traffic split." 
 - title: Flexible Strategies to Deal with DNS Pollution 
   description: v2rayA provides a variety of strategies to deal with DNS pollution, and advanced settings can provide users with more customized settings.
 ---
