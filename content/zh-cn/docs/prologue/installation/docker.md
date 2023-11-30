@@ -13,7 +13,7 @@ weight: 15
 toc: true
 ---
 
-{{% notice info %}}
+{{% notice note %}}
 Docker 是一个以服务生产环境而开发的应用平台，在使用 Docker 部署之时，我们相信你已经掌握了运维一台服务器所必须的知识，同时也理解了容器化的概念与 Docker 的基础操作。如若不然，请使用其它更加简单的部署方式。
 {{% /notice %}}
 
@@ -40,8 +40,14 @@ docker container rm v2raya
 
 运行 v2rayA:
 
+{{% notice note %}}
+
+1. `V2RAYA_V2RAY_BIN` 的值应当是 `/usr/local/bin/v2ray` 或 `/usr/local/bin/xray`，默认的核心是 xray。
+2. 如果你的宿主系统使用 nftables，那么就把 `V2RAYA_NFTABLES_SUPPORT` 设置为 `on`，否则会遇到 iptables 找不到 table 的故障。
+
+{{% /notice %}}
+
 ```bash
-# run v2raya
 docker run -d \
   --restart=always \
   --privileged \
@@ -49,13 +55,7 @@ docker run -d \
   --name v2raya \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
-  # V2RAYA_V2RAY_BIN 的值应当是 /usr/local/bin/v2ray
-  # 或 /usr/local/bin/xray
-  # 默认的核心是 xray
   -e V2RAYA_NFTABLES_SUPPORT=off \
-  # 如果你的宿主系统使用 nftables
-  # 那么就把 V2RAYA_NFTABLES_SUPPORT 设置为 on
-  # 否则会遇到 iptables 找不到 table 的故障
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
