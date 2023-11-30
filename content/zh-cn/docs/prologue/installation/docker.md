@@ -48,6 +48,7 @@ docker container rm v2raya
 {{% /notice %}}
 
 ```bash
+# run v2raya
 docker run -d \
   --restart=always \
   --privileged \
