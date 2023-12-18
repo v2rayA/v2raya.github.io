@@ -43,12 +43,14 @@ docker container rm v2raya
 {{% notice note %}}
 
 1. `V2RAYA_V2RAY_BIN` 的值应当是 `/usr/local/bin/v2ray` 或 `/usr/local/bin/xray`，默认的核心是 xray。
-2. 如果你的宿主系统使用 nftables，那么就把 `V2RAYA_NFTABLES_SUPPORT` 设置为 `on`，否则会遇到 iptables 找不到 table 的故障。
+2. 如果你的宿主系统使用原生的 nftables，那么就把 `V2RAYA_NFTABLES_SUPPORT` 设置为 `on`。
+3. 如果你的宿主系统使用 iptables，那么可以通过 `IPTABLES_MODE` 变量来指定后端，将该变量的值设置为 `nftables` 将使用 nft 后端，设置为 `legacy` 将使用传统后端。
 
 {{% /notice %}}
 
+以下是一个使用传统后端的示例：
+
 ```bash
-# run v2raya
 docker run -d \
   --restart=always \
   --privileged \
@@ -57,6 +59,7 @@ docker run -d \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
   -e V2RAYA_NFTABLES_SUPPORT=off \
+  -e IPTABLES_MODE=legacy \
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -66,7 +69,6 @@ docker run -d \
 如果你使用 macOS 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
 
 ```bash
-# run v2raya
 docker run -d \
   -p 2017:2017 \
   -p 20170-20172:20170-20172 \
@@ -110,13 +112,15 @@ docker pull mzz2017/v2raya:$Latest_version
 使用 docker 运行 v2rayA:
 
 ```bash
-# run v2raya
 docker run -d \
   --restart=always \
   --privileged \
   --network=host \
   --name v2raya \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
+  -e V2RAYA_NFTABLES_SUPPORT=off \
+  -e IPTABLES_MODE=legacy \
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -126,7 +130,6 @@ docker run -d \
 如果你使用 MacOSX 或其他不支持 host 模式的环境，在该情况下**无法使用全局透明代理**，或者你不希望使用全局透明代理，docker 命令会略有不同：
 
 ```bash
-# run v2raya
 docker run -d \
   -p 2017:2017 \
   -p 20170-20172:20170-20172 \

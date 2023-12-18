@@ -13,7 +13,7 @@ weight: 15
 toc: true
 ---
 
-{{% notice info %}}
+{{% notice note %}}
 Docker is a platform for deploying applications that is designed for production environments. When using Docker for deployment, we assume that you have the knowledge necessary to operate a server, as well as an understanding of the concepts of containerization and the basics of Docker operations. If not, please use a simpler deployment method.
 {{% /notice %}}
 
@@ -43,12 +43,14 @@ Run v2rayA:
 {{% notice note %}}
 
 1. `V2RAYA_V2RAY_BIN` should be `/usr/local/bin/v2ray` or `/usr/local/bin/xray`, the default core of v2rayA is xray.
-2.Set `V2RAYA_NFTABLES_SUPPORT` to `on` if your host OS is using nftables, or you might meet iptables errors.
+2. Set `V2RAYA_NFTABLES_SUPPORT` to `on` if your host OS is using native nftables.
+3. If your host OS is using iptables, then you can use `IPTABLES_MODE` to choose your iptables backend, it can be `nftables` (using nft backend) or `legacy` (using legacy iptables backend).
 
 {{% /notice %}}
 
+Here's an example of using a legacy backend:
+
 ```bash
-# run v2raya
 docker run -d \
   --restart=always \
   --privileged \
@@ -57,6 +59,7 @@ docker run -d \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
   -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
   -e V2RAYA_NFTABLES_SUPPORT=off \
+  -e IPTABLES_MODE=legacy \
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -66,7 +69,6 @@ docker run -d \
 If you use macOS or other environments that do not support host mode, **you cannot use the global transparent proxy** in this case, or you do not want to use the global transparent proxy, the docker command will be slightly different:
 
 ```bash
-# run v2raya
 docker run -d \
   -p 2017:2017 \
   -p 20170-20172:20170-20172 \
@@ -88,6 +90,10 @@ docker container stats v2raya
 
 Docker allows users to download different versions of v2rayA simultaneously. By using different ports, users can also run multiple different versions of v2rayA.
 
+### Get Docker Image
+
+Get latest version number:
+
 ```bash
 Latest_version=$(curl -L "https://api.github.com/repos/v2rayA/v2rayA/releases/latest" | grep 'tag_name' | awk -F '"' '{print $4}' | awk -F 'v' '{print $2}')
 echo $Latest_version
@@ -103,14 +109,18 @@ docker pull mzz2017/v2raya:$Latest_version
 
 ### Run v2rayA
 
+Run v2rayA by using Docker:
+
 ```bash
-# run v2raya
 docker run -d \
   --restart=always \
   --privileged \
   --network=host \
   --name v2raya \
   -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
+  -e V2RAYA_NFTABLES_SUPPORT=off \
+  -e IPTABLES_MODE=legacy \
   -v /lib/modules:/lib/modules:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /etc/v2raya:/etc/v2raya \
@@ -120,7 +130,6 @@ docker run -d \
 If you use macOS or other environments that do not support host mode, **you cannot use the global transparent proxy** in this case, or you do not want to use the global transparent proxy, the docker command will be slightly different:
 
 ```bash
-# run v2raya
 docker run -d \
   -p 2017:2017 \
   -p 20170-20172:20170-20172 \
