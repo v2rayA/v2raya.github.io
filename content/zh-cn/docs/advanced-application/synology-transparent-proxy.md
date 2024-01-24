@@ -33,6 +33,14 @@ docker run -d \
   --name v2raya \
   -e V2RAYA_ADDRESS=0.0.0.0:2017 \
   -v /lib/modules:/lib/modules \
+  -v /usr/lib/iptables:/usr/lib/iptables:ro \
+  -v /sbin/iptables:/usr/local/bin/iptables:ro \
+  -v /sbin/iptables-legacy:/usr/local/bin/iptables-legacy:ro \
+  -v /sbin/iptables-legacy-restore:/usr/local/bin/iptables-legacy-restore:ro \
+  -v /sbin/iptables-legacy-save:/usr/local/bin/iptables-legacy-save:ro \
+  -v /sbin/iptables-restore:/usr/local/bin/iptables-restore:ro \
+  -v /sbin/iptables-save:/usr/local/bin/iptables-save:ro \
+  -v /sbin/iptables-xml:/usr/local/bin/iptables-xml:ro \
   -v /etc/resolv.conf:/etc/resolv.conf \
   -v /volume1/docker/v2raya-config:/etc/v2raya \
   --entrypoint /etc/v2raya/bootstrap.sh \
@@ -57,6 +65,37 @@ insmod /lib/modules/xt_connmark.ko &> /dev/null
 insmod /lib/modules/nf_tproxy_core.ko &> /dev/null
 insmod /lib/modules/xt_TPROXY.ko &> /dev/null
 insmod /lib/modules/iptable_mangle.ko &> /dev/null
+v2raya
+```
+
+以DS3617xs 7.2.1-69057为例，bootstrap.sh文件内容如下，同样存放于配置目录中。
+
+```bash
+#!/bin/sh
+insmod /lib/modules/nfnetlink.ko
+insmod /lib/modules/ip_set.ko
+insmod /lib/modules/ip_set_hash_ip.ko
+insmod /lib/modules/xt_set.ko
+insmod /lib/modules/ip_set_hash_net.ko
+insmod /lib/modules/xt_mark.ko
+insmod /lib/modules/xt_connmark.ko
+insmod /lib/modules/xt_comment.ko
+insmod /lib/modules/nf_conntrack_ipv6.ko
+insmod /lib/modules/nf_defrag_ipv6.ko
+insmod /lib/modules/xt_TPROXY.ko
+insmod /lib/modules/xt_socket.ko
+insmod /lib/modules/iptable_mangle.ko
+insmod /lib/modules/textsearch.ko
+insmod /lib/modules/ts_bm.ko
+insmod /lib/modules/xt_string.ko
+insmod /lib/modules/ip6_tables.ko
+insmod /lib/modules/nf_nat.ko
+insmod /lib/modules/nf_nat_ipv6.ko
+insmod /lib/modules/nf_nat_masquerade_ipv6.ko
+insmod /lib/modules/ip6t_MASQUERADE.ko
+insmod /lib/modules/ip6table_nat.ko
+insmod /lib/modules/ip6table_raw.ko
+insmod /lib/modules/ip6table_mangle.ko
 v2raya
 ```
 
