@@ -24,7 +24,16 @@ toc: true
 ## 通过 OpenWrt 官方软件源安装
 
 {{% notice info %}}
-v2rayA 软件包已被上游合并，使用 OpenWrt 21.02 或更高版本的用户可以直接从软件源安装。
+用户友好的 LuCI 应用 `luci-app-v2raya` 已被上游合并，使用 OpenWrt 23.05 或更高版本的用户可以直接从软件源安装。
+{{% /notice %}}
+
+```bash
+opkg update
+opkg install luci-i18n-v2raya-zh-cn v2ray-geoip v2ray-geosite
+```
+
+{{% notice info %}}
+软件包 `v2raya` 已被上游合并，使用 OpenWrt 21.02 或更高版本的用户可以直接从软件源安装。
 {{% /notice %}}
 
 ```bash

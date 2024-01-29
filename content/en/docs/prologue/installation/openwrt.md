@@ -20,7 +20,16 @@ Please move to [v2raya/v2raya-openwrt](https://github.com/v2raya/v2raya-openwrt)
 ## Install v2rayA via official OpenWrt feed
 
 {{% notice info %}}
-v2rayA has been merged into official OpenWrt since OpenWrt 21.02 stable release.
+The user-friendly LuCI application `luci-app-v2raya` has been available since OpenWrt 23.05 stable release.
+{{% /notice %}}
+
+```bash
+opkg update
+opkg install luci-app-v2raya v2ray-geoip v2ray-geosite
+```
+
+{{% notice info %}}
+Package `v2raya` has been available since OpenWrt 21.02 stable release.
 {{% /notice %}}
 
 ```bash
@@ -113,7 +122,7 @@ wget https://raw.githubusercontent.com/openwrt/packages/master/net/v2raya/files/
 chmod +x /etc/init.d/v2raya
 ```
 
-#### Enable and start the service
+## Enable and start the service
 
 ```bash
 uci set v2raya.config.enabled='1'
