@@ -31,13 +31,13 @@ Snap 包的打包详情可以[在 GitHub 上](https://github.com/v2rayA/v2rayA-s
 与 v2ray core 一起安装：
 
 ```sh
-sudo sh -c "$(wget -qO- https://hubmirror.v2raya.org/v2rayA/v2rayA-installer/raw/main/installer.sh)" @ --with-v2ray
+sudo sh -c "$(wget -qO- https://github.com/v2rayA/v2rayA-installer/raw/main/installer.sh)" @ --with-v2ray
 ```
 
 与 xray core 一起安装：
 
 ```sh
-sudo sh -c "$(wget -qO- https://hubmirror.v2raya.org/v2rayA/v2rayA-installer/raw/main/installer.sh)" @ --with-xray
+sudo sh -c "$(wget -qO- https://github.com/v2rayA/v2rayA-installer/raw/main/installer.sh)" @ --with-xray
 ```
 
 如果你更倾向于使用 `curl` 而不是 `wget`，那么把 `wget -qO-` 换成 `curl -Ls` 即可。
