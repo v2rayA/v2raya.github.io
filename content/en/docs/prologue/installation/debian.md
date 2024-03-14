@@ -20,6 +20,7 @@ toc: 'true'
 #### Add public key
 
 ```bash
+mkdir -p /etc/apt/keyrings/
 wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
 ```
 
