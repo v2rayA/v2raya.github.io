@@ -66,7 +66,9 @@ v2raya --help
    Environment="V2RAYA_V2RAY_BIN=/usr/local/bin/xray"
    ```
 
-   注意检查 Xray 的路径是否正确。
+   注意检查 Xray 的路径是否正确，部分安装方式（例如AUR中的[xray](https://aur.archlinux.org/packages/xray)或[xray-bin](https://aur.archlinux.org/packages/xray-bin)）的xray可执行文件实际上是在 `/usr/bin/xray` 而非[xray-install](https://github.com/XTLS/Xray-install)的 `/usr/local/bin/xray` 。
+
+   请以具体安装方式的安装脚本（如PKGBUILD）所指定的目录为准。
 
 2. 重载服务：
 
